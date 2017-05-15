@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="scene">
+     	<attr name="name" format="string" />
+        <attr name="image" format="string" />
+        <attr name="brightness" format="integer" />       
+        <attr name="color" format="integer" />
+    </declare-styleable>
+
+</resources>

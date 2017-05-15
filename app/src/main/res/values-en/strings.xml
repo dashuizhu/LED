@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LIGHT</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    
+    <!-- commmon -->
+    <string name="compary_url">www.smart-mini.com</string>
+    <string name="confirm">Confirm</string>
+    <string name="modify">Modify</string>
+    <string name="cancel">Cancel</string>
+    <string name="device_list">Device</string>
+    <string name="bluetooth_not_support">NO BLE hardware</string>
+    <string name="scaning">Scaning</string>
+    <string name="about">About</string>
+    <string name="help">Help</string>
+    <string name="update">System Update</string>
+    
+    <string name="linking">Connecting...</string>
+    <string name="nolink">Please connect the device first</string>
+    <string name="linkSuccess">Connected</string>
+    <string name="linkFail">Connection failed</string>
+    <string name="linkLost">Disconnected</string>
+    <string name="input_name">Input Device name</string>
+    <string name="input_password">Input password</string>
+    <string name="password_success">Password is OK!</string>
+    <string name="password_error">Password is wrong!</string>
+    
+    <string name="delete">delete</string>
+    <string name="name_too_long">The name is too long</string>
+    <string name="name_error">The name is malformed</string>
+    
+    <!-- led -->
+    <string name="light_list">Devices</string>
+    <string name="setting">Settings</string>
+    <string name="auto_link">Auto Connect</string>
+	<string name="setting_function">Settings</string>
+    
+    <string name="mode_light">Mix Control</string>
+    <string name="mode_scene">Setting Mode</string>
+    <string name="mode_setting">function</string>
+    
+    <string name="timing">Timer</string>
+    <string name="hijack">Change Password</string>
+    <string name="rename">Change Name</string>
+    <string name="secne_setting">Mode Settings</string>
+    <string name="select_time">Please select the time!</string>
+    <string name="select_scene">Please select the mode!</string>
+    <string name="scene_add">Add Mode</string>
+    <string name="scene_update">Modify Mode</string>
+    
+    <string name="dialog_delete_info">Confirm remove the device</string>
+    
+    <string name="brightness">Red</string>
+    <string name="brightness1">Red:</string>
+    <string name="color">Mix</string>
+    <string name="color1">Mix:</string>
+    <string name="timing_max">Timing up to 5 groups</string>
+    
+    <string name="send_success">Sucessed</string>
+    <string name="check_bluetooth">Checking the device or restart bluetooth</string>
+     <string name="password_unformat">Input six passwords</string>
+    
+    
+</resources>

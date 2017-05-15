@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="view_padding">8dp</dimen>
+    <!-- activity+view -->
+    <dimen name="view_all">26dp</dimen>
+    
+    <!-- 信息列表中  layout的 左边距  -->
+    <dimen name="layout_padding_left">20dp</dimen>
+    
+    <!--  小标题 -->
+    <dimen name="layout_smallTitle">25dp</dimen>
+    
+
+</resources>

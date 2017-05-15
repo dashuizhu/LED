@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Grow Light</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    
+    <!-- commmon -->
+    <string name="compary_url">www.smart-mini.com</string>
+    <string name="confirm">确认</string>
+    <string name="modify">修改</string>
+    <string name="cancel">取消</string>
+    <string name="device_list">设备列表</string>
+    <string name="bluetooth_not_support">您的设备不支持蓝牙</string>
+    <string name="scaning">搜索中</string>
+    <string name="about">关于</string>
+    <string name="help">使用帮助</string>
+    <string name="update">系统更新</string>
+    
+    <string name="linking">正在连接中...</string>
+    <string name="nolink">请先连接设备</string>
+    <string name="linkSuccess">连接成功</string>
+    <string name="linkFail">连接失败</string>
+    <string name="linkLost">连接断开</string>
+    <string name="input_name">请输入名字</string>
+    <string name="input_password">请输入密码</string>
+    <string name="password_success">密码正确</string>
+    <string name="password_error">密码错误</string>
+    
+    <string name="delete">删除</string>
+    <string name="name_too_long">名字太长</string>
+    <string name="name_error">名字格式错误</string>
+    
+    <!-- led -->
+    <string name="light_list">灯列表</string>
+    <string name="setting">系统设置</string>
+    <string name="auto_link">自动连接</string>
+	<string name="setting_function">功能设置</string>
+    
+    <string name="mode_light">色温控制</string>
+    <string name="mode_scene">情景模式</string>
+    <string name="mode_setting">灯设置</string>
+    
+    <string name="timing">定时任务</string>
+    <string name="hijack">防劫持</string>
+    <string name="rename">重命名</string>
+    <string name="timing_enable">是否开启定时</string>
+    <string name="secne_setting">情景设置</string>
+    <string name="select_time">请选择时间</string>
+    <string name="select_scene">请选择情景模式</string>
+    <string name="scene_add">添加情景模式</string>
+    <string name="scene_update">修改情景模式</string>
+    
+    <string name="dialog_delete_info">确认删除设备?</string>
+    
+    <string name="brightness">RED</string>
+    <string name="brightness1">RED：</string>
+    <string name="color">MIX</string>
+    <string name="color1">MIX：</string>
+    <string name="timing_max">定时最多5组</string>
+    
+    <string name="send_success">发送成功</string>
+    <string name="check_bluetooth">请检查周围设备或重启手机蓝牙</string>
+    <string name="password_unformat">请输入6位密码</string>
+    
+    <string name="about_title">江门市上谷智能科技有限公司简介</string>
+    
+    <string name="about_content">\t\t\t江门市上谷智能科技有限公司成立于2015年，注册资金1000万，是广东江门一家专业从事室内灯光智能产品设计制造的企业。产品设计理念源于人性化室内灯光产品,目前通过我们公司市场部的推广,产品受到世界各国的喜爱。如英国,西班牙,法国,德国,美国,迪拜和巴西,韩国等30多个国家和地区。经过我们不断改善智能灯光产品的优良配光品质，优雅的智能灯光产品的风格和出色的搭配效果在海外获得了供不应求的大好市场，赢得了大批国内外智能灯具进口商的青睐和首肯。
+        \n\t\t\t通过市场化的运作发展历程，公司始终坚持“创新，品质，服务，节约，敬业，感恩”12字理念。吸收新创意，严把质量关口，全方位的服务跟踪，坚持做出高品质产品。本着“追求、员工、技术、精神、利益”10字宗旨。现拥有一批精干的管理人员和一支高素质的专业技术队伍，舒适优雅的办公环境和拥有60多亩的全新现代化标准厂房。我们以质量为生命、时间为信誉、价格为竞争力的经营信念，立足于珠江三角洲。</string>
+</resources>

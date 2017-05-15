@@ -1,0 +1,135 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:orientation="vertical">
+
+    
+    <include layout="@layout/fragment_title"/>
+    
+    
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="gone">
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/auto_link"></TextView>
+        
+        <CheckBox 
+            android:id="@+id/checkBox_autoLink"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:button="@null"
+			android:background="@drawable/cb_green"></CheckBox>   
+			
+    </RelativeLayout>
+    
+    <TextView 
+        android:layout_height="@dimen/layout_smallTitle"
+        android:layout_width="match_parent"
+        android:text="@string/setting_function"
+        android:textColor="#222222"
+        android:textSize="14sp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:background="@drawable/img_bg_layout2"/>
+    
+    <RelativeLayout
+        android:id="@+id/layout_timing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:background="@drawable/layout_selector"
+        android:onClick="onBtnClick" >
+
+        <TextView
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/timing" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/img_right" >
+        </ImageView>
+
+
+    </RelativeLayout>
+    
+    <include layout="@layout/fragment_line"/>
+    
+    <RelativeLayout
+        android:id="@+id/layout_hijack"
+        android:onClick="onBtnClick"
+        android:layout_height="wrap_content"
+         android:padding="@dimen/activity_horizontal_margin"
+          android:background="@drawable/layout_selector"
+        android:layout_width="match_parent">
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/hijack"></TextView>
+        
+        <ImageView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:background="@drawable/img_right"></ImageView>   
+			
+    </RelativeLayout>
+    
+    <include layout="@layout/fragment_line"/>
+    
+    <RelativeLayout
+        android:id="@+id/layout_rename"
+        android:onClick="onBtnClick"
+            android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content"
+         android:background="@drawable/layout_selector"
+        android:layout_width="match_parent">
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/rename"></TextView>
+        
+        <ImageView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:background="@drawable/img_right"></ImageView>   
+			
+    </RelativeLayout>
+    
+    <include layout="@layout/fragment_line"/>
+
+</LinearLayout>

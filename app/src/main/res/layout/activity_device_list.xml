@@ -1,0 +1,59 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg_main"
+    android:orientation="vertical">
+
+    
+    <include layout="@layout/fragment_title"/>
+    
+    <ListView
+        android:id="@+id/listView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"></ListView>
+    
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:background="@drawable/img_bg_layout"
+        android:orientation="horizontal">
+        
+        <Button 
+            android:id="@+id/btn_lightList"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+             style="@style/text_normal"
+            android:textColor="#FFFFFF"
+            android:paddingTop="@dimen/view_padding"
+            android:paddingBottom="@dimen/view_padding"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/btn_menu"
+            android:drawablePadding="5dp"
+            android:background="@null"
+            android:onClick="onBtnClick"
+            android:text="@string/light_list"/>
+        
+        <Button 
+            android:id="@+id/btn_setting"
+            style="@style/text_normal"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/setting"
+            android:onClick="onBtnClick"
+            android:drawablePadding="5dp"
+             android:paddingTop="@dimen/view_padding"
+            android:paddingBottom="@dimen/view_padding"
+            android:drawableTop="@drawable/btn_setting"
+            android:background="@null"
+            ></Button>
+        
+    </LinearLayout>
+
+</LinearLayout>

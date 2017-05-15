@@ -1,0 +1,146 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:orientation="vertical">
+
+    
+    <include layout="@layout/fragment_title"/>
+    
+    
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/auto_link"></TextView>
+        
+        <CheckBox 
+            android:id="@+id/checkBox_autoLink"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:button="@null"
+			android:background="@drawable/cb_green"></CheckBox>   
+			
+    </RelativeLayout>
+    
+    <TextView 
+        android:layout_height="@dimen/layout_smallTitle"
+        android:layout_width="match_parent"
+        android:textColor="#333333"
+        android:textSize="13sp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:background="@drawable/img_bg_layout2"/>
+    
+    <RelativeLayout
+        android:id="@+id/layout_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@drawable/layout_selector"
+            android:padding="@dimen/activity_horizontal_margin"
+        android:onClick="onBtnClick" >
+
+        <TextView
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/help" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/img_right" >
+        </ImageView>
+
+
+    </RelativeLayout>
+    
+    <include layout="@layout/fragment_line"/>
+    
+    <RelativeLayout
+        android:id="@+id/layout_update"
+        android:onClick="onBtnClick"
+        android:layout_height="wrap_content"
+         android:background="@drawable/layout_selector"
+         android:padding="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent">
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/update"></TextView>
+        
+         <TextView
+             android:id="@+id/textView_version"
+             android:layout_toLeftOf="@+id/img_right"
+             android:paddingRight="@dimen/view_padding"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/text_normal"
+           ></TextView>
+        
+        <ImageView 
+            android:id="@+id/img_right"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:background="@drawable/img_right"></ImageView>   
+			
+    </RelativeLayout>
+    
+    <include layout="@layout/fragment_line"/>
+    
+    <RelativeLayout
+        android:id="@+id/layout_about"
+        android:onClick="onBtnClick"
+         android:background="@drawable/layout_selector"
+         android:visibility="gone"
+            android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/about"></TextView>
+        
+        <ImageView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:background="@drawable/img_right"></ImageView>   
+			
+    </RelativeLayout>
+    
+    <include layout="@layout/fragment_line"/>
+
+</LinearLayout>

@@ -1,0 +1,164 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:orientation="vertical">
+
+    
+    <include layout="@layout/fragment_title"/>
+    
+     <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+        
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            style="@style/text_normal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/timing_enable"></TextView>
+        
+        <CheckBox 
+            android:id="@+id/checkBox_enable"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+			android:layout_centerVertical="true" 
+			android:button="@null"
+			android:background="@drawable/cb_green"></CheckBox>   
+			
+    </RelativeLayout>
+    
+     <include layout="@layout/fragment_line"/>
+     
+     <LinearLayout 
+         android:id="@+id/layout_time"
+             android:onClick="onBtnClick"
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:orientation="horizontal"
+         android:gravity="center_vertical"
+         android:background="@drawable/layout_selector"
+         android:padding="@dimen/activity_horizontal_margin">
+         
+         <ImageView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:focusable="false"
+             android:background="@drawable/img_timing"></ImageView>
+         
+         <TextView 
+             android:id="@+id/textView_time"
+             style="@style/text_small"
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:clickable="false"
+             android:gravity="center_vertical|right"
+             android:paddingLeft="@dimen/activity_horizontal_margin"
+             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+             android:background="@drawable/img_bg_layout_3"
+             ></TextView>
+         
+     </LinearLayout>
+     
+     <RelativeLayout 
+         android:id="@+id/layout_mode"
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:onClick="onBtnClick"
+         android:background="@drawable/layout_selector2"
+         android:padding="@dimen/activity_horizontal_margin"
+         android:orientation="horizontal">
+         
+         
+    
+		    <TextView 
+		        style="@style/text_small"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/secne_setting"
+		        android:layout_centerVertical="true"
+		        android:gravity="center_vertical"
+		        />
+		    
+    <TextView
+        android:id="@+id/textView_mode"
+        style="@style/text_small"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+	></TextView>        
+	 </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/textView_brightness"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/text_small"
+        android:paddingTop="@dimen/view_padding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:text="亮度"></TextView>
+    
+    <SeekBar 
+                android:id="@+id/seekBar_brightness"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:max="100"
+                android:progress="0"
+                android:thumb="@drawable/img_thumb_yellow"
+                android:maxHeight="2dp"
+                android:progressDrawable="@drawable/seekbar_white2blue"
+                android:layout_marginLeft="@dimen/view_padding"
+                android:layout_marginRight="@dimen/view_padding"
+                android:paddingLeft="@dimen/view_padding"
+                android:paddingRight="@dimen/view_padding"/>
+    
+    
+    <TextView
+        android:id="@+id/textView_color"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/text_small"
+        android:paddingTop="@dimen/view_padding"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:text="亮度"></TextView>
+    
+     <SeekBar 
+                android:id="@+id/seekBar_color"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:max="100"
+                android:progress="0"
+                android:thumb="@drawable/img_thumb_yellow"
+                android:maxHeight="2dp"
+                android:progressDrawable="@drawable/seekbar_white2blue"
+                android:layout_marginLeft="@dimen/view_padding"
+                android:layout_marginRight="@dimen/view_padding"
+                android:paddingLeft="@dimen/view_padding"
+                android:paddingRight="@dimen/view_padding"/>
+    
+     <View
+         android:layout_height="match_parent"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"></View>
+     
+     <Button
+         android:id="@+id/button_confirm"
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:onClick="onBtnClick"
+         android:layout_gravity="bottom"
+         android:layout_marginBottom="50dp"
+         android:layout_marginLeft="@dimen/activity_horizontal_margin"
+         android:layout_marginRight="@dimen/activity_horizontal_margin"
+         style="@style/btn_confirm"
+         ></Button>
+
+</LinearLayout>

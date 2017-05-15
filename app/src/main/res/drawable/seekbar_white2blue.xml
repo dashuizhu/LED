@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+     <item android:id="@android:id/background"
+        android:drawable="@drawable/img_seekbar_bg">
+        <shape>           
+              <corners android:radius="10dip" />
+            <solid android:color="@color/text_777777" /> 
+        </shape>
+    </item>
+    <item android:id="@android:id/progress"
+        android:drawable="@drawable/img_seekbar_progress_yellow">
+        <shape>                
+        	 <clip>    
+	            <corners android:radius="10dip" />
+				<solid android:color="@color/text_blue" /> 
+			</clip>	
+		</shape> 
+    </item>
+</layer-list>

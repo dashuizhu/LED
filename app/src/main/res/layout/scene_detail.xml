@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/bg_alert"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/text_normal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/scene_add" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/editText_name"
+            style="@style/text_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_name"
+            android:paddingLeft="@dimen/activity_horizontal_margin" />
+		</LinearLayout>
+		
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/view_padding"
+        android:paddingBottom="@dimen/view_padding"
+        android:orientation="vertical" >
+    
+        <TextView
+            android:id="@+id/textView_brightness"
+            style="@style/text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="亮度" >
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekBar_brightness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_padding"
+            android:layout_marginRight="@dimen/view_padding"
+            android:max="100"
+            android:maxHeight="2dp"
+            android:paddingLeft="@dimen/view_padding"
+            android:paddingRight="@dimen/view_padding"
+            android:progress="50"
+            android:progressDrawable="@drawable/seekbar_white2blue"
+            android:thumb="@drawable/img_thumb_yellow" />
+
+        <TextView
+            android:id="@+id/textView_color"
+            style="@style/text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="亮度" >
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekBar_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_padding"
+            android:layout_marginRight="@dimen/view_padding"
+            android:max="100"
+            android:maxHeight="2dp"
+            android:paddingLeft="@dimen/view_padding"
+            android:paddingRight="@dimen/view_padding"
+            android:progress="50"
+            android:progressDrawable="@drawable/seekbar_white2blue"
+            android:thumb="@drawable/img_thumb_yellow" />
+	</LinearLayout>
+	    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_delete"
+                style="@style/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:onClick="onBtnClick"
+                android:text="@string/delete" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_confirm"
+                style="@style/btn_confirm"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onBtnClick" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_cancel"
+                style="@style/btn_cancel"
+                android:layout_marginLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onBtnClick" >
+            </Button>
+        </LinearLayout>
+</LinearLayout>
