@@ -22,7 +22,7 @@ public class SceneAdapter extends BaseAdapter {
 	private Context mContext;
 
 	/**
-	 * ÊÇ·ñÏÔÊ¾ Ñ¡ÖĞµÄÍ¼±ê
+	 * æ˜¯å¦æ˜¾ç¤º é€‰ä¸­çš„å›¾æ ‡
 	 */
 	private boolean isShowChecked = true;
 

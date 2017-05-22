@@ -9,149 +9,149 @@ import com.zby.ibeacon.agreement.CmdParse;
 public interface ConnectionInterface {
 	
 	/**
-	 * ±£´æËÑË÷µ½µÄËùÓĞÉè±¸
+	 * ä¿å­˜æœç´¢åˆ°çš„æ‰€æœ‰è®¾å¤‡
 	 */
 	
 	static String linkIp="";
 	
 	/**
-	 * ÕÒµ½Ò»¸öIP
+	 * æ‰¾åˆ°ä¸€ä¸ªIP
 	 */
 	public final static int FindIp = 0;
 	
 	
 	/**
-	 * Á¬½Ó³É¹¦
+	 * è¿æ¥æˆåŠŸ
 	 */
 	public final static int LinkSuccess = 1;
 	
 	/**
-	 * Á¬½ÓÊ§°Ü
+	 * è¿æ¥å¤±è´¥
 	 */
 	public final static int LinkFailure = 2;
 	
 	/**
-	 * µÃµ½Òì»òÊı¾İ
+	 * å¾—åˆ°å¼‚æˆ–æ•°æ®
 	 */
-	public final static int GetData = 3;// µÃµ½Êı¾İ;
+	public final static int GetData = 3;// å¾—åˆ°æ•°æ®;
 	
 	public final static int linkLost = 33;
 	
 	/**
-	 * ²éÕÒIP±êÖ¾Î»
+	 * æŸ¥æ‰¾IPæ ‡å¿—ä½
 	 */
-	public final static int startFindIp=4;//²éÕÒIP±êÖ¾Î»
+	public final static int startFindIp=4;//æŸ¥æ‰¾IPæ ‡å¿—ä½
 	
 	/**
-	 * ËÑË÷Íê³É
+	 * æœç´¢å®Œæˆ
 	 */
-	public final static int FindOk=5;//ËÑË÷Íê³É
+	public final static int FindOk=5;//æœç´¢å®Œæˆ
 	
 	/**
-	 * Á¬½Óip
+	 * è¿æ¥ip
 	 */
-	public final static int LinkIp=6;//Á¬½ÓIP
+	public final static int LinkIp=6;//è¿æ¥IP
 	
 	/**
-	 * Ê§È¥Á¬½Ó
+	 * å¤±å»è¿æ¥
 	 */
-	public final static int LostLink = 7;//Ê§È¥Á¬½Ó
+	public final static int LostLink = 7;//å¤±å»è¿æ¥
 	
 	/**
-	 * ÕıÔÚÁ¬½Ó
+	 * æ­£åœ¨è¿æ¥
 	 */
-	public final static int Link=8;//ÕıÔÚÁ¬½Ó
+	public final static int Link=8;//æ­£åœ¨è¿æ¥
 	
 	/**
-	 * ÊÇ·ñÆôÓÃÃÜ³×
+	 * æ˜¯å¦å¯ç”¨å¯†åŒ™
 	 */
-	public final static boolean IsA5 = true;//ÊÇ·ñÆôÓÃÃÜ³×
+	public final static boolean IsA5 = true;//æ˜¯å¦å¯ç”¨å¯†åŒ™
 	
 	/**
-	 * Ô­Ê¼Êı¾İ
+	 * åŸå§‹æ•°æ®
 	 */
 	public final static int RawData = 9;
 	public final static int PwdError = 10;
 	public final static int ChangeNameOk = 11;
 	
 	/**
-	 * Ã»ÓĞÀ¶ÑÀ
+	 * æ²¡æœ‰è“ç‰™
 	 */
 	public static  final int NO_BLUETOOTH = 12; 
 	
 	/**
-	 * Ã»ÓĞÁ¬½Óµ½Éè±¸
+	 * æ²¡æœ‰è¿æ¥åˆ°è®¾å¤‡
 	 */
 	public static final int NO_LINK_DEVICE = 13;
 	
 	
 	/**
-	 * deviceList·¢ÉúÁË±ä»¯
+	 * deviceListå‘ç”Ÿäº†å˜åŒ–
 	 */
 	public static final int List_Changed = 14;
 	
 	/**
-	 * Ã»ÓĞipµØÖ·
+	 * æ²¡æœ‰ipåœ°å€
 	 */
 	public static final int WifiError = 101;
 
 	
 	/**
-	 * ËÑË÷ÍøÄÚËùÓĞÉè±¸£¬ËÑË÷µ½µÄÉè±¸Ìí¼ÓÔÚconnectDeviceList
+	 * æœç´¢ç½‘å†…æ‰€æœ‰è®¾å¤‡ï¼Œæœç´¢åˆ°çš„è®¾å¤‡æ·»åŠ åœ¨connectDeviceList
 	 */
 	void find();
 	
 	/**
-	 * Á¬½ÓÉè±¸ 
-	 * @param address Á¬½ÓµÄµØÖ·£¬¾ÖÓòÍøÄÚµÄip »òÕß À¶ÑÀmac
-	 * @param pwd ½¨Á¢Á¬½ÓµÄÃÜÂë
+	 * è¿æ¥è®¾å¤‡ 
+	 * @param address è¿æ¥çš„åœ°å€ï¼Œå±€åŸŸç½‘å†…çš„ip æˆ–è€… è“ç‰™mac
+	 * @param pwd å»ºç«‹è¿æ¥çš„å¯†ç 
 	 */
-	void connect(String address,String pwd);// Á¬½Ó
+	void connect(String address,String pwd);// è¿æ¥
 	
 	
 	/**
-	 * Í£Ö¹Á¬½Ó
+	 * åœæ­¢è¿æ¥
 	 */
-	void stopConncet();// Í£Ö¹Á¬½Ó
+	void stopConncet();// åœæ­¢è¿æ¥
 	
 	void closeAll();
 	
 	/**
-	 * Ö±½Ó·¢ËÍÊı¾İ
+	 * ç›´æ¥å‘é€æ•°æ®
 	 * @param buffer
 	 */
 	void write(byte[] buffer);
 	
 	/**
-	 * ½«ÃüÁîÉú³ÉĞ­Òéºó·¢ËÍ
+	 * å°†å‘½ä»¤ç”Ÿæˆåè®®åå‘é€
 	 * @param buffer
 	 */
 	void writeAgreement(byte[] buffer);
 	
 	/**
-	 * ¶ÁÈ¡Êı¾İ£¬Êı¾İ
+	 * è¯»å–æ•°æ®ï¼Œæ•°æ®
 	 * @param buffer
 	 */
-	//void read(byte[] buffer);//¶ÁÈ¡Êı¾İ£¬´¦ÀíÒ»Ğ©ºÍÍ¨ĞÅÓĞ¹ØµÄÊı¾İ
+	//void read(byte[] buffer);//è¯»å–æ•°æ®ï¼Œå¤„ç†ä¸€äº›å’Œé€šä¿¡æœ‰å…³çš„æ•°æ®
 	
 	/**
-	 * ÊÇ·ñÒÑ¾­Á¬½Óµ½Éè±¸
+	 * æ˜¯å¦å·²ç»è¿æ¥åˆ°è®¾å¤‡
 	 * @return 
-	 *   Èç¹ûÁ¬ÉÏÉè±¸£¬·µ»Øtrue
+	 *   å¦‚æœè¿ä¸Šè®¾å¤‡ï¼Œè¿”å›true
 	 */
-	boolean isLink();//ÊÇ·ñÒÑÁ¬½Ó
+	boolean isLink();//æ˜¯å¦å·²è¿æ¥
 	
 	/**
-	 * ÊÇ·ñÕıÔÚÁ¬½ÓÖĞ
+	 * æ˜¯å¦æ­£åœ¨è¿æ¥ä¸­
 	 * @return
 	 */
 	boolean isConnecting();
 	
 	/**
-	 * ÊÇ·ñÁ¬½Ó³É¹¦¹ıµÄip
+	 * æ˜¯å¦è¿æ¥æˆåŠŸè¿‡çš„ip
 	 * @return
 	 */
-	boolean haveIp();//ÊÇ·ñÁ¬½Ó³É¹¦¹ıIP
+	boolean haveIp();//æ˜¯å¦è¿æ¥æˆåŠŸè¿‡IP
 	void Reconnect();
 	
 	

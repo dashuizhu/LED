@@ -15,15 +15,15 @@ import android.util.Log;
 import android.widget.Toast;
 
 /**
- * <p>Description: ¾²Ì¬IPÉèÖÃÀà</p>
+ * <p>Description: é™æ€IPè®¾ç½®ç±»</p>
  * @author zhujiang
  * @date 2014-9-20
  */
 public class StaticIpSet {
-	// Éè±¸µÄ»·¾³
+	// è®¾å¤‡çš„ç¯å¢ƒ
 	Context mContext;
 
-	String ipAddress = "10.10.100.154";//ÒòÎªHFÄ£¿éµÄ APÄ£Ê½£¬ Ä¬ÈÏµØÖ·server¶ËÎª 10.10.100.254
+	String ipAddress = "10.10.100.154";//å› ä¸ºHFæ¨¡å—çš„ APæ¨¡å¼ï¼Œ é»˜è®¤åœ°å€serverç«¯ä¸º 10.10.100.254
 	int preLength = 24;
 	String getWay = "10.10.100.1";
 	String dns1 = "10.10.100.1";
@@ -44,11 +44,11 @@ public class StaticIpSet {
 	}
 
 	/**
-	 * wifiµÄ¾²Ì¬ipµÄÅäÖÃĞÅÏ¢
+	 * wifiçš„é™æ€ipçš„é…ç½®ä¿¡æ¯
 	 * @param wifiConfig
 	 */
 	public void confingStaticIp(WifiConfiguration wifiConfig) {
-		// Èç¹ûÊÇandroid2.x°æ±¾µÄ»°
+		// å¦‚æœæ˜¯android2.xç‰ˆæœ¬çš„è¯
 		if (android.os.Build.VERSION.SDK_INT < 11) {
 			ContentResolver ctRes = mContext.getContentResolver();
 			Settings.System
@@ -64,7 +64,7 @@ public class StaticIpSet {
 			Settings.System.putString(ctRes, Settings.System.WIFI_STATIC_DNS2,
 					"61.134.1.9");
 		}
-		// Èç¹ûÊÇandroid3.x°æ±¾¼°ÒÔÉÏµÄ»°
+		// å¦‚æœæ˜¯android3.xç‰ˆæœ¬åŠä»¥ä¸Šçš„è¯
 		else {
 			try {
 				setIpType("STATIC", wifiConfig);
@@ -72,71 +72,71 @@ public class StaticIpSet {
 						wifiConfig);
 				setGateway(InetAddress.getByName(getWay), wifiConfig);
 				setDNS(InetAddress.getByName(dns1), wifiConfig);
-				Log.i("123", "¾²Ì¬ipÉèÖÃ³É¹¦£¡");
-				//Toast.makeText(mContext, "¾²Ì¬ipÉèÖÃ³É¹¦£¡", Toast.LENGTH_SHORT).show();
+				Log.i("123", "é™æ€ipè®¾ç½®æˆåŠŸï¼");
+				//Toast.makeText(mContext, "é™æ€ipè®¾ç½®æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 			} catch (Exception e) {
 				e.printStackTrace();
-				Log.i("123", "¾²Ì¬ipÉèÖÃÊ§°Ü£¡");
-				//Toast.makeText(mContext, "¾²Ì¬ipÉèÖÃÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+				Log.i("123", "é™æ€ipè®¾ç½®å¤±è´¥ï¼");
+				//Toast.makeText(mContext, "é™æ€ipè®¾ç½®å¤±è´¥ï¼", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
 
 	/**
-	 * ÉèÖÃDNS
+	 * è®¾ç½®DNS
 	 * 
 	 * @param byName
-	 *            ÓòÃû
+	 *            åŸŸå
 	 * @param wifiConfig
-	 *            ²Ù×÷µÄwifiÅäÖÃ¶ÔÏó
+	 *            æ“ä½œçš„wifié…ç½®å¯¹è±¡
 	 * @throws IllegalAccessException
 	 * @throws NoSuchFieldException
 	 * @throws IllegalArgumentException
 	 */
 	private void setDNS(InetAddress dns, WifiConfiguration wifiConfig)
 			throws Exception {
-		// »ñµÃwifiConfigÖĞlinkPropertiesÁ¬½ÓÊôĞÔ¼¯ºÏÖĞµÄÖµ
+		// è·å¾—wifiConfigä¸­linkPropertiesè¿æ¥å±æ€§é›†åˆä¸­çš„å€¼
 		Object linkProperties = getFieldValue(wifiConfig, "linkProperties");
 		if (linkProperties == null) {
 			return;
 		}
 		ArrayList<InetAddress> mDnses = (ArrayList<InetAddress>) getDeclaredField(
 				linkProperties, "mDnses");
-		mDnses.clear(); // Çå³ıÔ­ÓĞDNSÉèÖÃ£¨Èç¹ûÖ»ÏëÔö¼Ó£¬²»ÏëÇå³ı£¬´Ë¾ä¿ÉÊ¡ÂÔ£©
-		mDnses.add(dns); // Ôö¼ÓĞÂµÄDNS
+		mDnses.clear(); // æ¸…é™¤åŸæœ‰DNSè®¾ç½®ï¼ˆå¦‚æœåªæƒ³å¢åŠ ï¼Œä¸æƒ³æ¸…é™¤ï¼Œæ­¤å¥å¯çœç•¥ï¼‰
+		mDnses.add(dns); // å¢åŠ æ–°çš„DNS
 	}
 
 	/**
-	 * ÉèÖÃÍø¹Ø
+	 * è®¾ç½®ç½‘å…³
 	 * 
 	 * @param gateWay
-	 *            Íø¹Ø
+	 *            ç½‘å…³
 	 * @param wifiConfig
-	 *            ²Ù×÷µÄwifiÅäÖÃ¶ÔÏó
+	 *            æ“ä½œçš„wifié…ç½®å¯¹è±¡
 	 */
 	private void setGateway(InetAddress gateWay, WifiConfiguration wifiConfig)
 			throws Exception {
-		// »ñµÃwifiConfigÖĞlinkPropertiesÁ¬½ÓÊôĞÔ¼¯ºÏÖĞµÄÖµ
+		// è·å¾—wifiConfigä¸­linkPropertiesè¿æ¥å±æ€§é›†åˆä¸­çš„å€¼
 		Object linkProperties = getFieldValue(wifiConfig, "linkProperties");
 		if (linkProperties == null) {
 			return;
 		}
-		// android4.x°æ±¾
+		// android4.xç‰ˆæœ¬
 		if (android.os.Build.VERSION.SDK_INT >= 14) {
 
-			// »ñµÃÁËÂ·ÓÉĞÅÏ¢Àà
+			// è·å¾—äº†è·¯ç”±ä¿¡æ¯ç±»
 			Class<?> routeInfoClass = Class.forName("android.net.RouteInfo");
-			// »ñµÃÂ·ÓÉĞÅÏ¢ÀàµÄÒ»¸ö¹¹ÔìÆ÷£¬²ÎÊıÊÇÍø¹Ø
+			// è·å¾—è·¯ç”±ä¿¡æ¯ç±»çš„ä¸€ä¸ªæ„é€ å™¨ï¼Œå‚æ•°æ˜¯ç½‘å…³
 			Constructor<?> routeInfoConstructor = routeInfoClass
 					.getConstructor(new Class[] { InetAddress.class });
-			// Éú³ÉÖ¸¶¨Íø¹ØµÄÂ·ÓÉĞÅÏ¢Àà¶ÔÏó
+			// ç”ŸæˆæŒ‡å®šç½‘å…³çš„è·¯ç”±ä¿¡æ¯ç±»å¯¹è±¡
 			Object routeInfo = routeInfoConstructor.newInstance(gateWay);
 			ArrayList<Object> routes = (ArrayList<Object>) getDeclaredField(
 					linkProperties, "mRoutes");
 			routes.clear();
 			routes.add(routeInfo);
 		}
-		// android3.x°æ±¾
+		// android3.xç‰ˆæœ¬
 		else {
 			ArrayList<InetAddress> gateWays = (ArrayList<InetAddress>) getDeclaredField(
 					linkProperties, "mGateWays");
@@ -146,81 +146,81 @@ public class StaticIpSet {
 	}
 
 	/**
-	 * ÉèÖÃIPµØÖ·
+	 * è®¾ç½®IPåœ°å€
 	 * 
 	 * @param ipAddress
-	 *            IPµØÖ·
+	 *            IPåœ°å€
 	 * @param preLength
-	 *            Ç°×º³¤¶È
+	 *            å‰ç¼€é•¿åº¦
 	 * @param wifiConfig
-	 *            ²Ù×÷µÄwifiÅäÖÃ¶ÔÏó
+	 *            æ“ä½œçš„wifié…ç½®å¯¹è±¡
 	 */
 	private void setIpAddress(InetAddress ipAddress, int preLength,
 			WifiConfiguration wifiConfig) throws Exception {
-		// »ñµÃwifiConfigÖĞlinkPropertiesÁ¬½ÓÊôĞÔ¼¯ºÏÖĞµÄÖµ
+		// è·å¾—wifiConfigä¸­linkPropertiesè¿æ¥å±æ€§é›†åˆä¸­çš„å€¼
 		Object linkProperties = getFieldValue(wifiConfig, "linkProperties");
 		if (linkProperties == null) {
 			return;
 		}
-		// »ñµÃÒ»¸öLinkAddressÁ´½ÓµØÖ·Àà
+		// è·å¾—ä¸€ä¸ªLinkAddressé“¾æ¥åœ°å€ç±»
 		Class<?> linkAddressClass = Class.forName("android.net.LinkAddress");
-		// »ñµÃLinkAddressµÄÒ»¸ö¹¹ÔìÆ÷,²ÎÊıÎªipµØÖ·ºÍÇ°×º³¤¶È
+		// è·å¾—LinkAddressçš„ä¸€ä¸ªæ„é€ å™¨,å‚æ•°ä¸ºipåœ°å€å’Œå‰ç¼€é•¿åº¦
 		Constructor<?> linkAddressConstrcutor = linkAddressClass
 				.getConstructor(new Class[] { InetAddress.class, int.class });
-		// Í¨¹ı¸Ã¹¹ÔìÆ÷»ñµÃÒ»¸öLinkAddress¶ÔÏó
+		// é€šè¿‡è¯¥æ„é€ å™¨è·å¾—ä¸€ä¸ªLinkAddresså¯¹è±¡
 		Object linkAddress = linkAddressConstrcutor.newInstance(ipAddress,
 				preLength);
-		// »ñµÃlinkPropertiesÁ¬½ÓÊôĞÔ¼¯ºÏÖĞlinkAddressesÁ¬½ÓµØÖ·¼¯ºÏÖĞµÄÖµ
+		// è·å¾—linkPropertiesè¿æ¥å±æ€§é›†åˆä¸­linkAddressesè¿æ¥åœ°å€é›†åˆä¸­çš„å€¼
 		ArrayList<Object> linkAddresses = (ArrayList<Object>) getDeclaredField(
 				linkProperties, "mLinkAddresses");
-		// Çå¿ÕlinkAddresses
+		// æ¸…ç©ºlinkAddresses
 		linkAddresses.clear();
-		// Ìí¼ÓÓÃ»§ÉèÖÃµÄlinkAddressÁ´½ÓµØÖ·¡£
+		// æ·»åŠ ç”¨æˆ·è®¾ç½®çš„linkAddressé“¾æ¥åœ°å€ã€‚
 		linkAddresses.add(linkAddress);
 	}
 
 	/**
-	 * »ñµÃÄ³¶ÔÏóÖĞÖ¸¶¨ÇøÓòÖĞµÄÖµ¡£¸ÃÇøÓòÊÇ±»ÉùÃ÷¹ıµÄ¡£
+	 * è·å¾—æŸå¯¹è±¡ä¸­æŒ‡å®šåŒºåŸŸä¸­çš„å€¼ã€‚è¯¥åŒºåŸŸæ˜¯è¢«å£°æ˜è¿‡çš„ã€‚
 	 * 
 	 * @param obj
-	 *            ¶ÔÏó
+	 *            å¯¹è±¡
 	 * @param name
-	 *            ÇøÓòÃû
-	 * @return ·µ»Ø¸Ã¶ÔÏóÖĞ¸ÃÇøÓòÖĞµÄÖµ
+	 *            åŒºåŸŸå
+	 * @return è¿”å›è¯¥å¯¹è±¡ä¸­è¯¥åŒºåŸŸä¸­çš„å€¼
 	 * @throws Exception
 	 */
 	private Object getDeclaredField(Object obj, String name) throws Exception {
-		// »ñobjÀàÖĞÖ¸¶¨ÇøÓòÃûÎªnameµÄÇøÓò
+		// è·objç±»ä¸­æŒ‡å®šåŒºåŸŸåä¸ºnameçš„åŒºåŸŸ
 		Field f = obj.getClass().getDeclaredField(name);
-		// ÉèÖÃ¸ÃÇøÓò¿ÉÒÔ±»·ÃÎÊ
+		// è®¾ç½®è¯¥åŒºåŸŸå¯ä»¥è¢«è®¿é—®
 		f.setAccessible(true);
 		return f.get(obj);
 	}
 
 	/**
-	 * »ñµÃÄ³¶ÔÏóÖĞÖ¸¶¨ÇøÓòÖĞµÄÖµ¡£¸ù¾İ¶ÔÏó£¬ºÍÇøÓòÃû¡£
+	 * è·å¾—æŸå¯¹è±¡ä¸­æŒ‡å®šåŒºåŸŸä¸­çš„å€¼ã€‚æ ¹æ®å¯¹è±¡ï¼Œå’ŒåŒºåŸŸåã€‚
 	 * 
 	 * @param obj
-	 *            ¶ÔÏó
+	 *            å¯¹è±¡
 	 * @param name
-	 *            ÇøÓòÃû
-	 * @return ·µ»Ø¸Ã¶ÔÏóÖĞÃûÎªnameÇøÓòÖĞµÄÖµ
+	 *            åŒºåŸŸå
+	 * @return è¿”å›è¯¥å¯¹è±¡ä¸­åä¸ºnameåŒºåŸŸä¸­çš„å€¼
 	 * @throws Exception
 	 */
 	private Object getFieldValue(Object obj, String name) throws Exception {
-		// »ñµÃobjµÄÀà£¬ÔÙ»ñµÃÇøÓòÃûÎªnameµÄÇøÓò
+		// è·å¾—objçš„ç±»ï¼Œå†è·å¾—åŒºåŸŸåä¸ºnameçš„åŒºåŸŸ
 		Field f = obj.getClass().getField(name);
-		// ·µ»ØobjÖĞfÇøÓòÖĞµÄÖµ
+		// è¿”å›objä¸­fåŒºåŸŸä¸­çš„å€¼
 		return f.get(obj);
 	}
 
 	/**
-	 * ÉèÖÃIPµØÖ·ÀàĞÍ
+	 * è®¾ç½®IPåœ°å€ç±»å‹
 	 * 
 	 * @param ipType
-	 *            IPµØÖ·ÀàĞÍ
+	 *            IPåœ°å€ç±»å‹
 	 * @param wifiConfig
-	 *            ²Ù×÷µÄwifiÅäÖÃ¶ÔÏó
+	 *            æ“ä½œçš„wifié…ç½®å¯¹è±¡
 	 * @throws Exception
 	 */
 	private void setIpType(String ipType, WifiConfiguration wifiConfig)

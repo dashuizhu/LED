@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class ValueCheckHelp {
 	
 	/**
-	 * 检查输入框的名字是否正确， 带了toast提示
+	 * 妫�鏌ヨ緭鍏ユ鐨勫悕瀛楁槸鍚︽纭紝 甯︿簡toast鎻愮ず
 	 * @param et
 	 * @param mContext
 	 * @return

@@ -58,51 +58,51 @@ public class WheelView extends View {
 	
 	private final static String TAG =  WheelView.class.getSimpleName();
 	
-	/** Scrolling duration ¹ö¶¯³ÖĞøÊ±¼ä */
+	/** Scrolling duration æ»šåŠ¨æŒç»­æ—¶é—´ */
 	private static final int SCROLLING_DURATION = 400;
 
-	/** Minimum delta for scrolling ×îµÍÈı½ÇÖŞ¹ö¶¯*/
+	/** Minimum delta for scrolling æœ€ä½ä¸‰è§’æ´²æ»šåŠ¨*/
 	private static final int MIN_DELTA_FOR_SCROLLING = 1;
 
 	/** Current value & label text color */
-	private static  int VALUE_TEXT_COLOR = 0xFFFE7900;//Ñ¡ÖĞÖµµÄ×ÖÌåÑÕÉ«
+	private static  int VALUE_TEXT_COLOR = 0xFFFE7900;//é€‰ä¸­å€¼çš„å­—ä½“é¢œè‰²
 
 	/** Items text color */
-	private static  int ITEMS_TEXT_COLOR = 0xFFA2A2A2;//Î´Ñ¡ÖĞÖµµÄ×ÖÌåÑÕÉ«
+	private static  int ITEMS_TEXT_COLOR = 0xFFA2A2A2;//æœªé€‰ä¸­å€¼çš„å­—ä½“é¢œè‰²
 
-	/** Top and bottom shadows colors ¶¥²¿ºÍµ×²¿µÄÒõÓ°ÑÕÉ«*/
+	/** Top and bottom shadows colors é¡¶éƒ¨å’Œåº•éƒ¨çš„é˜´å½±é¢œè‰²*/
 	private static final int[] SHADOWS_COLORS = new int[] { 0xCCaabb,
 		0x000000, 0x224455 };
 
-	/** Additional items height (is added to standard text item height) ÆäËûÏîÄ¿µÄ¸ß¶È£¨±»Ìí¼Óµ½±ê×¼ÎÄ±¾ÏîÄ¿¸ß¶È*/
+	/** Additional items height (is added to standard text item height) å…¶ä»–é¡¹ç›®çš„é«˜åº¦ï¼ˆè¢«æ·»åŠ åˆ°æ ‡å‡†æ–‡æœ¬é¡¹ç›®é«˜åº¦*/
 	private static final int ADDITIONAL_ITEM_HEIGHT = 15;
 
 	/** Text size */
-	private   int TEXT_SIZE = 25;//×ÖÌå´óĞ¡
+	private   int TEXT_SIZE = 25;//å­—ä½“å¤§å°
 
-	/** Top and bottom items offset (to hide that) ¶¥²¿ºÍµ×²¿ÏîÄ¿µÖÏû£¨Òş²ØÕâÒ»µã£©*/
+	/** Top and bottom items offset (to hide that) é¡¶éƒ¨å’Œåº•éƒ¨é¡¹ç›®æŠµæ¶ˆï¼ˆéšè—è¿™ä¸€ç‚¹ï¼‰*/
 	private  final int ITEM_OFFSET = TEXT_SIZE / 5;
 
-	/** Additional width for items layout ¶îÍâ¿í¶ÈµÄÏîÄ¿²¼¾Ö*/
+	/** Additional width for items layout é¢å¤–å®½åº¦çš„é¡¹ç›®å¸ƒå±€*/
 	private static final int ADDITIONAL_ITEMS_SPACE = 10;
 
-	/** Label offset XÖá±êÇ©Æ«ÒÆ */
+	/** Label offset Xè½´æ ‡ç­¾åç§» */
 	private static final int LABEL_OFFSET = 2;
 	
 	/**
-	 * item ºÍvalueÆ«ÒÆÁ¿
+	 * item å’Œvalueåç§»é‡
 	 */
 	private static final int VALUE_OFFSET_X =2;
 	
-	/** Label offset YÖáÆ«ÒÆ±êÇ©Æ«ÒÆ
-	 * -ÍùÉÏ +ÍùÏÂ */
+	/** Label offset Yè½´åç§»æ ‡ç­¾åç§»
+	 * -å¾€ä¸Š +å¾€ä¸‹ */
 	private static final int LABEL_OFFSET_Y = -0;
 	
 
-	/** Left and right padding value ×óºÍÓÒÌî³äÖµ */
+	/** Left and right padding value å·¦å’Œå³å¡«å……å€¼ */
 	private static final int PADDING = 0;
 
-	/** Default count of visible items  ¿É¼ûÏîÄ¿µÄÄ¬ÈÏ¼ÆÊı*/
+	/** Default count of visible items  å¯è§é¡¹ç›®çš„é»˜è®¤è®¡æ•°*/
 	private static final int DEF_VISIBLE_ITEMS = 3;
 
 	// Wheel Values
@@ -416,7 +416,7 @@ public class WheelView extends View {
 			valuePaint = new TextPaint(Paint.ANTI_ALIAS_FLAG
 					| Paint.FAKE_BOLD_TEXT_FLAG | Paint.DITHER_FLAG);
 			//valuePaint.density = getResources().getDisplayMetrics().density;
-			//ÔÚ¼Ó10 £¬ ·Å´ó×ÖÌå
+			//åœ¨åŠ 10 ï¼Œ æ”¾å¤§å­—ä½“
 			int textSize= TEXT_SIZE + 5;
 			valuePaint.setTextSize(textSize);
 			//valuePaint.setTypeface(fontService.getTypeface());
@@ -732,7 +732,7 @@ public class WheelView extends View {
 		// draw label
 		if (labelLayout != null) {
 			canvas.save();
-			//-5ÊÇÒòÎªÖĞ¼äµÄ ×ÖÌå £¬±ä´ó£¬ ËùÒÔÒªÍùÉÏÅ²Ò»µã
+			//-5æ˜¯å› ä¸ºä¸­é—´çš„ å­—ä½“ ï¼Œå˜å¤§ï¼Œ æ‰€ä»¥è¦å¾€ä¸ŠæŒªä¸€ç‚¹
 			canvas.translate(VALUE_OFFSET_X + getWidth()/2 + itemsWidth/2 + LABEL_OFFSET, bounds.top +LABEL_OFFSET_Y -5);
 //			canvas.translate(VALUE_OFFSET_X + getWidth()/2 + itemsWidth/2 + LABEL_OFFSET, bounds.top +LABEL_OFFSET_Y );
 			float size = labelLayout.getPaint().getTextSize();
@@ -745,7 +745,7 @@ public class WheelView extends View {
 		// draw current value
 		if (valueLayout != null) {
 			canvas.save();
-			//-5ÊÇÒòÎªÖĞ¼äµÄ ×ÖÌå £¬±ä´ó£¬ ËùÒÔÒªÍùÉÏÅ²Ò»µã
+			//-5æ˜¯å› ä¸ºä¸­é—´çš„ å­—ä½“ ï¼Œå˜å¤§ï¼Œ æ‰€ä»¥è¦å¾€ä¸ŠæŒªä¸€ç‚¹
 			canvas.translate(0+VALUE_OFFSET_X +getWidth()/2-itemsWidth/2, bounds.top + scrollingOffset-5);
 //			canvas.translate(0+VALUE_OFFSET_X +getWidth()/2-itemsWidth/2, bounds.top + scrollingOffset);
 			valueLayout.draw(canvas);
@@ -965,7 +965,7 @@ public class WheelView extends View {
 		invalidate();
 		Log.i(TAG,"scrolling finish!");
 		
-//ÔÚ½áÊøÊ±£¬ÔÙµ÷ÓÃÒ»´ÎÊı¾İ±ä»¯£¬  ÕâÀïoldÖµÊÇ£¬ËæÒâÂÒ´«µÄ£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
+//åœ¨ç»“æŸæ—¶ï¼Œå†è°ƒç”¨ä¸€æ¬¡æ•°æ®å˜åŒ–ï¼Œ  è¿™é‡Œoldå€¼æ˜¯ï¼Œéšæ„ä¹±ä¼ çš„ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
 		notifyChangingListeners(0, currentItem);		
 	}
 		

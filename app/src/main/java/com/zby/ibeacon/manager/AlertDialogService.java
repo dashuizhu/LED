@@ -35,7 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * ËùÓĞµ¯³ö¿ò
+ * æ‰€æœ‰å¼¹å‡ºæ¡†
  * @author Administrator
  *
  */
@@ -60,7 +60,7 @@ public class AlertDialogService {
 	
 	
 	/**
-	 * µÈ´ı¼ÓÔØ¿ò
+	 * ç­‰å¾…åŠ è½½æ¡†
 	 * @param context
 	 * @param str
 	 * @return
@@ -68,7 +68,7 @@ public class AlertDialogService {
 	public static Dialog getWait(Context context, String str) {
 		initLayoutInflater(context);
 		View v=li.inflate(R.layout.alert_wait, null);
-////-------------------Í¼Æ¬Ğı×ª----------------------------		
+////-------------------å›¾ç‰‡æ—‹è½¬----------------------------		
 //		LinearLayout layout_rotate = (LinearLayout) v.findViewById(com.sunnex.smarttable.R.id.layout_rotate);
 //		RotateImage ri=getRotateImage(context);
 //		layout_rotate.addView(ri);
@@ -80,13 +80,13 @@ public class AlertDialogService {
 		tv.setText(str);
 		Dialog d = getDialog(context);
 		d.setContentView(v);
-		//Ä£ºı±³¾°
+		//æ¨¡ç³ŠèƒŒæ™¯
 		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 		return d;
 	}
 	
 	/**
-	 * Ã»ÓĞViewµÄdialog
+	 * æ²¡æœ‰Viewçš„dialog
 	 * @param context
 	 * @return
 	 */
@@ -110,7 +110,7 @@ public class AlertDialogService {
 	
 	
 	/**
-	 * ´øÈ¡Ïû£¬È·ÈÏµÄÌáÊ¾¿´
+	 * å¸¦å–æ¶ˆï¼Œç¡®è®¤çš„æç¤ºçœ‹
 	 * @param context
 	 * @param message
 	 * @param info
@@ -134,7 +134,7 @@ public class AlertDialogService {
 			layout_info.setVisibility(View. VISIBLE);
 			tv_info.setText(info);
 		}
-		//µã»÷·µ»Ø°´Å¥£¬ ÌáÊ¾´°¿Ú²»ÏûÊ§
+		//ç‚¹å‡»è¿”å›æŒ‰é’®ï¼Œ æç¤ºçª—å£ä¸æ¶ˆå¤±
 		d.setOnKeyListener(new OnKeyListener() {
 			
 			@Override
@@ -164,7 +164,7 @@ public class AlertDialogService {
 	
 	
 	/**
-	 * ´øÈ¡Ïû£¬ĞŞ¸Ä£¬ É¾³ıµÄµÄÌáÊ¾¿´
+	 * å¸¦å–æ¶ˆï¼Œä¿®æ”¹ï¼Œ åˆ é™¤çš„çš„æç¤ºçœ‹
 	 * @param context
 	 * @param message
 	 * @param info
@@ -189,7 +189,7 @@ public class AlertDialogService {
 			layout_info.setVisibility(View. VISIBLE);
 			tv_info.setText(info);
 		}
-		//µã»÷·µ»Ø°´Å¥£¬ ÌáÊ¾´°¿Ú²»ÏûÊ§
+		//ç‚¹å‡»è¿”å›æŒ‰é’®ï¼Œ æç¤ºçª—å£ä¸æ¶ˆå¤±
 		d.setOnKeyListener(new OnKeyListener() {
 			
 			@Override
@@ -224,7 +224,7 @@ public class AlertDialogService {
 	}
 	
 	/**
-	 * ´øÈ¡Ïû£¬È·ÈÏµÄ ÊäÈë¿ò
+	 * å¸¦å–æ¶ˆï¼Œç¡®è®¤çš„ è¾“å…¥æ¡†
 	 * @param context
 	 * @param message
 	 * @param info
@@ -239,7 +239,7 @@ public class AlertDialogService {
 		Button confirm_btn = (Button) v.findViewById(R.id.btn_confirm);
 		Button cancel_btn = (Button) v.findViewById(R.id.btn_cancel);
 		final EditText tv_message = (EditText) v.findViewById(R.id.editText_input);
-		tv_message.setFilters(new InputFilter[]{new InputFilter.LengthFilter(18)}); //×î´óÊäÈë³¤¶È 
+		tv_message.setFilters(new InputFilter[]{new InputFilter.LengthFilter(18)}); //æœ€å¤§è¾“å…¥é•¿åº¦ 
 		tv_message.setText(message);
 		if(message!=null && message.length()>0){
 			tv_message.setSelection(message.length());
@@ -247,7 +247,7 @@ public class AlertDialogService {
 		tv_message.setHint(hint);
 //		TextView tv_info = (TextView) v.findViewById(R.id.textView_info);
 //		tv_info.setText(info);
-		//µã»÷·µ»Ø°´Å¥£¬ ÌáÊ¾´°¿Ú²»ÏûÊ§
+		//ç‚¹å‡»è¿”å›æŒ‰é’®ï¼Œ æç¤ºçª—å£ä¸æ¶ˆå¤±
 //		d.setOnKeyListener(new OnKeyListener() {
 //			
 //			@Override
@@ -283,7 +283,7 @@ public class AlertDialogService {
 	}
 	
 	/**
-	 * Ö»ÊÇ¶àÁË³¤¶ÈÏŞÖÆ ºÍ ÊäÈëÀàĞÍÏŞÖÆ
+	 * åªæ˜¯å¤šäº†é•¿åº¦é™åˆ¶ å’Œ è¾“å…¥ç±»å‹é™åˆ¶
 	 * @param context
 	 * @param message
 	 * @param hint
@@ -298,8 +298,8 @@ public class AlertDialogService {
 		Button confirm_btn = (Button) v.findViewById(R.id.btn_confirm);
 		Button cancel_btn = (Button) v.findViewById(R.id.btn_cancel);
 		final EditText tv_message = (EditText) v.findViewById(R.id.editText_input);
-		tv_message.setInputType(InputType.TYPE_CLASS_NUMBER); //ÊäÈëÀàĞÍ  
-		tv_message.setFilters(new InputFilter[]{new InputFilter.LengthFilter(AppConstants.password_length)}); //×î´óÊäÈë³¤¶È 
+		tv_message.setInputType(InputType.TYPE_CLASS_NUMBER); //è¾“å…¥ç±»å‹  
+		tv_message.setFilters(new InputFilter[]{new InputFilter.LengthFilter(AppConstants.password_length)}); //æœ€å¤§è¾“å…¥é•¿åº¦ 
 		tv_message.setText(message);
 		if(message!=null && message.length()>0){
 			tv_message.setSelection(message.length());
@@ -307,7 +307,7 @@ public class AlertDialogService {
 		tv_message.setHint(hint);
 //		TextView tv_info = (TextView) v.findViewById(R.id.textView_info);
 //		tv_info.setText(info);
-		//µã»÷·µ»Ø°´Å¥£¬ ÌáÊ¾´°¿Ú²»ÏûÊ§
+		//ç‚¹å‡»è¿”å›æŒ‰é’®ï¼Œ æç¤ºçª—å£ä¸æ¶ˆå¤±
 //		d.setOnKeyListener(new OnKeyListener() {
 //			
 //			@Override
@@ -345,7 +345,7 @@ public class AlertDialogService {
 	
 	
 	/**
-	 * Ö»ÊÇ2ÖĞĞÅÏ¢£¬²»´ø°´Å¥µÄÌáÊ¾¿ò
+	 * åªæ˜¯2ä¸­ä¿¡æ¯ï¼Œä¸å¸¦æŒ‰é’®çš„æç¤ºæ¡†
 	 * @param context
 	 * @param message
 	 * @param info
@@ -361,7 +361,7 @@ public class AlertDialogService {
 		TextView tv_info = (TextView) v.findViewById(R.id.textView_info);
 		tv_message.setText(message);
 		tv_info.setText(info);
-		//µã»÷·µ»Ø°´Å¥£¬ ÌáÊ¾´°¿Ú²»ÏûÊ§
+		//ç‚¹å‡»è¿”å›æŒ‰é’®ï¼Œ æç¤ºçª—å£ä¸æ¶ˆå¤±
 		d.setOnKeyListener(new OnKeyListener() {
 			
 			@Override
@@ -429,10 +429,10 @@ public class AlertDialogService {
 ////		return dcb;
 ////	}
 //	
-//	//ÊäÈë¿ò
+//	//è¾“å…¥æ¡†
 //	
-//	//ÊäÈë¿òÏÔÊ¾
-//	//µÈ´ı¿ò
+//	//è¾“å…¥æ¡†æ˜¾ç¤º
+//	//ç­‰å¾…æ¡†
 //	public static Dialog getWait(Context context, String str) {
 //		initLayoutInflater(context);
 //		View v=li.inflate(R.layout.alert_wait, null);
@@ -446,12 +446,12 @@ public class AlertDialogService {
 //		layout_rotate.setLayoutParams(params);
 //		Dialog d = getDialog(context);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		return d;
 //	}
 //	
-//	//µÈ´ı¿ò
+//	//ç­‰å¾…æ¡†
 //	public static Dialog getWait1(Context context, String str) {
 //		
 //		LinearLayout ll=new LinearLayout(context);
@@ -471,7 +471,7 @@ public class AlertDialogService {
 //		return d;
 //	}
 //	
-//	//Ã¿¶ÎÍê³ÉºóµÄÌáÊ¾£¬Ö»ÔÚÕıÔÚÅëâ¿½çÃæÓÃ
+//	//æ¯æ®µå®Œæˆåçš„æç¤ºï¼Œåªåœ¨æ­£åœ¨çƒ¹é¥ªç•Œé¢ç”¨
 ////	public static Dialog getMsg(Context context, String msg, final RawService rawService) {
 ////		initLayoutInflater(context);
 ////		View v=li.inflate(R.layout.alert_msg, null);
@@ -481,7 +481,7 @@ public class AlertDialogService {
 ////		tv.setText(msg);
 ////		final Dialog d = getDialog(context);
 ////		d.setContentView(v);
-////		//Ä£ºı±³¾°
+////		//æ¨¡ç³ŠèƒŒæ™¯
 ////		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 ////		rawService.startCyc();
 ////		d.setOnKeyListener(new OnKeyListener() {
@@ -514,7 +514,7 @@ public class AlertDialogService {
 //		final Dialog d = getDialogBottom(context);
 //		d.setContentView(v);
 //		d.getWindow().setGravity(Gravity.BOTTOM);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(new OnClickListener() {
@@ -540,7 +540,7 @@ public class AlertDialogService {
 //		final Dialog d = getDialog(context);
 //		d.setContentView(v);
 //		d.getWindow().setGravity(Gravity.BOTTOM);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(new OnClickListener() {
@@ -570,7 +570,7 @@ public class AlertDialogService {
 //		final Dialog d = getDialogBottom(context);
 //		d.getWindow().setGravity(Gravity.BOTTOM);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(new OnClickListener() {
@@ -598,7 +598,7 @@ public class AlertDialogService {
 //		final Dialog d = getDialogBottom(context);
 //		d.getWindow().setGravity(Gravity.BOTTOM);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(myOnClickListener);
@@ -620,7 +620,7 @@ public class AlertDialogService {
 //		final Dialog d = getDialogBottom(context);
 //		d.getWindow().setGravity(Gravity.BOTTOM);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(myOnClickListener);
@@ -643,7 +643,7 @@ public class AlertDialogService {
 //		tv.setText(id);
 //		final Dialog d = getDialog(context);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(myOnClickListener1);
@@ -665,7 +665,7 @@ public class AlertDialogService {
 //		tv.setText(id);
 //		final Dialog d = getDialog(context);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(myOnClickListener1);
@@ -685,7 +685,7 @@ public class AlertDialogService {
 //		tv.setText(id);
 //		final Dialog d = getDialog(context);
 //		d.setContentView(v);
-//		//Ä£ºı±³¾°
+//		//æ¨¡ç³ŠèƒŒæ™¯
 //		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 //		
 //		b.setOnClickListener(new OnClickListener() {

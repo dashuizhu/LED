@@ -22,7 +22,7 @@ public class DeviceSqlService {
 	}
 	
 	/**
-	 * Ìí¼ÓÒ»¸öÉè±¸
+	 * æ·»åŠ ä¸€ä¸ªè®¾å¤‡
 	 * @param homeBin
 	 */
 	public long insert(DeviceBean bin) {
@@ -30,11 +30,11 @@ public class DeviceSqlService {
 		Cursor mCursor = mSqLiteDatabase.query(DeviceTable.Table_Name, new String[]{DeviceTable.Id}, DeviceTable.Mac + " =?", new String[]{bin.getDeviceAddress()}, null, null, null);
 		long id ;
 		if(mCursor.moveToNext()) {
-			//¸üĞÂÊı¾İ
+			//æ›´æ–°æ•°æ®
 			id = mCursor.getLong(mCursor.getColumnIndex(DeviceTable.Id));
 			mSqLiteDatabase.update(DeviceTable.Table_Name, bin2ContentValues(bin), DeviceTable.Id+  "=? ", new String[]{""+id});
 		} else {
-			//²åÈëÊı¾İ
+			//æ’å…¥æ•°æ®
 			id = mSqLiteDatabase.insert(DeviceTable.Table_Name, null, bin2ContentValues(bin));
 			bin.setId((int)id);
 		}
@@ -42,7 +42,7 @@ public class DeviceSqlService {
 	}
 	
 	/**
-	 * Í¨¹ıIDÉ¾³ı
+	 * é€šè¿‡IDåˆ é™¤
 	 * @param id
 	 */
 	public void delete(int id) {
@@ -53,7 +53,7 @@ public class DeviceSqlService {
 	}
 	
 	/**
-	 * ĞŞ¸Ä
+	 * ä¿®æ”¹
 	 * @param homeBin
 	 */
 	public void update(DeviceBean bin) {
@@ -67,7 +67,7 @@ public class DeviceSqlService {
 	}
 	
 	/**
-	 * ĞŞ¸Ä¼ÇÂ¼µÄ¿ØÖÆÖµ
+	 * ä¿®æ”¹è®°å½•çš„æ§åˆ¶å€¼
 	 * @param homeBin
 	 */
 	public void updateOldControl(DeviceBean bin) {
@@ -85,7 +85,7 @@ public class DeviceSqlService {
 	}
 
 	/**
-	 * ²éÑ¯ËùÓĞ¼ÇÂ¼µÄÉè±¸
+	 * æŸ¥è¯¢æ‰€æœ‰è®°å½•çš„è®¾å¤‡
 	 * @return
 	 */
 	public List<DeviceBean> selectAll() {
@@ -113,7 +113,7 @@ public class DeviceSqlService {
 	}
 	
 	/**
-	 * ²éÑ¯ËùÓĞ¼ÇÂ¼µÄÉè±¸
+	 * æŸ¥è¯¢æ‰€æœ‰è®°å½•çš„è®¾å¤‡
 	 * @return
 	 */
 	public List<DeviceBean> selectByMac(String mac) {
@@ -141,7 +141,7 @@ public class DeviceSqlService {
 
 	/**
 	 * @param mCursor
-	 * @return ½«Êı¾İ¿âÄÚÈİ×ª»»³ÉÊµÌåÀà
+	 * @return å°†æ•°æ®åº“å†…å®¹è½¬æ¢æˆå®ä½“ç±»
 	 */
 	private DeviceBean cursor2bin(Cursor mCursor) {
 		DeviceBean bin = new DeviceBean();

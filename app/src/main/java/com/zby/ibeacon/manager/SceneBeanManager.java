@@ -51,8 +51,8 @@ public class SceneBeanManager {
 						R.styleable.scene);
 				
 				SceneModeBean bean = new SceneModeBean();
-				bean.setBrightness(a.getInt(R.styleable.scene_brightness,0));
-				bean.setColorYellow((a.getInt(R.styleable.scene_color,0) - AppConstants.Color_min) / AppConstants.Color_step);
+				bean.setRedBright(a.getInt(R.styleable.scene_brightness,0));
+				bean.setMixBirght(a.getInt(R.styleable.scene_color,0));
 				bean.setName(a.getString(R.styleable.scene_name));
 				bean.setImage(a.getString(R.styleable.scene_image));
 				bean.setDeleteable(false);

@@ -77,7 +77,7 @@ public class BluetoothLeServiceMulp extends Service {
     public final static String EXTRA_DATA =
             "com.example.bluetooth.le.EXTRA_DATA";
     /**
-     * Êı¾İ·¢ËÍ³É¹¦µÄ»ØÖ´
+     * æ•°æ®å‘é€æˆåŠŸçš„å›æ‰§
      */
     public final static String ACTION_SEND_SUCCESS = "com.example.bluetooth.le.ACTION_SEND_SUCCESS";
     
@@ -146,13 +146,13 @@ public class BluetoothLeServiceMulp extends Service {
             }
         }
         /**
-         * ·µ»ØÊı¾İ¡£
+         * è¿”å›æ•°æ®ã€‚
          */
         @Override
         public void onCharacteristicChanged(BluetoothGatt gatt,
                                             BluetoothGattCharacteristic characteristic) {
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
-            //Êı¾İ
+            //æ•°æ®
             Log.i("xiawei", characteristic.getValue().toString());
         }
 
@@ -160,7 +160,7 @@ public class BluetoothLeServiceMulp extends Service {
 		public void onCharacteristicWrite(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic, int status) {
 			// TODO Auto-generated method stub
-			Log.d("tag", "·¢ËÍµÄ»ØÖ´·¢ËÍ¹ã²¥" +ACTION_SEND_SUCCESS );
+			Log.d("tag", "å‘é€çš„å›æ‰§å‘é€å¹¿æ’­" +ACTION_SEND_SUCCESS );
 			Intent intent = new Intent(ACTION_SEND_SUCCESS);
 			sendBroadcast(intent);
 			super.onCharacteristicWrite(gatt, characteristic, status);
@@ -491,7 +491,7 @@ public class BluetoothLeServiceMulp extends Service {
 
 		alertLevel.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
 		status = mBluetoothGatt.writeCharacteristic(alertLevel);
-		Log.v("tag_send", "·¢ËÍ  " + status + " " + Myhex.buffer2String(bb));
+		Log.v("tag_send", "å‘é€  " + status + " " + Myhex.buffer2String(bb));
 		Log.d(TAG, "writeLlsAlertLevel() - status=" + status);
 	}
     private void showMessage(String msg) {
@@ -500,7 +500,7 @@ public class BluetoothLeServiceMulp extends Service {
     
     
     /**
-     * ÉèÖÃ»ØÊÕ·¢µÄ·şÎñ
+     * è®¾ç½®å›æ”¶å‘çš„æœåŠ¡
      */
     public void setReceiver(String address){
     	if(!gattMaps.containsKey(address)) {

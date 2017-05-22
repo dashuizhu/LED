@@ -72,7 +72,7 @@ import com.zby.ibeacon.util.Myhex;
 	public final static String ACTION_GATT_CONNECTED = "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
 	public final static String ACTION_GATT_DISCONNECTED = "com.example.bluetooth.le.ACTION_GATT_DISCONNECTED";
 	public final static String ACTION_GATT_SERVICES_DISCOVERED = "com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED";
-	public final static String ACTION_GATT_RECONNECTING = "com.example.bluetooth.le.ACTION_GATT_RECONNECTING";// ÔÚÖØÁ¬ÖĞ
+	public final static String ACTION_GATT_RECONNECTING = "com.example.bluetooth.le.ACTION_GATT_RECONNECTING";// åœ¨é‡è¿ä¸­
 	public final static String ACTION_DATA_AVAILABLE = "com.example.bluetooth.le.ACTION_DATA_AVAILABLE";
 	public final static String EXTRA_DATA = "com.example.bluetooth.le.EXTRA_DATA";
 
@@ -145,7 +145,7 @@ import com.zby.ibeacon.util.Myhex;
 		}
 
 		*//**
-		 * ·µ»ØÊı¾İ¡£
+		 * è¿”å›æ•°æ®ã€‚
 		 *//*
 		@Override
 		public void onCharacteristicChanged(BluetoothGatt gatt,
@@ -157,14 +157,14 @@ import com.zby.ibeacon.util.Myhex;
 		public void onCharacteristicWrite(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic, int status) {
 			// TODO Auto-generated method stub
-			Log.d("tag_send", "·¢ËÍ»Øµ÷  " + status + " ");
+			Log.d("tag_send", "å‘é€å›è°ƒ  " + status + " ");
 			super.onCharacteristicWrite(gatt, characteristic, status);
 		}
 
 		@Override
 		public void onReliableWriteCompleted(BluetoothGatt gatt, int status) {
 			// TODO Auto-generated method stub
-			Log.d("tag_send", "·¢ËÍ»Øµ÷  " + status + " ");
+			Log.d("tag_send", "å‘é€å›è°ƒ  " + status + " ");
 			super.onReliableWriteCompleted(gatt, status);
 		}
 
@@ -492,7 +492,7 @@ import com.zby.ibeacon.util.Myhex;
 		if (linkLossService == null) {
 			showMessage("link loss Alert service not found!"
 					+ mBluetoothGatt.discoverServices());
-			// showToast("Ã»ÓĞ·şÎñ");
+			// showToast("æ²¡æœ‰æœåŠ¡");
 			return false;
 		}
 
@@ -502,7 +502,7 @@ import com.zby.ibeacon.util.Myhex;
 					.getCharacteristic(SEND_CHARACTERISTIC_UUID);
 			if (alertLevel == null) {
 				showMessage("link loss Alert Level charateristic not found!");
-				// showToast("Ã»ÓĞÌØÕ÷");
+				// showToast("æ²¡æœ‰ç‰¹å¾");
 				return false;
 			}
 			int storedLevel = alertLevel.getWriteType();
@@ -514,7 +514,7 @@ import com.zby.ibeacon.util.Myhex;
 		// enableBattNoti(iDevice);
 		alertLevel.setValue(bb);
 		status = mBluetoothGatt.writeCharacteristic(alertLevel);
-		Log.v("tag_send", "·¢ËÍ  " + status + " " + Myhex.buffer2String(bb));
+		Log.v("tag_send", "å‘é€  " + status + " " + Myhex.buffer2String(bb));
 		return status;
 	}
 
@@ -523,7 +523,7 @@ import com.zby.ibeacon.util.Myhex;
 	}
 
 	*//**
-	 * ÉèÖÃ»ØÊÕ·¢µÄ·şÎñ
+	 * è®¾ç½®å›æ”¶å‘çš„æœåŠ¡
 	 *//*
 	public void setReceiver(String address) {
 		BluetoothGatt mBluetoothGatt;
@@ -568,7 +568,7 @@ import com.zby.ibeacon.util.Myhex;
 	}
 
 	*//**
-	 * ÊÇ·ñÕıÔÚÁ¬½ÓÖĞ
+	 * æ˜¯å¦æ­£åœ¨è¿æ¥ä¸­
 	 * 
 	 * @return
 	 *//*

@@ -2,6 +2,7 @@ package com.zby.ibeacon.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.RunnableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,63 +22,63 @@ import android.util.Log;
 /**
  * @author Administrator
  *
- * @2015-6-3 @timeÏÂÎç11:37:45
+ * @2015-6-3 @timeä¸‹åˆ11:37:45
  * 
- * Éè±¸ÁĞ±í
+ * è®¾å¤‡åˆ—è¡¨
  */
 public class DeviceBean {
 	
 	
-	public final static int Status_nocheck = 0 ;//Ã»ÓĞ¼ì²â
-	public final static int Status_error =1;//ÃÜÂë´íÎó
-	public final static int Status_checking =2;//ÕıÔÚ¼ì²âÃÜÂë
-	public final static int Status_success = 3;//³É¹¦
+	public final static int Status_nocheck = 0 ;//æ²¡æœ‰æ£€æµ‹
+	public final static int Status_error =1;//å¯†ç é”™è¯¯
+	public final static int Status_checking =2;//æ­£åœ¨æ£€æµ‹å¯†ç 
+	public final static int Status_success = 3;//æˆåŠŸ
 	
 	/**
-	 * µ±Ç°Ñ¡ÖĞµÄ·¢ËÍÄ£Ê½
+	 * å½“å‰é€‰ä¸­çš„å‘é€æ¨¡å¼
 	 */
 	private int nowSceneId =-1;
 	
 	/**
-	 * Éè±¸id
+	 * è®¾å¤‡id
 	 */
 	private int id;
 	
-	private String deviceAddress;//À¶ÑÀ
+	private String deviceAddress;//è“ç‰™
 	
-	private String Name;//Ãû×Ö
+	private String Name;//åå­—
 	
-	private String bluetoothName;//À¶ÑÀËÑË÷µ½µÄÃû×Ö
+	private String bluetoothName;//è“ç‰™æœç´¢åˆ°çš„åå­—
 	
 	
-	private boolean isShow;//ÊÇ·ñÏÔÊ¾¿ØÖÆÀ¸
+	private boolean isShow;//æ˜¯å¦æ˜¾ç¤ºæ§åˆ¶æ 
 	
-	private int ele;//µçÁ¿
+	private int ele;//ç”µé‡
 	
-	private int RSSI;//À¶ÑÀĞÅºÅÇ¿¶È
+	private int RSSI;//è“ç‰™ä¿¡å·å¼ºåº¦
 	
-	private String password;//ÃÜÂë
+	private String password;//å¯†ç 
 	
-	private int status;//×´Ì¬
+	private int status;//çŠ¶æ€
 	
 	private String image="";
 	
-	private String devicePassword;//ÏÂÎ»»úµÄÃÜÂë
+	private String devicePassword;//ä¸‹ä½æœºçš„å¯†ç 
 	
-	private boolean onOff;//¿ª¹Ø
+	private boolean onOff;//å¼€å…³
 	
-	private int brightness;//ÁÁ¶È
+	private int brightness;//äº®åº¦
 	
-	private int colorYellow;//É«ÎÂ
+	private int colorYellow;//è‰²æ¸©
 	
-	private int oldBrightness;//ÉÏ´Î¿ØÖÆµÄÖµ£¬ ÓÃÀ´Ö±½Ó¿ØÖÆ¿ª¹ØÊÇ·¢ËÍ
-	private int oldColorYellow;//ÉÏ´Î¿ØÖÆµÄÖµ£¬ÓÃÀ´ºÍ×Ö½Ú¿ØÖÆ¿ª¹Ø·¢ËÍ
+	private int oldBrightness;//ä¸Šæ¬¡æ§åˆ¶çš„å€¼ï¼Œ ç”¨æ¥ç›´æ¥æ§åˆ¶å¼€å…³æ˜¯å‘é€
+	private int oldColorYellow;//ä¸Šæ¬¡æ§åˆ¶çš„å€¼ï¼Œç”¨æ¥å’Œå­—èŠ‚æ§åˆ¶å¼€å…³å‘é€
 	
 	private List<TimingBean> list = new ArrayList<TimingBean>();
 	
 	
 	/**
-	 * À¶ÑÀÁ¬½ÓÍ¨Ñ¶¶ÔÏó
+	 * è“ç‰™è¿æ¥é€šè®¯å¯¹è±¡
 	 */
 	private ConnectionInterface mConnectionInterface;
 
@@ -118,7 +119,7 @@ public class DeviceBean {
 	}
 
 	/**
-	 * µ±Ç°ÖµÈ¡·´ £¬ Èç¹ûÊÇtrue£¬ ¾Í±äfalse
+	 * å½“å‰å€¼å–å ï¼Œ å¦‚æœæ˜¯trueï¼Œ å°±å˜false
 	 */
 	public void reversalShow() {
 		this.isShow = !isShow;
@@ -207,9 +208,6 @@ public class DeviceBean {
 		this.onOff = (brightness>0);
 	}
 
-	public int getColor() {
-		return  AppConstants.Color_min+  colorYellow * AppConstants.Color_step;
-	}
 
 	public void setColorYellow(int yellow) {
 		this.colorYellow = yellow;
@@ -219,10 +217,7 @@ public class DeviceBean {
 		return colorYellow;
 	}
 	
-	public int getColorWhite() {
-		return AppConstants.Color_range - getColorYellow();
-	}
-	
+
 	public int getOldBrightness() {
 		return oldBrightness;
 	}
@@ -235,9 +230,9 @@ public class DeviceBean {
 		return oldColorYellow;
 	}
 	
-	public int getOldColorWhite() {
-		return AppConstants.Color_range - getOldColorYellow();
-	}
+	//public int getOldColorWhite() {
+	//	return AppConstants.Color_range - getOldColorYellow();
+	//}
 
 	public void setOldColorYellow(int oldColorYellow) {
 		this.oldColorYellow = oldColorYellow;
@@ -252,7 +247,7 @@ public class DeviceBean {
 	}
 
 	/**
-	 * Èç¹ûÊÇÕıÔÚ¼ì²âÖĞ£¬ Èç¹û3Ãë³¬Ê±ºó»¹ÊÇÕıÔÚ¼ì²âÖĞ»á±ä Î´Ğ£Ñé
+	 * å¦‚æœæ˜¯æ­£åœ¨æ£€æµ‹ä¸­ï¼Œ å¦‚æœ3ç§’è¶…æ—¶åè¿˜æ˜¯æ­£åœ¨æ£€æµ‹ä¸­ä¼šå˜ æœªæ ¡éªŒ
 	 * @param status
 	 */
 	public void setStatus(int status) {
@@ -284,9 +279,9 @@ public class DeviceBean {
 	public boolean writeAgreement(byte[] buffer) {
 		// TODO Auto-generated method stub
 		if(AppConstants.isDemo) {
-			Log.d("tag","DeviceBean demo·¢ËÍÊı¾İ£º"+ Myhex.buffer2String(buffer));
+			Log.d("tag","DeviceBean demoå‘é€æ•°æ®ï¼š"+ Myhex.buffer2String(buffer));
 			if(buffer!=null && buffer.length>=4 && buffer[0] == (byte)0xD0) {
-				//Èç¹ûÊÇÉè±¸¿ØÖÆÖ¸Áî£¬¾Í¼ÇÂ¼µ±Ç°¿ØÖÆÖµ£¬µ±×öoldÖµ
+				//å¦‚æœæ˜¯è®¾å¤‡æ§åˆ¶æŒ‡ä»¤ï¼Œå°±è®°å½•å½“å‰æ§åˆ¶å€¼ï¼Œå½“åšoldå€¼
 				this.oldBrightness = MyByte.byteToInt(buffer[1]);
 				this.oldColorYellow =  MyByte.byteToInt(buffer[2]);
 			}
@@ -295,7 +290,7 @@ public class DeviceBean {
 		if(mConnectionInterface!=null && mConnectionInterface.isLink()) {
 			write(Encrypt.sendMessage(buffer, buffer.length));
 			if(buffer!=null && buffer.length>=4 && buffer[0] == (byte)0xD0) {
-				//Èç¹ûÊÇÉè±¸¿ØÖÆÖ¸Áî£¬¾Í¼ÇÂ¼µ±Ç°¿ØÖÆÖµ£¬µ±×öoldÖµ
+				//å¦‚æœæ˜¯è®¾å¤‡æ§åˆ¶æŒ‡ä»¤ï¼Œå°±è®°å½•å½“å‰æ§åˆ¶å€¼ï¼Œå½“åšoldå€¼
 				this.oldBrightness =  MyByte.byteToInt(buffer[1]);
 				this.oldColorYellow =  MyByte.byteToInt(buffer[2]);
 			}
@@ -305,14 +300,14 @@ public class DeviceBean {
 	}
 	
 	/**
-	 * ·¢ËÍ²»±£´æ¾ÉÖµµÄ£¬ ÓÃÓÚÖ±½Óµã¿ª¹Ø
+	 * å‘é€ä¸ä¿å­˜æ—§å€¼çš„ï¼Œ ç”¨äºç›´æ¥ç‚¹å¼€å…³
 	 * @param buffer
 	 * @return
 	 */
 	private boolean writeAgreementNoSave(byte[] buffer) {
 		// TODO Auto-generated method stub
 		if(AppConstants.isDemo) {
-			Log.d("tag","DeviceBean demo·¢ËÍÊı¾İ£º"+ Myhex.buffer2String(buffer));
+			Log.d("tag","DeviceBean demoå‘é€æ•°æ®ï¼š"+ Myhex.buffer2String(buffer));
 			return true;
 		}
 		if(mConnectionInterface!=null && mConnectionInterface.isLink()) {
@@ -334,14 +329,14 @@ public class DeviceBean {
 	}
 	
 	/**
-	 * Ö±½Óµã»÷¿ª¹Ø¿ØÖÆ
+	 * ç›´æ¥ç‚¹å‡»å¼€å…³æ§åˆ¶
 	 * @return
 	 */
 	public boolean controlSwithc() {
 		byte[] buff;
-		if(onOff) {//ÏÖÔÚÊÇ¿ª £¬¾Í·¢¹Ø±Õ
-			 buff = CmdPackage.setD1ControlNoCheck(0, oldColorYellow);
-		} else {//ÏÖÔÚÊÇ¹Ø±Õ£¬¾Í·¢¿ª £¬¿ªµÄÁÁ¶ÈºÍÑÕÉ«Öµ ÓÃÉÏÒ»´ÎµÄ¿ØÖÆÖµ»òÄ¬ÈÏÖµ
+		if(onOff) {//ç°åœ¨æ˜¯å¼€ ï¼Œå°±å‘å…³é—­
+			buff = CmdPackage.setD1ControlNoCheck(0, 0);
+		} else {//ç°åœ¨æ˜¯å…³é—­ï¼Œå°±å‘å¼€ ï¼Œå¼€çš„äº®åº¦å’Œé¢œè‰²å€¼ ç”¨ä¸Šä¸€æ¬¡çš„æ§åˆ¶å€¼æˆ–é»˜è®¤å€¼
 			if(oldBrightness==0) oldBrightness = AppConstants.default_brightness;
 			if(oldColorYellow==0) oldColorYellow = AppConstants.default_colorYellow;
 			buff = CmdPackage.setD1ControlNoCheck(oldBrightness, oldColorYellow);
@@ -355,7 +350,7 @@ public class DeviceBean {
 	}
 	
 	/**
-	 * ¸üĞÂ»òÕßÌí¼Ó ¶¨Ê±
+	 * æ›´æ–°æˆ–è€…æ·»åŠ  å®šæ—¶
 	 * @param bin
 	 */
 	public void updateTimingBean(TimingBean bin) {
@@ -373,7 +368,7 @@ public class DeviceBean {
 		}
 	}
 
-	//ÃÜÂë¼ì²â»ãÖĞ£¬  ³¬Ê±Ïß³Ì
+	//å¯†ç æ£€æµ‹æ±‡ä¸­ï¼Œ  è¶…æ—¶çº¿ç¨‹
 	private Runnable runnable = new Runnable() {
 		
 		@Override
@@ -392,7 +387,7 @@ public class DeviceBean {
 	};
 	
 	/**
-	 * ÊÇ·ñÁ¬½ÓÉÏÁËÉè±¸
+	 * æ˜¯å¦è¿æ¥ä¸Šäº†è®¾å¤‡
 	 * @return
 	 */
 	public boolean islink(){

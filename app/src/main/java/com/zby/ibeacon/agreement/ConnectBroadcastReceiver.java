@@ -9,7 +9,7 @@ import android.os.Message;
 import android.util.Log;
 
 /**
- * <p>Description: ¹ã²¥´«µİÍ¨Ñ¶ÏûÏ¢ </p>
+ * <p>Description: å¹¿æ’­ä¼ é€’é€šè®¯æ¶ˆæ¯ </p>
  * @author zhujiang
  * @date 2014-5-30
  */
@@ -18,7 +18,7 @@ public	class ConnectBroadcastReceiver extends BroadcastReceiver {
 	private static String TAG = "ConnectBroadcastReceiver";
 	
 		/**
-		 * Êı¾İ´«µİµÄkey Öµ
+		 * æ•°æ®ä¼ é€’çš„key å€¼
 		 */
 		public static final String BROADCAST_DATA_KEY = "data";
 		public static final String BROADCAST_DATA_TYPE = "type";
@@ -27,7 +27,7 @@ public	class ConnectBroadcastReceiver extends BroadcastReceiver {
 		public static final int Broad_Cmd = 999;
 		
 		/**
-		 * ¹ã²¥ÊÂ¼şÃû
+		 * å¹¿æ’­äº‹ä»¶å
 		 */
 		public static final String BROADCAST_ACTION = "com.wt.isensor.broadcast";
 	
@@ -41,7 +41,7 @@ public	class ConnectBroadcastReceiver extends BroadcastReceiver {
 		public void onReceive(Context context, Intent intent) {
 			int type=  intent.getIntExtra(BROADCAST_DATA_TYPE, -1);
 			int i = intent.getIntExtra(BROADCAST_DATA_KEY, -1);
-			Log.i(TAG, "broadÊÕµ½ type ="+type + "  " + i);
+			Log.i(TAG, "broadæ”¶åˆ° type ="+type + "  " + i);
 			if(mHandler!=null) {
 				Message msg = mHandler.obtainMessage();
 				msg.what = Broad_Cmd;

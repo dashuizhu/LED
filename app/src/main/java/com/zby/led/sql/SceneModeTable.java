@@ -6,15 +6,15 @@ public class SceneModeTable {
 	
 	
 	protected static final String Id = "id";
-	protected static final String Name="name";//Ãû×Ö
-	protected static final String Mac = "mac";//ËùÊôÓÚµÄÉè±¸
-	protected static final String Color = "color";//É«ÎÂ
-	protected static final String Brightness = "brightness";//ÁÁ¶È
-	protected static final String Image = "image";//Í¼Æ¬
-	protected static final String DeleteAble = "deleteAble";//ÊÇ·ñÄÜÉ¾³ı
+	protected static final String Name="name";//åå­—
+	protected static final String Mac = "mac";//æ‰€å±äºçš„è®¾å¤‡
+	protected static final String Color = "color";//è‰²æ¸©
+	protected static final String Brightness = "brightness";//äº®åº¦
+	protected static final String Image = "image";//å›¾ç‰‡
+	protected static final String DeleteAble = "deleteAble";//æ˜¯å¦èƒ½åˆ é™¤
 	
 	/**
-	 * @return sql ½¨±íÓï¾ä
+	 * @return sql å»ºè¡¨è¯­å¥
 	 */
 	protected static final String getTable() {
 		String table = "create Table " + Table_Name + " (" +

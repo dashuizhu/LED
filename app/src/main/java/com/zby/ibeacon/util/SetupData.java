@@ -26,27 +26,27 @@ public class SetupData {
 	}
 	public  boolean save(String key, String value) {
 		editor.putString(key, value);
-		// 亿万不要忘了加commit呐~~~！！！！
+		// 浜夸竾涓嶈蹇樹簡鍔燾ommit鍛悀~~锛侊紒锛侊紒
 		return editor.commit();
 	}
 	public  boolean saveboolean(String key, boolean bo) {
 		editor.putBoolean(key, bo);
-		// 亿万不要忘了加commit呐~~~！！！！
+		// 浜夸竾涓嶈蹇樹簡鍔燾ommit鍛悀~~锛侊紒锛侊紒
 		return editor.commit();
 	}
 	public  boolean saveInt(String key, int i) {
 		editor.putInt(key, i);
-		// 亿万不要忘了加commit呐~~~！！！！
+		// 浜夸竾涓嶈蹇樹簡鍔燾ommit鍛悀~~锛侊紒锛侊紒
 		return editor.commit();
 	}
 	public  boolean saveLong(String key, Long i) {
 		editor.putLong(key, i);
-		// 亿万不要忘了加commit呐~~~！！！！
+		// 浜夸竾涓嶈蹇樹簡鍔燾ommit鍛悀~~锛侊紒锛侊紒
 		return editor.commit();
 	}
 	public  boolean saveDouble(String key, double d) {
 		editor.putFloat(key, (float) d);
-		// 亿万不要忘了加commit呐~~~！！！！
+		// 浜夸竾涓嶈蹇樹簡鍔燾ommit鍛悀~~锛侊紒锛侊紒
 		return editor.commit();
 	}
 

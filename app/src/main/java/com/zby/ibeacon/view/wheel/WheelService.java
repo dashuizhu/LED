@@ -20,14 +20,14 @@ public class WheelService {
 	 * @param select
 	 * @param name
 	 * @param textSize
-	 * @param density  ÆÁÄ»µÄÃÜ¶È ¡£ 1920* 1080µÄÃÜ¶ÈÊÇ  3.0£¬   
+	 * @param density  å±å¹•çš„å¯†åº¦ ã€‚ 1920* 1080çš„å¯†åº¦æ˜¯  3.0ï¼Œ   
 	 * @return
 	 */
 	public static WheelView getBinInt(Context context,int max,int min,int select,String name,int textSize, float density) {
 		WheelView minus = new WheelView(context);
 		
-		//ÉèÖÃ×ÖÌå×î´óÖµ£¬
-		Log.v("wheelService" ,"×ÖÌå´óÐ¡"+ textSize +" " + density );
+		//è®¾ç½®å­—ä½“æœ€å¤§å€¼ï¼Œ
+		Log.v("wheelService" ,"å­—ä½“å¤§å°"+ textSize +" " + density );
 		int maxSize = 20 + (int) (20*density);
 		if(textSize>maxSize) textSize=maxSize;
 		

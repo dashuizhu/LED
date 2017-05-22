@@ -65,8 +65,8 @@ public class ViewPageGroupActivity extends ActivityGroup {
 		
 		 Intent intent = new Intent(this, ViewPagerLightActivity.class);
 		 list.add(getView("0", intent));
-	        Intent intent2 = new Intent(this, ViewPagerSceneActivity.class);
-	        list.add(getView("1", intent2));
+	        //Intent intent2 = new Intent(this, ViewPagerSceneActivity.class);
+	        //list.add(getView("1", intent2));
 	        Intent intent3 = new Intent(this, ViewPagerSettingActivity.class);
 	        list.add(getView("2", intent3));
 	        
@@ -187,12 +187,13 @@ public class ViewPageGroupActivity extends ActivityGroup {
 			break;
 		}
 		for(int i=0;i<list.size();i++) {
+			BaseActivity baseActivity = ((BaseActivity) manager.getActivity(""+i));
+			if (baseActivity==null) continue;
 			if(i==position) {
-				((BaseActivity) manager.getActivity(""+i)).onStart();
-				((BaseActivity) manager.getActivity(""+i)).onResume();
+				baseActivity.onStart();
+				baseActivity.onResume();
 			} else {
-				((BaseActivity) manager.getActivity(""+i)).onStop();
-				
+				baseActivity.onStop();
 			}
 		}
 	}

@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+@Deprecated
 public class ViewPageActivity extends Activity {
 
 	private ViewPager viewPager;
@@ -60,8 +61,8 @@ public class ViewPageActivity extends Activity {
 		
 		 Intent intent = new Intent(this, ViewPagerLightActivity.class);
 		 list.add(getView("0", intent));
-	        Intent intent2 = new Intent(this, ViewPagerSceneActivity.class);
-	        list.add(getView("1", intent2));
+	        //Intent intent2 = new Intent(this, ViewPagerSceneActivity.class);
+	        //list.add(getView("1", intent2));
 	        Intent intent3 = new Intent(this, ViewPagerSettingActivity.class);
 	        list.add(getView("2", intent3));
 	        

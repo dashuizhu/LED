@@ -3,53 +3,56 @@ package com.zby.ibeacon.constants;
 public class AppConstants {
 	
 	/**
-	 * ÊÇ·ñÊÇÎŞÓ²¼şÑİÊ¾°æ
+	 * æ˜¯å¦æ˜¯æ— ç¡¬ä»¶æ¼”ç¤ºç‰ˆ
 	 */
-	public final static boolean isDemo  = false;
+	public final static boolean isDemo  = true;
 	
 	/**
-	 * seekbar »¬¶¯¼ä¸ôÊ±¼ä £¬ µ¥Î»ºÁÃë
+	 * seekbar æ»‘åŠ¨é—´éš”æ—¶é—´ ï¼Œ å•ä½æ¯«ç§’
 	 */
 	public final static int delaySeekTime = 50;
 	
 	/**
-	 * Êı¾İ¼äµÄ¼ä¸ôÊ±¼ä µ¥Î»ºÁÃë
+	 * æ•°æ®é—´çš„é—´éš”æ—¶é—´ å•ä½æ¯«ç§’
 	 */
 	public final static int delayTime = 200;
 	
 	/**
-	 * ÃÜÂëĞ£Ñé³¬Ê±Ê±¼ä  µ¥Î»ºÁÃë
+	 * å¯†ç æ ¡éªŒè¶…æ—¶æ—¶é—´  å•ä½æ¯«ç§’
 	 */
 	public final static int PasswordCheckTimeOut = 3000;
 	
 	/**
-	 * ×Ö·û´®·¢ËÍµ½Ó²¼ş ½»»¥¹ı³ÌÖĞ µÄ  ±àÂë¸ñÊ½£¬
+	 * å­—ç¬¦ä¸²å‘é€åˆ°ç¡¬ä»¶ äº¤äº’è¿‡ç¨‹ä¸­ çš„  ç¼–ç æ ¼å¼ï¼Œ
 	 */
 	public final static String charSet = "GBK";
 
-	public final static int Color_max = 6510;
-	public final static int Color_min = 2715;
-	public final static int Color_step = 15;
-	public static final int Color_range = 253; // ( max-min) / step
+	//public final static int Color_max = 6510;
+	//public final static int Color_min = 2715;
+	//public final static int Color_step = 15;
+	//public static final int Color_range = 253; // ( max-min) / step
 
 	/**
-	 * Ãû×ÖµÄ×î³¤×Ö½ÚÊı
+	 * åå­—çš„æœ€é•¿å­—èŠ‚æ•°
 	 */
 	public static int name_maxLength = 18;
 	
 	/**
-	 * ÃÜÂë³¤¶È
+	 * å¯†ç é•¿åº¦
 	 */
 	public static int password_length = 6;
 	
 	/**
-	 * GridViewÄ¬ÈÏÒ»ĞĞÏÔÊ¾¸öÊı
+	 * GridViewé»˜è®¤ä¸€è¡Œæ˜¾ç¤ºä¸ªæ•°
 	 */
 	public static int gridView_numColums = 3;
 	
-	//Ä¬ÈÏÖµ
+	//é»˜è®¤å€¼
 	public static int default_brightness = 50;
 	public static int default_colorYellow = 100;
 
-
+	/**
+	 * é»˜è®¤listå€¼
+	 */
+	public static int default_scene_size = 2;
 }

@@ -10,15 +10,15 @@ public class TimingBean implements Serializable {
 	
 	private String name;
 	
-	private boolean enable;//是否启用
+	private boolean enable;//鏄惁鍚敤
 	
-	private boolean delete;//删除
+	private boolean delete;//鍒犻櫎
 	
-	private int brightness;//亮度
+	private int brightness;//浜害
 	
-	private int colorYellow; //色温
+	private int colorYellow; //鑹叉俯
 	
-	private int mode;//情景模式
+	private int mode;//鎯呮櫙妯″紡
 	
 	private int year;
 	private int month;
@@ -50,9 +50,9 @@ public class TimingBean implements Serializable {
 	public void setBrightness(int brightness) {
 		this.brightness = brightness;
 	}
-	public int getColor() {
-		return  AppConstants.Color_min + colorYellow * AppConstants.Color_step;
-	}
+	//public int getColor() {
+	//	return  AppConstants.Color_min + colorYellow * AppConstants.Color_step;
+	//}
 	public int getMode() {
 		return mode;
 	}
@@ -117,9 +117,9 @@ public class TimingBean implements Serializable {
 		this.colorYellow = colorYellow;
 	}
 	
-	public int getColorWhite() {
-		return AppConstants.Color_range - getColorYellow();
-		}
+	//public int getColorWhite() {
+	//	return AppConstants.Color_range - getColorYellow();
+	//	}
 	
 
 }

@@ -130,7 +130,7 @@ public class SceneModeSqlService {
 		while (mCursor.moveToNext()) {
 			list.add(cursor2bin(mCursor));
 		}
-		if(list.size()!=4) {
+		if(list.size()!= AppConstants.default_scene_size) {
 			list.clear();
 			List<SceneModeBean> defaultList = SceneBeanManager.loadDefaultScene(mContext);
 			mSqLiteDatabase.beginTransaction();
@@ -184,8 +184,8 @@ public class SceneModeSqlService {
 		bin.setId(mCursor.getInt(mCursor.getColumnIndex(SceneModeTable.Id)));
 		bin.setName(mCursor.getString(mCursor.getColumnIndex(SceneModeTable.Name)));
 		bin.setMac(mCursor.getString(mCursor.getColumnIndex(SceneModeTable.Mac)));
-		bin.setColorYellow((mCursor.getInt(mCursor.getColumnIndex(SceneModeTable.Color)) - AppConstants.Color_min ) / AppConstants.Color_step);
-		bin.setBrightness(mCursor.getInt(mCursor.getColumnIndex(SceneModeTable.Brightness)));
+		bin.setMixBirght((mCursor.getInt(mCursor.getColumnIndex(SceneModeTable.Color))));
+		bin.setRedBright(mCursor.getInt(mCursor.getColumnIndex(SceneModeTable.Brightness)));
 		bin.setImage(mCursor.getString(mCursor.getColumnIndex(SceneModeTable.Image)));
 		bin.setDeleteable(mCursor.getInt(mCursor.getColumnIndex(SceneModeTable.DeleteAble))==1);
 		return bin;
@@ -196,8 +196,8 @@ public class SceneModeSqlService {
 		values.put(SceneModeTable.Name, bin.getName());
 		values.put(SceneModeTable.Mac, bin.getMac());
 		values.put(SceneModeTable.Image, bin.getImage());
-		values.put(SceneModeTable.Color, bin.getColor());
-		values.put(SceneModeTable.Brightness, bin.getBrightness());
+		values.put(SceneModeTable.Color, bin.getMixBirght());
+		values.put(SceneModeTable.Brightness, bin.getRedBright());
 		values.put(SceneModeTable.DeleteAble, bin.isDeleteable()?1:0);
 		return values;
 	}

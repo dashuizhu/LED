@@ -21,9 +21,9 @@ import android.widget.TextView;
 /**
  * @author Administrator
  * 
- * @2015-6-3 @timeÏÂÎç11:36:01
+ * @2015-6-3 @timeä¸‹åˆ11:36:01
  * 
- *           Éè±ğÁĞ±í½çÃæ
+ *           è®¾åˆ«åˆ—è¡¨ç•Œé¢
  */
 public class DeviceAdapter extends BaseAdapter {
 
@@ -173,12 +173,12 @@ public class DeviceAdapter extends BaseAdapter {
 		private Button btn_edit;
 		private Button btn_switch;
 		private Button btn_delete;
-		private LinearLayout layout_control;// ÊôĞÔ¿ØÖÆ
+		private LinearLayout layout_control;// å±æ€§æ§åˆ¶
 
 	}
 
 	/**
-	 * µã»÷¼àÌıÊÂ¼ş
+	 * ç‚¹å‡»ç›‘å¬äº‹ä»¶
 	 * @author Administrator
 	 *
 	 */

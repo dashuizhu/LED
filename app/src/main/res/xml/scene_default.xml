@@ -20,15 +20,15 @@
     <!-- 默认的 -->
     <bean
         scene:name="Veg"
-        scene:brightness="50"
-        scene:color="3000"
+        scene:brightness="70"
+        scene:color="100"
         scene:image="local_scene_4"
  	/> 
  	
  	  <bean
         scene:name="Flower"
-        scene:brightness="90"
-        scene:color="6510"
+        scene:brightness="100"
+        scene:color="70"
         scene:image="local_scene_4"
  	/> 
  	

@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -49,7 +48,6 @@ public class TimingDetailActivity extends BaseActivity {
 		cb_enable.setChecked(tbin.isEnable());
 		tv_brightness = (TextView) findViewById(R.id.textView_brightness);
 		tv_color = (TextView) findViewById(R.id.textView_color);
-		sb_color.setMax(AppConstants.Color_range);
 		tv_secneName = (TextView) findViewById(R.id.textView_mode);
 		
 		tbin = (TimingBean) getIntent().getSerializableExtra("timingBean");
@@ -72,7 +70,7 @@ public class TimingDetailActivity extends BaseActivity {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				
+				sb_color.setProgress(0);
 			}
 			
 			@Override
@@ -92,7 +90,7 @@ public class TimingDetailActivity extends BaseActivity {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				
+				sb_brightness.setProgress(0);
 			}
 			
 			@Override
@@ -100,7 +98,7 @@ public class TimingDetailActivity extends BaseActivity {
 					boolean fromUser) {
 				// TODO Auto-generated method stub
 				tbin.setColorYellow(progress);
-				tv_color.setText(getString(R.string.color)+": "+tbin.getColor()+"K");
+				tv_color.setText(getString(R.string.color)+": "+tbin.getColorYellow()+"%");
 			}
 		});
 		
@@ -117,8 +115,8 @@ public class TimingDetailActivity extends BaseActivity {
 		case activity_scene:
 			if(resultCode == Activity.RESULT_OK) {
 				SceneModeBean sbin = (SceneModeBean) data.getSerializableExtra("sceneModeBean");
-				sb_brightness.setProgress(sbin.getBrightness());
-				sb_color.setProgress(sbin.getColorYellow());
+				sb_brightness.setProgress(sbin.getRedBright());
+				sb_color.setProgress(sbin.getMixBirght());
 				tv_secneName.setText(sbin.getName());
 				sceneId = sbin.getId();
 				tbin.setMode(sceneId);

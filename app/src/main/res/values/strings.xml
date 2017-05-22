@@ -55,9 +55,7 @@
     <string name="dialog_delete_info">确认删除设备?</string>
     
     <string name="brightness">RED</string>
-    <string name="brightness1">RED：</string>
     <string name="color">MIX</string>
-    <string name="color1">MIX：</string>
     <string name="timing_max">定时最多5组</string>
     
     <string name="send_success">发送成功</string>

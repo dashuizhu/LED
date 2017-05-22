@@ -6,7 +6,7 @@ import com.zby.ibeacon.constants.AppConstants;
 
 public class SceneModeBean implements Serializable{
 	
-	public static final int type_add = 2;//Ìí¼Ó
+	public static final int type_add = 2;//æ·»åŠ 
 	
 	private int id; 
 	
@@ -14,11 +14,11 @@ public class SceneModeBean implements Serializable{
 	
 	private String name;
 	
-	private int colorYellow;//É«ÎÂ
+	private int mixBirght;//è‰²æ¸©
 	
-	private int brightness;//ÁÁ¶È
+	private int redBright;//äº®åº¦
 	
-	private String image;//Í¼Æ¬
+	private String image;//å›¾ç‰‡
 	
 	private String mac;
 
@@ -38,32 +38,20 @@ public class SceneModeBean implements Serializable{
 		this.name = name;
 	}
 
-	/**
-	 * Êµ¼ÊÓÃ»§¿´µ½µÄ¾ßÌåÊıÖµ£¬  
-	 * @return
-	 */
-	public int getColor() {
-		return AppConstants.Color_min+ colorYellow * AppConstants.Color_step;
+	public void setMixBirght(int color) {
+		this.mixBirght = color;
 	}
 
-	public void setColorYellow(int color) {
-		this.colorYellow = color;
-	}
-
-	public int getColorYellow() {
-		return  this.colorYellow;
+	public int getMixBirght() {
+		return  this.mixBirght;
 	}
 	
-	public int getColorWhite() {
-		return AppConstants.Color_range - colorYellow;
-	}
-	
-	public int getBrightness() {
-		return brightness;
+	public int getRedBright() {
+		return redBright;
 	}
 
-	public void setBrightness(int brightness) {
-		this.brightness = brightness;
+	public void setRedBright(int redBright) {
+		this.redBright = redBright;
 	}
 
 	public String getImage() {
@@ -87,9 +75,9 @@ public class SceneModeBean implements Serializable{
 	}
 	
 	/**
-	 * 0ÊÇÄ¬ÈÏµÄ ²»¿ÉÉ¾³ı
-	 * 1ÊÇ×Ô¶¨ÒåµÄ¿ÉÒÔÉ¾³ı
-	 * 2ÊÇÌí¼Ó°´Å¥
+	 * 0æ˜¯é»˜è®¤çš„ ä¸å¯åˆ é™¤
+	 * 1æ˜¯è‡ªå®šä¹‰çš„å¯ä»¥åˆ é™¤
+	 * 2æ˜¯æ·»åŠ æŒ‰é’®
 	 * @return
 	 */
 	public int getType() {

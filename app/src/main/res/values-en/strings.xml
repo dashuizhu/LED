@@ -45,6 +45,7 @@
     <string name="timing">Timer</string>
     <string name="hijack">Change Password</string>
     <string name="rename">Change Name</string>
+    <string name="timing_enable">Timing enable?</string>
     <string name="secne_setting">Mode Settings</string>
     <string name="select_time">Please select the time!</string>
     <string name="select_scene">Please select the mode!</string>
@@ -62,6 +63,10 @@
     <string name="send_success">Sucessed</string>
     <string name="check_bluetooth">Checking the device or restart bluetooth</string>
      <string name="password_unformat">Input six passwords</string>
-    
-    
+
+    <string name="about_title">江门市上谷智能科技有限公司简介</string>
+
+    <string name="about_content">\t\t\t江门市上谷智能科技有限公司成立于2015年，注册资金1000万，是广东江门一家专业从事室内灯光智能产品设计制造的企业。产品设计理念源于人性化室内灯光产品,目前通过我们公司市场部的推广,产品受到世界各国的喜爱。如英国,西班牙,法国,德国,美国,迪拜和巴西,韩国等30多个国家和地区。经过我们不断改善智能灯光产品的优良配光品质，优雅的智能灯光产品的风格和出色的搭配效果在海外获得了供不应求的大好市场，赢得了大批国内外智能灯具进口商的青睐和首肯。
+        \n\t\t\t通过市场化的运作发展历程，公司始终坚持“创新，品质，服务，节约，敬业，感恩”12字理念。吸收新创意，严把质量关口，全方位的服务跟踪，坚持做出高品质产品。本着“追求、员工、技术、精神、利益”10字宗旨。现拥有一批精干的管理人员和一支高素质的专业技术队伍，舒适优雅的办公环境和拥有60多亩的全新现代化标准厂房。我们以质量为生命、时间为信誉、价格为竞争力的经营信念，立足于珠江三角洲。</string>
+
 </resources>

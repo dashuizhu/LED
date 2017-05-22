@@ -37,7 +37,7 @@ public class DialogSceneListActivity extends Activity {
 
 		FragmentManager fm = getFragmentManager();
 		FragmentTransaction transaction = fm.beginTransaction();
-		fragment = new FragmentSceneList(list,new android.widget.AdapterView.OnItemClickListener() {
+		fragment = FragmentSceneList.getInstance(list,new android.widget.AdapterView.OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,

@@ -47,13 +47,13 @@ public class NumericWheelListAdapter implements WheelAdapter {
 	/**
 	 * Default constructor
 	 */
-//	public NumericWheelListAdapter(int haspre) {//1ÓĞÑ¹Á¦£¬2ÎŞÑ¹Á¦£¬µÍÎÂ£¬3ÎŞÑ¹Á¦¸ßÎÂ      //4  DIYminute 0£¬5-60
+//	public NumericWheelListAdapter(int haspre) {//1æœ‰å‹åŠ›ï¼Œ2æ— å‹åŠ›ï¼Œä½æ¸©ï¼Œ3æ— å‹åŠ›é«˜æ¸©      //4  DIYminute 0ï¼Œ5-60
 //		if (haspre == 1) {
 //			this.items = preitems;
 //		}else {
-//			if (haspre == 2) {//µÍÎÂ¶Î
+//			if (haspre == 2) {//ä½æ¸©æ®µ
 //				this.items = nopreitemslow;	
-//			}else if (haspre == 3) {//¸ßÎÂ¶Î
+//			}else if (haspre == 3) {//é«˜æ¸©æ®µ
 //				this.items = nopreitemshigh;
 //			}else if (haspre ==4) {
 //				this.items = minuteItems;

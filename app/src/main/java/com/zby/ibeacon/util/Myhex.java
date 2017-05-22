@@ -11,10 +11,10 @@ public class Myhex {
 		showByte(buffer2);
 	}
 	
-	// ½«Ê®Áù½øÖÆÀàĞÍ×Ö·û´® ×ª»»Îªbyte[]
+	// å°†åå…­è¿›åˆ¶ç±»å‹å­—ç¬¦ä¸² è½¬æ¢ä¸ºbyte[]
 	public static byte[] hexStringToByte(String hex) {
-		hex = hex.replace(" ", "");// È¥¿Õ¸ñ
-		hex = hex.toUpperCase();// ¸ÄÎª´óĞ´
+		hex = hex.replace(" ", "");// å»ç©ºæ ¼
+		hex = hex.toUpperCase();// æ”¹ä¸ºå¤§å†™
 		int len = (hex.length() / 2);
 		byte[] result = new byte[len];
 		char[] achar = hex.toCharArray();
@@ -45,20 +45,20 @@ public class Myhex {
 
 	}
 
-	// ÕûÀí16½øÖÆÊı
+	// æ•´ç†16è¿›åˆ¶æ•°
 	private static String trim(String str) {
-		if (str.length() == 8) {// È¥µô²¹Î»µÄf
+		if (str.length() == 8) {// å»æ‰è¡¥ä½çš„f
 			str = str.substring(6);
 		}
 		if (str.length() == 1) {
-			str = "0" + str;// ²¹0
+			str = "0" + str;// è¡¥0
 		}
 		return str;
 	}
 
 	public static boolean vali16Str(String str) {
 		str=str.toUpperCase();
-		str = str.replace(" ", "");// È¥¿Õ¸ñ
+		str = str.replace(" ", "");// å»ç©ºæ ¼
 		String s = "0123456789ABCDEF";
 		for (int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
@@ -97,7 +97,7 @@ public class Myhex {
 	}
 	
 	/**
-	 * È¥³ıstringÖĞµÄ  ¿Õ¸ñ »»ĞĞ
+	 * å»é™¤stringä¸­çš„  ç©ºæ ¼ æ¢è¡Œ
 	 * @param str
 	 * @return
 	 */

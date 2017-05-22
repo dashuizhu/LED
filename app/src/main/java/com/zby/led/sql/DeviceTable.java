@@ -6,15 +6,15 @@ public class DeviceTable {
 	
 	
 	protected static final String Id = "id";
-	protected static final String Name="name";//Ãû×Ö
-	protected static final String Mac = "mac";//ËùÊôÓÚµÄÉè±¸
-	protected static final String Password = "password";//É«ÎÂ
-	protected static final String Image = "image";//Í¼Æ¬
-	protected static final String OldBrightness = "oldBrightness";//ÉÏ´Î¿ØÖÆµÄÁÁ¶ÈÖµ
-	protected static final String OldColorYellow = "oldColorYellow";//ÉÏ´Î¿ØÖÆµÄcolorÖµ
+	protected static final String Name="name";//åå­—
+	protected static final String Mac = "mac";//æ‰€å±äºçš„è®¾å¤‡
+	protected static final String Password = "password";//è‰²æ¸©
+	protected static final String Image = "image";//å›¾ç‰‡
+	protected static final String OldBrightness = "oldBrightness";//ä¸Šæ¬¡æ§åˆ¶çš„äº®åº¦å€¼
+	protected static final String OldColorYellow = "oldColorYellow";//ä¸Šæ¬¡æ§åˆ¶çš„colorå€¼
 	
 	/**
-	 * @return sql ½¨±íÓï¾ä
+	 * @return sql å»ºè¡¨è¯­å¥
 	 */
 	protected static final String getTable() {
 		String table = "create Table " + Table_Name + " (" +

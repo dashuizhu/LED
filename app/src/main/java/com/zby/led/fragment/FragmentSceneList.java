@@ -19,7 +19,7 @@ public class FragmentSceneList extends Fragment {
 	
 	private List<SceneModeBean> list;
 	
-	private FragmentSceneList() {}
+	public FragmentSceneList() {}
 	
 	private GridView gridView;
 	private SceneAdapter adapter;
@@ -28,10 +28,12 @@ public class FragmentSceneList extends Fragment {
 	
 	private int checkId;
 	
-	public FragmentSceneList(List<SceneModeBean> list,OnItemClickListener onItemListener, int checkId){
-		this.list = list;
-		this.onItemListener = onItemListener;
-		this.checkId = checkId;
+	public static FragmentSceneList getInstance(List<SceneModeBean> list,OnItemClickListener onItemListener, int checkId){
+		FragmentSceneList fragmentSceneList = new FragmentSceneList();
+		fragmentSceneList.list = list;
+		fragmentSceneList.onItemListener = onItemListener;
+		fragmentSceneList.checkId = checkId;
+		return fragmentSceneList;
 	}
 
 	@Override

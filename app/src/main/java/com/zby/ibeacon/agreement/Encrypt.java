@@ -14,7 +14,7 @@ public class Encrypt {
 	private final static String TAG  = "tag";
 
 	/**
-	 * ½âÃÜ
+	 * è§£å¯†
 	 * @param message
 	 * @param length
 	 * @return 
@@ -32,23 +32,23 @@ public class Encrypt {
 
 	
 	/**
-	 * ¼ÓÃÜ
+	 * åŠ å¯†
 	 * @param message
 	 * @param len
 	 * @return
 	 */
 	public static byte[] sendMessage(byte[] message, int len) {
-		//°ü³¤1+¼ìÑéÎ²°Í1
+		//åŒ…é•¿1+æ£€éªŒå°¾å·´1
 		byte[] sendmsg2 = new byte[len+1];
-		//°ü³¤
+		//åŒ…é•¿
 		sendmsg2[0] = (byte) (len+1);
 	
 	
-		//½«Êı¾İĞ´½ø×Ö·û
+		//å°†æ•°æ®å†™è¿›å­—ç¬¦
 		System.arraycopy(message, 0, sendmsg2, 1, len);
 		
 //		byte checkSum ;
-//		if(len>2) {  //¼ìÑéÎ» = Ğ£ÑéÎ»£º°ü³ª^ÃüÁî^Êı¾İÇøÓò×îºóÁ½×Ö½Ú£¨Êı¾İÇøÓò²»×ãÁ½×Ö½Ú²¹0£©
+//		if(len>2) {  //æ£€éªŒä½ = æ ¡éªŒä½ï¼šåŒ…å”±^å‘½ä»¤^æ•°æ®åŒºåŸŸæœ€åä¸¤å­—èŠ‚ï¼ˆæ•°æ®åŒºåŸŸä¸è¶³ä¸¤å­—èŠ‚è¡¥0ï¼‰
 //			checkSum = (byte) (sendmsg2[0] ^ message[0] ^ message[len-2] ^ message[len-1]);
 //		} else if(len == 2) {
 //			checkSum = (byte) (sendmsg2[0] ^ message[0] ^ message[1] ^ (byte)0x00);
@@ -60,8 +60,8 @@ public class Encrypt {
 	}
 
 	/**
-	 * @param b ×Ö½Ú
-	 * @return  ×Ö½Ú×ªint
+	 * @param b å­—èŠ‚
+	 * @return  å­—èŠ‚è½¬int
 	 */
 	private static int byteToUnsigned(byte b) {
 		int iout = 0;
@@ -82,21 +82,21 @@ public class Encrypt {
 ////		 buffer= CmdDataPackage.getReadBuffer(5);
 ////		test(buffer);
 ////			
-////		buffer= CmdDataPackage.getDeviceNameControl("asdfÌìÌìÉúÆø");
+////		buffer= CmdDataPackage.getDeviceNameControl("asdfå¤©å¤©ç”Ÿæ°”");
 ////			test(buffer);
 ////			byte[] nameBuffer= new byte[buffer.length-2];
 ////			System.arraycopy(buffer, 2, nameBuffer, 0, nameBuffer.length);
 ////			String str;
 ////			try {
 ////				str = new String(nameBuffer,"utf-8");
-////				System.out.println("½âÎöµÄÃû×Ö  "+str);
+////				System.out.println("è§£æçš„åå­—  "+str);
 ////			} catch (UnsupportedEncodingException e) {
 ////				// TODO Auto-generated catch block
 ////				e.printStackTrace();
 ////			}
 //			
 //			
-//			byte[] nameBuffer = "ÌìÌì".getBytes();
+//			byte[] nameBuffer = "å¤©å¤©".getBytes();
 //			byte[] buffer = new byte[20];
 //			buffer[0] = (byte) 0xFF;
 //			buffer[1] = (byte) 0xF0;
@@ -109,7 +109,7 @@ public class Encrypt {
 //			
 //			byte[] command1 = new byte[17];
 //			System.arraycopy(buffer, 3, command1, 0, command1.length);
-//			System.out.println("Êä³ö"+Myhex.buffer2String(command1));
+//			System.out.println("è¾“å‡º"+Myhex.buffer2String(command1));
 //			String str;
 //				str = new String(nameBuffer);
 //				System.out.println(str);
@@ -121,9 +121,9 @@ public class Encrypt {
 //		System.out.println("----------------");
 //		System.out.println(Myhex.buffer2String(buffer));
 //		byte[] addBuffer = sendMessage(buffer, buffer.length);
-//		System.out.println("¼ÓÃÜ"+Myhex.buffer2String(addBuffer));
+//		System.out.println("åŠ å¯†"+Myhex.buffer2String(addBuffer));
 //		byte[] parseBuffer = ProcessCommand(addBuffer, addBuffer.length);
-//		System.out.println("½âÎö"+Myhex.buffer2String(parseBuffer));
+//		System.out.println("è§£æ"+Myhex.buffer2String(parseBuffer));
 //		
 //		
 //	}

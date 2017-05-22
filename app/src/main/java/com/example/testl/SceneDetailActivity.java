@@ -37,7 +37,6 @@ public class SceneDetailActivity extends BaseActivity {
 		btn_delete = (Button) findViewById(R.id.button_delete);
 		sb_brightness = (SeekBar) findViewById(R.id.seekBar_brightness);
 		sb_color = (SeekBar) findViewById(R.id.seekBar_color);
-		sb_color.setMax(AppConstants.Color_range);
 		tv_brightness = (TextView) findViewById(R.id.textView_brightness);
 		tv_color = (TextView) findViewById(R.id.textView_color);
 		
@@ -94,13 +93,13 @@ public class SceneDetailActivity extends BaseActivity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
-				sbin.setColorYellow(progress);
-				tv_color.setText(getString(R.string.color)+": "+sbin.getColor()+"K");
+				sbin.setMixBirght(progress);
+				tv_color.setText(getString(R.string.color)+": "+sbin.getMixBirght()+"%");
 			}
 		});
 		
-		sb_brightness.setProgress(sbin.getBrightness());
-		sb_color.setProgress(sbin.getColorYellow());
+		sb_brightness.setProgress(sbin.getRedBright());
+		sb_color.setProgress(sbin.getMixBirght());
 	}
 	
 	public void onBtnClick(View v) {
@@ -133,8 +132,8 @@ public class SceneDetailActivity extends BaseActivity {
 				return;
 			}
 				sbin.setName(name);
-				sbin.setBrightness(sb_brightness.getProgress());
-				sbin.setColorYellow(sb_color.getProgress());
+				sbin.setRedBright(sb_brightness.getProgress());
+				sbin.setMixBirght(sb_color.getProgress());
 				Intent intent = getIntent();
 				intent.putExtra("scedeModeBean", sbin);
 				setResult(Activity.RESULT_OK, intent );

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.smartmini.zby.testl"
-        minSdkVersion 17
+        minSdkVersion 18
         targetSdkVersion 21
     }
 

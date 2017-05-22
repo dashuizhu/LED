@@ -25,7 +25,7 @@ public class MyImage {
 
 	}
 
-	// Í¼Æ¬½âÂë »òÕß Ìá¸ßÏñËØ
+	// å›¾ç‰‡è§£ç  æˆ–è€… æé«˜åƒç´ 
 	public static Bitmap decodeFile(String pathName, int dstWidth,
 			int dstHeight, ScalingLogic scalingLogic) {
 
@@ -73,7 +73,7 @@ public class MyImage {
 
 	}
 
-	// Ëõ·ÅÍ¼Æ¬
+	// ç¼©æ”¾å›¾ç‰‡
 	public static Bitmap zoomBitmap(Bitmap bitmap, int w, int h) {
 		if (bitmap == null) {
 			return null;
@@ -96,7 +96,7 @@ public class MyImage {
 	}
 
 	/**
-	 * Ğı×ªÍ¼Æ¬
+	 * æ—‹è½¬å›¾ç‰‡
 	 * 
 	 * @param bmpOrg
 	 * @param rotate
@@ -104,29 +104,29 @@ public class MyImage {
 	 */
 	public static Bitmap getRotateBitmap(
 			Bitmap bmpOrg, int rotate) {
-		// »ñÈ¡Í¼Æ¬µÄÔ­Ê¼µÄ´óĞ¡
+		// è·å–å›¾ç‰‡çš„åŸå§‹çš„å¤§å°
 		int width = bmpOrg.getWidth();
 		int height = bmpOrg.getHeight();
 
 		//int newWidth = 300;
 		//int newheight = 300;
-		// ¶¨ÒåËõ·ÅµÄ¸ßºÍ¿íµÄ±ÈÀı
+		// å®šä¹‰ç¼©æ”¾çš„é«˜å’Œå®½çš„æ¯”ä¾‹
 		//float sw = ((float) newWidth) / width;
 		//float sh = ((float) newheight) / height;
-		// ´´½¨²Ù×÷Í¼Æ¬µÄÓÃµÄMatrix¶ÔÏó
+		// åˆ›å»ºæ“ä½œå›¾ç‰‡çš„ç”¨çš„Matrixå¯¹è±¡
 		android.graphics.Matrix matrix = new android.graphics.Matrix();
-		// Ëõ·Å·­×ªÍ¼Æ¬µÄ¶¯×÷
-		// sw shµÄ¾ø¶ÔÖµÎªÕÀ·Å¿í¸ßµÄ±ÈÀı£¬swÎª¸ºÊı±íÊ¾X·½Ïò·­×ª£¬shÎª¸ºÊı±íÊ¾Y·½Ïò·­×ª
+		// ç¼©æ”¾ç¿»è½¬å›¾ç‰‡çš„åŠ¨ä½œ
+		// sw shçš„ç»å¯¹å€¼ä¸ºç»½æ”¾å®½é«˜çš„æ¯”ä¾‹ï¼Œswä¸ºè´Ÿæ•°è¡¨ç¤ºXæ–¹å‘ç¿»è½¬ï¼Œshä¸ºè´Ÿæ•°è¡¨ç¤ºYæ–¹å‘ç¿»è½¬
 		//matrix.postScale(sw, sh);
-		// Ğı×ª30*
+		// æ—‹è½¬30*
 		matrix.postRotate(rotate);
-		// ´´½¨Ò»¸öĞÂµÄÍ¼Æ¬
+		// åˆ›å»ºä¸€ä¸ªæ–°çš„å›¾ç‰‡
 		android.graphics.Bitmap resizeBitmap = android.graphics.Bitmap
 				.createBitmap(bmpOrg, 0, 0, width, height, matrix, true);
 		return resizeBitmap;
 	}
 
-	// ½«Drawable×ª»¯ÎªBitmap
+	// å°†Drawableè½¬åŒ–ä¸ºBitmap
 	public static Bitmap drawableToBitmap(Drawable drawable) {
 		if (drawable == null) {
 			return null;
@@ -143,7 +143,7 @@ public class MyImage {
 
 	}
 
-	// »ñµÃÔ²½ÇÍ¼Æ¬µÄ·½·¨
+	// è·å¾—åœ†è§’å›¾ç‰‡çš„æ–¹æ³•
 	public static Bitmap getRoundedCornerBitmap(String path, float roundPx) {
 		Bitmap bitmap = getBitmap2SDK(path);
 		return getRoundedCornerBitmap(bitmap, roundPx);
@@ -174,7 +174,7 @@ public class MyImage {
 		return output;
 	}
 
-	// »ñµÃ´øµ¹Ó°µÄÍ¼Æ¬·½·¨
+	// è·å¾—å¸¦å€’å½±çš„å›¾ç‰‡æ–¹æ³•
 	public static Bitmap createReflectionImageWithOrigin(Bitmap bitmap) {
 		if (bitmap == null) {
 			return null;
@@ -213,7 +213,7 @@ public class MyImage {
 		return bitmapWithReflection;
 	}
 
-	// ´ÓSDK¿¨ÉÏ»ñÈ¡Í¼Æ¬
+	// ä»SDKå¡ä¸Šè·å–å›¾ç‰‡
 	public static Bitmap getBitmap2SDK(String path) {
 		try {
 
@@ -283,7 +283,7 @@ public class MyImage {
 	
 	
 	
-	// Í¼Æ¬½âÂë »òÕß Ìá¸ßÏñËØ
+	// å›¾ç‰‡è§£ç  æˆ–è€… æé«˜åƒç´ 
 		public static BitmapDrawable decodeFileBitmapDrawable(Resources  res,int id, int dstWidth,
 				int dstHeight, ScalingLogic scalingLogic) {
 

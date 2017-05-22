@@ -24,9 +24,9 @@ import android.widget.TextView;
 /**
  * @author Administrator
  * 
- * @2015-6-3 @time下午11:36:01
+ * @2015-6-3 @time涓嬪崍11:36:01
  * 
- *           设别列表界面
+ *           璁惧埆鍒楄〃鐣岄潰
  */
 public class TimingAdapter extends BaseAdapter {
 
@@ -85,7 +85,7 @@ public class TimingAdapter extends BaseAdapter {
 			return null;
 		final TimingBean bin = list.get(position);
 		mHolder.tv_name.setText(bin.getTimeString());
-		mHolder.tv_color.setText(bin.getBrightness()+"%\n"+bin.getColor()+"K");
+		mHolder.tv_color.setText("Red:" +bin.getBrightness()+"%\n"+ "Mix:" + bin.getColorYellow()+"%");
 		mHolder.tv_date.setText(bin.getDateString());
 		mHolder.btn_enable.setSelected(bin.isEnable());
 		mHolder.btn_enable.setOnClickListener(new OnClickListener() {

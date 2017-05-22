@@ -86,7 +86,7 @@ public class ViewPagerSceneActivity extends BaseActivity {
 						bean = list.get(arg2);
 						bin.setNowSceneId(bean.getId());
 						adapter.notifyDataSetChanged();
-						bin.writeAgreement(CmdPackage.setD1Control(bean.getBrightness(), bean.getColorYellow()));
+						bin.writeAgreement(CmdPackage.setD1Control(bean.getRedBright(), bean.getMixBirght()));
 						deviceSqlService.update(bin);
 					}
 				}

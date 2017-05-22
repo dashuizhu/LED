@@ -36,17 +36,17 @@ public class CmdParse implements DataProtocolInterface {
 	}
 
 	public void parseData(byte[] buffer) {
-		Log.i(TAG, "½âÎö " + Myhex.buffer2String(buffer));
+		Log.i(TAG, "è§£æ " + Myhex.buffer2String(buffer));
 		if(buffer==null ) return;
 		String name;
 		byte[] nameBuff;
 		int type;
 		switch (buffer[0]) {
-		case (byte) 0xA0:// ¿ª¹Ø£¬ÁÁ£¬ »Æ£¬ °×
+		case (byte) 0xA0:// å¼€å…³ï¼Œäº®ï¼Œ é»„ï¼Œ ç™½
 			bean.setOnOff(MyByte.byteToInt(buffer[1]) == 1);
 			bean.setBrightness(MyByte.byteToInt(buffer[2]));
 			bean.setColorYellow(MyByte.byteToInt(buffer[3]));
-			// ÕâÀïÓĞÒş»¼£¬ ÕâÀïÊÇËã ×Ö½ÚµÄ 10½øÖÆ
+			// è¿™é‡Œæœ‰éšæ‚£ï¼Œ è¿™é‡Œæ˜¯ç®— å­—èŠ‚çš„ 10è¿›åˆ¶
 						type = MyByte.byteToInt(0xA0);
 						handlerSendBroadcast(type);
 			break;
@@ -54,7 +54,7 @@ public class CmdParse implements DataProtocolInterface {
 			bean.setOnOff(MyByte.byteToInt(buffer[1]) >0);
 			bean.setBrightness(MyByte.byteToInt(buffer[1]));
 			bean.setColorYellow(MyByte.byteToInt(buffer[2]));
-			// ÕâÀïÓĞÒş»¼£¬ ÕâÀïÊÇËã ×Ö½ÚµÄ 10½øÖÆ
+			// è¿™é‡Œæœ‰éšæ‚£ï¼Œ è¿™é‡Œæ˜¯ç®— å­—èŠ‚çš„ 10è¿›åˆ¶
 						type = MyByte.byteToInt(0xD0);
 						handlerSendBroadcast(type);
 			break;
@@ -70,10 +70,10 @@ public class CmdParse implements DataProtocolInterface {
 			bin.setMinute(MyByte.byteToInt(buffer[7]));
 			bin.setBrightness(MyByte.byteToInt(buffer[8]));
 			bin.setColorYellow(MyByte.byteToInt(buffer[9]));
-			if(MyByte.byteToInt(buffer[11]) !=2) { //2ÊÇÉ¾³ıµÄÒâË¼
+			if(MyByte.byteToInt(buffer[11]) !=2) { //2æ˜¯åˆ é™¤çš„æ„æ€
 				bin.setEnable(MyByte.byteToInt(buffer[11])==1);
 				bean.updateTimingBean(bin);
-				// ÕâÀïÓĞÒş»¼£¬ ÕâÀïÊÇËã ×Ö½ÚµÄ 10½øÖÆ
+				// è¿™é‡Œæœ‰éšæ‚£ï¼Œ è¿™é‡Œæ˜¯ç®— å­—èŠ‚çš„ 10è¿›åˆ¶
 				type = MyByte.byteToInt(0xA1);
 				handlerSendBroadcast(type);
 			}
@@ -86,7 +86,7 @@ public class CmdParse implements DataProtocolInterface {
 				name = new String(nameBuff);
 				name = name.replace("0", "");
 				bean.setDevicePassword(name.replace(" ", ""));
-				// ÕâÀïÓĞÒş»¼£¬ ÕâÀïÊÇËã ×Ö½ÚµÄ 10½øÖÆ
+				// è¿™é‡Œæœ‰éšæ‚£ï¼Œ è¿™é‡Œæ˜¯ç®— å­—èŠ‚çš„ 10è¿›åˆ¶
 				type = MyByte.byteToInt(0xA2);
 				handlerSendBroadcast(type);
 			break;
@@ -101,14 +101,14 @@ public class CmdParse implements DataProtocolInterface {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			// ÕâÀïÓĞÒş»¼£¬ ÕâÀïÊÇËã ×Ö½ÚµÄ 10½øÖÆ
+			// è¿™é‡Œæœ‰éšæ‚£ï¼Œ è¿™é‡Œæ˜¯ç®— å­—èŠ‚çš„ 10è¿›åˆ¶
 			type = MyByte.byteToInt(0xA3);
 			handlerSendBroadcast(type);
 			break;
 		}
 	}
 
-	private void handlerSendBroadcast(int type) {// ·¢ËÍ¹ã²¥
+	private void handlerSendBroadcast(int type) {// å‘é€å¹¿æ’­
 		if (mContext != null) {
 			Intent intent = new Intent(
 					ConnectBroadcastReceiver.BROADCAST_ACTION);

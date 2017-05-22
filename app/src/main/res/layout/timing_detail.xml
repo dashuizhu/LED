@@ -129,22 +129,22 @@
         android:paddingTop="@dimen/view_padding"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:text="亮度"></TextView>
-    
-     <SeekBar 
-                android:id="@+id/seekBar_color"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:max="100"
-                android:progress="0"
-                android:thumb="@drawable/img_thumb_yellow"
-                android:maxHeight="2dp"
-                android:progressDrawable="@drawable/seekbar_white2blue"
-                android:layout_marginLeft="@dimen/view_padding"
-                android:layout_marginRight="@dimen/view_padding"
-                android:paddingLeft="@dimen/view_padding"
-                android:paddingRight="@dimen/view_padding"/>
-    
-     <View
+
+    <SeekBar
+        android:id="@+id/seekBar_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/view_padding"
+        android:layout_marginRight="@dimen/view_padding"
+        android:max="100"
+        android:maxHeight="2dp"
+        android:paddingLeft="@dimen/view_padding"
+        android:paddingRight="@dimen/view_padding"
+        android:progress="0"
+        android:progressDrawable="@drawable/seekbar_white2blue"
+        android:thumb="@drawable/img_thumb_yellow" />
+
+    <View
          android:layout_height="match_parent"
          android:layout_weight="1"
          android:layout_width="wrap_content"></View>

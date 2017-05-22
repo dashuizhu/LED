@@ -4,15 +4,15 @@ import android.content.Context;
 
 /**
  * @author Administrator
- * Í¨¹ıÃû×Ö·´Éä»ñµÃ×ÊÔ´id
+ * é€šè¿‡åå­—åå°„è·å¾—èµ„æºid
  */
 public class MyResourceUtil {
 
     /**
-     * ·´Éä»ñÈ¡layout.id
+     * åå°„è·å–layout.id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getLayoutId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString, "layout",
@@ -20,10 +20,10 @@ public class MyResourceUtil {
     }
 
     /**
-     * ·´Éä»ñÈ¡String.id
+     * åå°„è·å–String.id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getStringId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString, "string",
@@ -31,10 +31,10 @@ public class MyResourceUtil {
     }
 
     /**
-     * ·´Éä»ñÈ¡Drawable.id
+     * åå°„è·å–Drawable.id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getDrawableId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString,
@@ -42,10 +42,10 @@ public class MyResourceUtil {
     }
 
     /**
-     * ·´Éä»ñÈ¡Style.id
+     * åå°„è·å–Style.id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getStyleId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString,
@@ -53,20 +53,20 @@ public class MyResourceUtil {
     }
 
     /**
-     * ·´Éä»ñÈ¡¿Ø¼şid
+     * åå°„è·å–æ§ä»¶id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString,"id", paramContext.getPackageName());
     }
 
     /**
-     * ·´Éä»ñÈ¡Color.id
+     * åå°„è·å–Color.id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getColorId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString,
@@ -74,10 +74,10 @@ public class MyResourceUtil {
     }
 
     /**
-     * ·´Éä»ñÈ¡Array.id
+     * åå°„è·å–Array.id
      * @param paramContext
      * @param paramString
-     * @return Î´ÕÒµ½ÔªËØ·µ»Ø0
+     * @return æœªæ‰¾åˆ°å…ƒç´ è¿”å›0
      */
     public static int getArrayId(Context paramContext, String paramString) {
         return paramContext.getResources().getIdentifier(paramString,

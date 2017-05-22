@@ -28,11 +28,11 @@ public class MyByte {
 		return trim(Integer.toHexString(b)).toUpperCase();
 	}
 	private static String trim(String str) {
-		if (str.length() == 8) {// È¥µô²¹Î»µÄf
+		if (str.length() == 8) {// å»æ‰è¡¥ä½çš„f
 			str = str.substring(6);
 		}
 		if (str.length() == 1) {
-			str = "0" + str;// ²¹0
+			str = "0" + str;// è¡¥0
 		}
 		return str;
 	}
@@ -108,7 +108,7 @@ public class MyByte {
 		}
 		return d;
 	}
-	//0Îª×î¶¥Îª 7Îª×î¸ßÎ»
+	//0ä¸ºæœ€é¡¶ä¸º 7ä¸ºæœ€é«˜ä½
 	public static int getOne(int data,int index){
 		List<Integer> list=getList(data);
 		return list.get(index);

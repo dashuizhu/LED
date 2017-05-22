@@ -5,14 +5,14 @@ import android.app.Service;
 import android.os.Vibrator;
 
 /**
- * Õğ¶¯
+ * éœ‡åŠ¨
  * @author zj
- * @d2015-5-26 @tÏÂÎç4:15:26
+ * @d2015-5-26 @tä¸‹åˆ4:15:26
  */
 public class VibrateUtils { 
 	/**
 	 * @param activity
-	 * @param milliseconds  Õû¶°Ê±¼ä³¤¶È
+	 * @param milliseconds  æ•´æ ‹æ—¶é—´é•¿åº¦
 	 */
 	public static void Vibrate(final Activity activity, long milliseconds) {
 		Vibrator vib = (Vibrator) activity.getSystemService(Service.VIBRATOR_SERVICE);
@@ -20,9 +20,9 @@ public class VibrateUtils {
 	}
 	/**
 	 * @param activity
-	 * @param pattern ÔÚ³ÌĞòÆğ¶¯ºóµÈ´ı3Ãëºó£¬Õñ¶¯1Ãë£¬ÔÙµÈ´ı2Ãëºó£¬Õñ¶¯5Ãë£¬ÔÙµÈ´ı3Ãëºó£¬Õñ¶¯1Ãë
+	 * @param pattern åœ¨ç¨‹åºèµ·åŠ¨åç­‰å¾…3ç§’åï¼ŒæŒ¯åŠ¨1ç§’ï¼Œå†ç­‰å¾…2ç§’åï¼ŒæŒ¯åŠ¨5ç§’ï¼Œå†ç­‰å¾…3ç§’åï¼ŒæŒ¯åŠ¨1ç§’
      *   long[] pattern = {3000, 1000, 2000, 5000, 3000, 1000}; // OFF/ON/OFF/ON
-	 * @param isRepeat ÊÇ·ñÑ­»·
+	 * @param isRepeat æ˜¯å¦å¾ªç¯
 	 */
 	public static void Vibrate(final Activity activity, long[] pattern,boolean isRepeat) {
 		Vibrator vib = (Vibrator) activity.getSystemService(Service.VIBRATOR_SERVICE);

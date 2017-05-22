@@ -16,9 +16,9 @@ import android.widget.TextView;
 /**
  * @author Administrator
  *
- * @2015-6-3 @time下午11:36:01
+ * @2015-6-3 @time涓嬪崍11:36:01
  * 
- * 设别列表界面
+ * 璁惧埆鍒楄〃鐣岄潰
  */
 public class DeviceScanAdapter extends BaseAdapter{
 	

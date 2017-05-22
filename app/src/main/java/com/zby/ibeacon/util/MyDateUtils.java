@@ -3,7 +3,7 @@ package com.zby.ibeacon.util;
 public class MyDateUtils {
 	
 	/**
-	 * ¸ù¾İÄêÔÂ¼ÆËãµ±ÔÂµÄÌìÊı
+	 * æ ¹æ®å¹´æœˆè®¡ç®—å½“æœˆçš„å¤©æ•°
 	 * @param year
 	 * @param month
 	 * @return
