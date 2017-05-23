@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/text_small"
-                android:text="@string/brightness1"
+                android:text="@string/brightness"
                 android:textColor="@color/white"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
@@ -47,7 +47,7 @@
                 android:paddingBottom="@dimen/view_padding"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/view_padding"
-                android:text="@string/color1"
+                android:text="@string/color"
                 android:textColor="@color/white" />
             
         </RelativeLayout>
@@ -61,6 +61,14 @@
             android:paddingBottom="2dp"
             android:gravity="center_vertical"
             >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_normal"
+                android:paddingRight="@dimen/view_padding"
+                android:textColor="@color/white"
+                android:text="@string/brightness"/>
             
             <Button
                 android:id="@+id/btn_brightness_reduce"
@@ -102,6 +110,14 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_normal"
+                android:textColor="@color/white"
+                android:paddingRight="@dimen/view_padding"
+                android:text="@string/color"/>
             
             <Button
                 android:id="@+id/btn_color_reduce"
@@ -139,6 +155,7 @@
              android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+                 android:layout_marginTop="30dp"
             >
 		        <GridView
 		            android:id="@+id/gridView" 

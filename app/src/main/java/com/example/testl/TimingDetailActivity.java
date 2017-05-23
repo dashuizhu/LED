@@ -70,14 +70,14 @@ public class TimingDetailActivity extends BaseActivity {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				sb_color.setProgress(0);
+				//sb_color.setProgress(0);
 			}
 			
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
-				tv_brightness.setText(getString(R.string.brightness)+": "+progress+"%");
+				tv_brightness.setText(getString(R.string.brightness)+" "+progress+"%");
 			}
 		});
 		sb_color.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -90,7 +90,7 @@ public class TimingDetailActivity extends BaseActivity {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				sb_brightness.setProgress(0);
+				//sb_brightness.setProgress(0);
 			}
 			
 			@Override

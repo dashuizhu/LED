@@ -73,7 +73,7 @@ public class SceneDetailActivity extends BaseActivity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
-				tv_brightness.setText(getString(R.string.brightness)+": "+progress+"%");
+				tv_brightness.setText(getString(R.string.brightness)+" "+progress+"%");
 			}
 		});
 		sb_color.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {

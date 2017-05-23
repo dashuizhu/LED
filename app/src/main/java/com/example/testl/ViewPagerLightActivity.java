@@ -174,8 +174,8 @@ public class ViewPagerLightActivity extends BaseActivity {
     }
 
     private void initData() {
-        tv_brightness.setText(getString(R.string.brightness) + ": " + dbin.getBrightness() + "%");
-        tv_color.setText(getString(R.string.color) + ": " + dbin.getColorYellow() + "%");
+        tv_brightness.setText(getString(R.string.brightness) + " " + dbin.getBrightness() + "%");
+        tv_color.setText(getString(R.string.color) + " " + dbin.getColorYellow() + "%");
         iv_switch.setSelected(dbin.isOnOff());
         sb_brightness.setProgress(dbin.getBrightness());
         sb_color.setProgress(dbin.getColorYellow());
@@ -209,16 +209,16 @@ public class ViewPagerLightActivity extends BaseActivity {
                         break;
                     case handler_status:
                         tv_brightness.setText(
-                                getString(R.string.brightness) + ": " + dbin.getBrightness() + "%");
+                                getString(R.string.brightness) + " " + dbin.getBrightness() + "%");
                         tv_color.setText(
-                                getString(R.string.color) + ": " + dbin.getColorYellow() + "%");
+                                getString(R.string.color) + " " + dbin.getColorYellow() + "%");
                         iv_switch.setSelected(dbin.isOnOff());
                         break;
                     case handler_status_all:
                         tv_brightness.setText(
-                                getString(R.string.brightness) + ": " + dbin.getBrightness() + "%");
+                                getString(R.string.brightness) + " " + dbin.getBrightness() + "%");
                         tv_color.setText(
-                                getString(R.string.color) + ": " + dbin.getColorYellow() + "%");
+                                getString(R.string.color) + " " + dbin.getColorYellow() + "%");
                         iv_switch.setSelected(dbin.isOnOff());
                         sb_brightness.setProgress(dbin.getBrightness());
                         sb_color.setProgress(dbin.getColorYellow());

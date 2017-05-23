@@ -104,7 +104,7 @@
         style="@style/text_small"
         android:paddingTop="@dimen/view_padding"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:text="亮度"></TextView>
+        android:text="@string/brightness"></TextView>
     
     <SeekBar 
                 android:id="@+id/seekBar_brightness"
@@ -128,7 +128,7 @@
         style="@style/text_small"
         android:paddingTop="@dimen/view_padding"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:text="亮度"></TextView>
+        android:text="@string/color"></TextView>
 
     <SeekBar
         android:id="@+id/seekBar_color"

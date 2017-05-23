@@ -211,8 +211,8 @@ public class GetWheelActivity extends BaseActivity {
 		//getMonth是以0开始
 		month = mIntent.getIntExtra("month", d.getMonth()+1);
 		day = mIntent.getIntExtra("day", d.getDate());
-		hour = mIntent.getIntExtra("hour", 8);
-		minute = mIntent.getIntExtra("minute", 0);
+		hour = mIntent.getIntExtra("hour", d.getHours());
+		minute = mIntent.getIntExtra("minute", d.getMinutes());
 
 		wheelView_year.setCurrentItem(year-minYear);
 		wheelView_month.setCurrentItem(month-minMonth);

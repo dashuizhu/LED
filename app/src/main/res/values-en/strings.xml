@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">LIGHT</string>
+    <string name="app_name">Grow Light</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     
@@ -54,10 +54,8 @@
     
     <string name="dialog_delete_info">Confirm remove the device</string>
     
-    <string name="brightness">Red</string>
-    <string name="brightness1">Red:</string>
-    <string name="color">Mix</string>
-    <string name="color1">Mix:</string>
+    <string name="brightness">RED:</string>
+    <string name="color">MIX:</string>
     <string name="timing_max">Timing up to 5 groups</string>
     
     <string name="send_success">Sucessed</string>

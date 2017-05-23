@@ -85,7 +85,12 @@ public class TimingAdapter extends BaseAdapter {
 			return null;
 		final TimingBean bin = list.get(position);
 		mHolder.tv_name.setText(bin.getTimeString());
-		mHolder.tv_color.setText("Red:" +bin.getBrightness()+"%\n"+ "Mix:" + bin.getColorYellow()+"%");
+		StringBuffer sb = new StringBuffer();
+		sb.append(mContext.getString(R.string.brightness));
+		sb.append("% ");
+		sb.append(mContext.getString(R.string.color));
+		sb.append("%");
+		mHolder.tv_color.setText(sb.toString());
 		mHolder.tv_date.setText(bin.getDateString());
 		mHolder.btn_enable.setSelected(bin.isEnable());
 		mHolder.btn_enable.setOnClickListener(new OnClickListener() {
