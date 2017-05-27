@@ -233,22 +233,22 @@ public class DeviceListActivity extends BaseActivity {
 				} else {
 					if(bean.getConnectionInterface()!=null && bean.getConnectionInterface().isLink()) {
 						//没有密码
-						if(bean.getPassword()==null || bean.getPassword().equals("")) {
-							if(bean.getDevicePassword()==null) {
-								bean.writeAgreement(CmdPackage.getReadPassword());
-							}
-							showPasswordDialog(bean);
-						} else {//有密码
-							if(bean.getDevicePassword()==null || bean.getDevicePassword().equals("")) {
-								//读取下位机密码
-								bean.writeAgreement(CmdPackage.getReadPassword());
-							} else if(bean.getDevicePassword().equals(bean.getPassword())) {//密码正确
+						//if(bean.getPassword()==null || bean.getPassword().equals("")) {
+						//	if(bean.getDevicePassword()==null) {
+						//		bean.writeAgreement(CmdPackage.getReadPassword());
+						//	}
+						//	showPasswordDialog(bean);
+						//} else {//有密码
+						//	if(bean.getDevicePassword()==null || bean.getDevicePassword().equals("")) {
+						//		//读取下位机密码
+						//		bean.writeAgreement(CmdPackage.getReadPassword());
+						//	} else if(bean.getDevicePassword().equals(bean.getPassword())) {//密码正确
 								Intent intent =new Intent (DeviceListActivity.this, ViewPageGroupActivity.class);
 								startActivity(intent);
-							} else {//密码不对
-								showPasswordDialog(bean);
-							}
-						} 
+							//} else {//密码不对
+							//	showPasswordDialog(bean);
+							//}
+						//}
 					} else {//没有连接设备
 						showToast(R.string.nolink);
 					}

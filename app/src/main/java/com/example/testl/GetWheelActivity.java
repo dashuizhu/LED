@@ -146,21 +146,21 @@ public class GetWheelActivity extends BaseActivity {
 		
 		int size = layout_hour.getHeight() / wheelTextSize; 
 		
-		wheelView_hour = WheelService.getBinInt(this, maxHour, minHour, 1, "时", size, phone_density);
+		wheelView_hour = WheelService.getBinInt(this, maxHour, minHour, 1, getString(R.string.unit_hour), size, phone_density);
 		layout_hour.addView(wheelView_hour);
 		wheelView_hour.setTextColor(getResources().getColor(R.color.text_red), getResources().getColor(R.color.line_between));
 		//wheelView_hour.setCenterDrawableSourceId(R.drawable.img_layout_wheel);
 		
-		wheelView_minute = WheelService.getBinInt(this, maxMinute, minMinute, 0, "分", size,  phone_density);
+		wheelView_minute = WheelService.getBinInt(this, maxMinute, minMinute, 0, getString(R.string.unit_minute), size,  phone_density);
 		layout_minute.addView(wheelView_minute);
 		
-		wheelView_year = WheelService.getBinInt(this, maxYear, minYear, 0, "年", size,  phone_density);
+		wheelView_year = WheelService.getBinInt(this, maxYear, minYear, 0, getString(R.string.unit_year), size,  phone_density);
 		layout_year.addView(wheelView_year);
 		
-		wheelView_month = WheelService.getBinInt(this, maxMonth, minMonth, 0, "月", size,  phone_density);
+		wheelView_month = WheelService.getBinInt(this, maxMonth, minMonth, 0, getString(R.string.unit_month), size,  phone_density);
 		layout_month.addView(wheelView_month);
 		
-		wheelView_day = WheelService.getBinInt(this, maxDay, minDay, 0, "日", size,  phone_density);
+		wheelView_day = WheelService.getBinInt(this, maxDay, minDay, 0, getString(R.string.unit_day), size,  phone_density);
 		layout_day.addView(wheelView_day);
 	}
 	

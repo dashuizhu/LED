@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dip"
-            android:text="时间设置"
+            android:text="@string/label_time_setting"
             android:textColor="#606060"
             style="@style/text_big"
             android:textSize="20sp" >

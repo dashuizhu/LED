@@ -59,7 +59,7 @@ public class TimingListActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				if(list.size()>=5) {
+				if(list.size()>= AppConstants.TIMING_MAX_SIZE) {
 					showToast(R.string.timing_max);
 					return;
 				}

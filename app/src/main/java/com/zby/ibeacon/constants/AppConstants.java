@@ -5,7 +5,7 @@ public class AppConstants {
 	/**
 	 * 是否是无硬件演示版
 	 */
-	public final static boolean isDemo  = true;
+	public final static boolean isDemo  = false;
 	
 	/**
 	 * seekbar 滑动间隔时间 ， 单位毫秒
@@ -55,4 +55,8 @@ public class AppConstants {
 	 * 默认list值
 	 */
 	public static int default_scene_size = 2;
+	/**
+	 * 最大定时个数
+	 */
+	public static int TIMING_MAX_SIZE = 20;
 }

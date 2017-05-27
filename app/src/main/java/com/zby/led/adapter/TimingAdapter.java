@@ -87,8 +87,10 @@ public class TimingAdapter extends BaseAdapter {
 		mHolder.tv_name.setText(bin.getTimeString());
 		StringBuffer sb = new StringBuffer();
 		sb.append(mContext.getString(R.string.brightness));
+		sb.append(bin.getBrightness());
 		sb.append("% ");
 		sb.append(mContext.getString(R.string.color));
+		sb.append(bin.getColorYellow());
 		sb.append("%");
 		mHolder.tv_color.setText(sb.toString());
 		mHolder.tv_date.setText(bin.getDateString());
