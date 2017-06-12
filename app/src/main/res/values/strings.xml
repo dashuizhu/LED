@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Grow Light</string>
+    <string name="app_name">Cultivate Tech</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     
@@ -45,7 +45,7 @@
     <string name="timing">定时任务</string>
     <string name="hijack">防劫持</string>
     <string name="rename">重命名</string>
-    <string name="timing_enable">是否开启定时</string>
+    <string name="timing_enable">定时</string>
     <string name="secne_setting">情景设置</string>
     <string name="select_time">请选择时间</string>
     <string name="select_scene">请选择情景模式</string>

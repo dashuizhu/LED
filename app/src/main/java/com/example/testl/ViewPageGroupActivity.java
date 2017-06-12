@@ -53,7 +53,7 @@ public class ViewPageGroupActivity extends ActivityGroup {
 	}
 
 	private void initPageViews() {
-		LayoutInflater mInflater = getLayoutInflater();
+		//LayoutInflater mInflater = getLayoutInflater();
 		list = new ArrayList<View>();
 		
 		
@@ -65,8 +65,8 @@ public class ViewPageGroupActivity extends ActivityGroup {
 		
 		 Intent intent = new Intent(this, ViewPagerLightActivity.class);
 		 list.add(getView("0", intent));
-	        //Intent intent2 = new Intent(this, ViewPagerSceneActivity.class);
-	        //list.add(getView("1", intent2));
+	        Intent intent2 = new Intent(this, ViewPagerSceneActivity.class);
+	        list.add(getView("1", intent2));
 	        Intent intent3 = new Intent(this, ViewPagerSettingActivity.class);
 	        list.add(getView("2", intent3));
 	        

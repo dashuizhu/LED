@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Grow Light</string>
+    <string name="app_name">Cultivate Tech</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     
@@ -45,7 +45,7 @@
     <string name="timing">Timer</string>
     <string name="hijack">Change Password</string>
     <string name="rename">Change Name</string>
-    <string name="timing_enable">Timing enable?</string>
+    <string name="timing_enable">Timing</string>
     <string name="secne_setting">Mode Settings</string>
     <string name="select_time">Please select the time!</string>
     <string name="select_scene">Please select the mode!</string>

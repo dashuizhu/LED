@@ -54,7 +54,7 @@ public class TimingDetailActivity extends BaseActivity {
 		if(tbin.getYear()==0) {
 			tv_time.setText(R.string.select_time);
 		} else {
-			tv_time.setText(tbin.getDateString()+ " " + tbin.getTimeString());
+			tv_time.setText( tbin.getTimeString());
 		}
 		sceneId = tbin.getMode();
 		tv_secneName.setText(tbin.getName());
@@ -181,7 +181,8 @@ public class TimingDetailActivity extends BaseActivity {
 	}
 	
 	private void showTime() {
-		tv_time.setText(tbin.getDateString()+" " + tbin.getTimeString());
+		tv_time.setText(
+				tbin.getTimeString());
 	}
 
 }
