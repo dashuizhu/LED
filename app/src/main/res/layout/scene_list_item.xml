@@ -15,8 +15,8 @@
         <TextView
             android:id="@+id/textView_name"
             style="@style/text_small"
-            android:layout_height="90dp"
-            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
             android:background="@drawable/btn_screen"
             android:text="名字"
             android:padding="@dimen/view_padding"

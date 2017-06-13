@@ -109,15 +109,15 @@ public class SceneBeanManager {
 	 */
 	public static int getImageId(Context mContext, SceneModeBean bean) {
 		if(bean.getImage().equals("")){
-			return R.drawable.local_scene_1;
-		} else if(bean.getImage().contains("local_scene_")) {
+			return R.drawable.btn_screen;
+		} else if(bean.getImage().contains("local_scene_add")) {
 			int id = MyResourceUtil.getDrawableId(mContext, bean.getImage());
 			if(id==0) {//本地未找到资源
-				return R.drawable.local_scene_1;
+				return R.drawable.btn_screen;
 			} else {//本地，找到里
 				return id;
 			}
 		}
-		return R.drawable.local_scene_1;
+		return R.drawable.btn_screen;
 	}
 }

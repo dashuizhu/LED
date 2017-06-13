@@ -94,7 +94,7 @@ public class TimingAdapter extends BaseAdapter {
 		sb.append(bin.getColorYellow());
 		sb.append("%");
 		mHolder.tv_color.setText(sb.toString());
-		mHolder.tv_date.setText(bin.getTimeString());
+		//mHolder.tv_date.setText(bin.getTimeString());
 		mHolder.btn_enable.setSelected(bin.isEnable());
 		mHolder.btn_enable.setOnClickListener(new OnClickListener() {
 			

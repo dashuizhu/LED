@@ -70,8 +70,8 @@ public class SceneAdapter extends BaseAdapter {
 			mHolder = (Hodler) convertView.getTag();
 		}
 		final SceneModeBean bin = list.get(position);
-		//mHolder.tv_name.setBackgroundResource(SceneBeanManager.getImageId(
-		//		mContext, bin));
+		mHolder.tv_name.setBackgroundResource(SceneBeanManager.getImageId(
+				mContext, bin));
 		Log.v("tag", this.hashCode() + ":" + bin.getId() + bin.getName()
 				+ " list.size=" + list.size() + " ~~" + position + "~~~` "
 				+ DeviceManager.getInstance().getDeviceBean().getNowSceneId());
