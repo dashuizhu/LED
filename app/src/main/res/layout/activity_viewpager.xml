@@ -43,7 +43,6 @@
             android:padding="@dimen/view_padding"
             android:onClick="onBtnClick"
             android:clickable="true"
-            android:visibility="gone"
             android:drawablePadding="2dp"
             android:drawableTop="@drawable/btn_mode_secne"
             android:text="@string/mode_scene"

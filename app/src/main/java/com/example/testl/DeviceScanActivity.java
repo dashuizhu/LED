@@ -42,7 +42,7 @@ public class DeviceScanActivity extends Activity {
 	 */
 	private final int scan_time = 10000;
 	
-	private final static String filterName = "sogood";
+	private final static String filterName = "cultivatetech";
 	
 	private TextView tv_titie;
 
@@ -227,7 +227,7 @@ public class DeviceScanActivity extends Activity {
 					
 					if(bin.getBluetoothName()==null || bin.getBluetoothName().equals("")) {
 						//在list列表中，原来没名字， 现在又名字，但是不是sogood， 就要删除原来的列表
-						System.out.println("原来没有名字  现在又名字了" + device.getName()   + " "+!device.getName().replace(" ", "").equalsIgnoreCase(filterName));
+						System.out.println("原来没有名字  现在又名字了" + device.getName() );
 						if(device.getName()!=null && !device.getName().replace(" ", "").equalsIgnoreCase(filterName)) {
 							list.remove(i);
 							mHandler.sendEmptyMessage(handler_device_unformat);
