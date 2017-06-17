@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="support-v4-20.0.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/12d3a8650778177748baefa1e11325a25a70fbe3/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/12d3a8650778177748baefa1e11325a25a70fbe3/output/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.android/build-cache/12d3a8650778177748baefa1e11325a25a70fbe3/output/jars/libs/internal_impl-20.0.0.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/fc6a6382ff3be1b020e9917f77b7d89935293df1/output/jars/libs/internal_impl-20.0.0.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/fc6a6382ff3be1b020e9917f77b7d89935293df1/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/fc6a6382ff3be1b020e9917f77b7d89935293df1/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../androidSdk/extras/android/m2repository/com/android/support/support-v4/20.0.0/support-v4-20.0.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/20.0.0/support-v4-20.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
