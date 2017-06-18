@@ -106,20 +106,20 @@ public class ViewPagerLightActivity extends BaseActivity {
                 }
             }
         });
-        //gridView.setOnItemLongClickListener(new OnItemLongClickListener() {
-        //
-        //	@Override
-        //	public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-        //			int arg2, long arg3) {
-        //		// TODO Auto-generated method stub
-        //		synchronized (list) {
-        //				Intent intent = new Intent(ViewPagerLightActivity.this , SceneDetailActivity.class);
-        //				intent.putExtra("sceneModeBean", list.get(arg2));
-        //				getParent().startActivityForResult(intent, activity_scene_update);
-        //		}
-        //		return true;
-        //	}
-        //});
+        gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+        	@Override
+        	public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+        			int arg2, long arg3) {
+        		// TODO Auto-generated method stub
+        		synchronized (list) {
+        				Intent intent = new Intent(ViewPagerLightActivity.this , SceneDetailActivity.class);
+        				intent.putExtra("sceneModeBean", list.get(arg2));
+        				getParent().startActivityForResult(intent, activity_scene_update);
+        		}
+        		return true;
+        	}
+        });
 
         sb_brightness.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
