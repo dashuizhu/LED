@@ -1,6 +1,7 @@
 package com.example.testl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.smartmini.zby.testl.R;
@@ -26,6 +27,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Map;
 
 /**
  * 设备搜索界面
@@ -51,6 +53,8 @@ public class DeviceScanActivity extends Activity {
 	private ListView listView;
 
 	private BluetoothAdapter btAdapter;
+
+	private Map<String ,Long> filter = new HashMap<String, Long>();
 
 	private final static int handler_adapter_refresh = 11;
 	private final static int handler_scan_start = 12;
@@ -197,7 +201,7 @@ public class DeviceScanActivity extends Activity {
 		@Override
 		public void onLeScan(BluetoothDevice arg0, int arg1, byte[] arg2) {
 			// TODO Auto-generated method stub
-			Log.d(TAG,"发现蓝牙设备: " + (arg0.getName() == null ? "" : arg0.getName() )+ " " + arg0.getAddress());
+			Log.d(TAG,"发现蓝牙设备: "+ Thread.currentThread().getName() + " ~~ " + (arg0.getName() == null ? "" : arg0.getName() )+ " " + arg0.getAddress());
 			//if(arg0.getName()!=null  && arg0.getName().replace(" ", "").equalsIgnoreCase(filterName)) {
 			//	foundDevice(arg0, arg1);
 			//} else if(arg0.getName()==null) {
@@ -213,12 +217,19 @@ public class DeviceScanActivity extends Activity {
 	 * @param device
 	 * @param arg1
 	 */
-	private   void foundDevice(BluetoothDevice device, int arg1) {
+	private void foundDevice(BluetoothDevice device, int arg1) {
+		if (filter.containsKey(device.getAddress())) {
+			long delayTime = System.currentTimeMillis() - filter.get(device.getAddress());
+			if (delayTime <1000) {
+				Log.v(TAG, "过滤蓝牙设备 "+ delayTime + " mac: " + device.getAddress());
+				return;
+			}
+		}
+		filter.put(device.getAddress(), System.currentTimeMillis());
+		Log.v(TAG, "对比蓝牙设备  : " + device.getAddress() + " " + device.getName());
 		DeviceBean bin;
-		synchronized (list) {
 			for (int i = 0; i < list.size(); i++) {
 				bin = list.get(i);
-				System.out.println("发比较"+list.size() + "   " + bin.getDeviceAddress() + "---------" + device.getAddress()+"-" +bin.getDeviceAddress().equals(device.getAddress()));
 				if(device.getName()==null || device.getName().equals("")) {
 					System.out.println("faxian ");
 				}
@@ -257,7 +268,6 @@ public class DeviceScanActivity extends Activity {
 			System.out.println("发现添加 " + list.size() + bin.getName()+" " + bin.getDeviceAddress());
 			list.add(bin);
 			mHandler.sendEmptyMessage(handler_adapter_refresh);
-		}
 	}
 
 	@Override
