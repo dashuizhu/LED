@@ -1,6 +1,12 @@
 package com.example.testl;
 
 import android.os.Looper;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildClickListener;
+import com.zby.led.BlueBean;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +35,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * 设备搜索界面
@@ -50,13 +57,14 @@ public class DeviceScanActivity extends Activity {
 
     private List<DeviceBean> list;
     private DeviceScanAdapter adapter;
-    private ListView listView;
+    private RecyclerView listView;
 
     private BluetoothAdapter btAdapter;
 
     private Map<String, Long> filter = new HashMap<String, Long>();
 
     private final static int handler_adapter_refresh = 11;
+    private final static int handler_adapter_update = 17;
     private final static int handler_scan_start = 12;
     private final static int handler_scan_stop = 13;
     /**
@@ -95,18 +103,17 @@ public class DeviceScanActivity extends Activity {
         tv_titie = (TextView) findViewById(R.id.textView_title);
         tv_titie.setText(R.string.scaning);
 
-        listView = (ListView) findViewById(R.id.listView);
+        listView = (RecyclerView) findViewById(R.id.recyclerView);
+        listView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<DeviceBean>();
-        adapter = new DeviceScanAdapter(this, list);
+        adapter = new DeviceScanAdapter(listView);
         listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        adapter.setData(list);
 
-        listView.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                // TODO Auto-generated method stub
+        adapter.setOnItemChildClickListener(new BGAOnItemChildClickListener() {
+            @Override public void onItemChildClick(ViewGroup parent, View childView, int position) {
                 Intent intent = getIntent();
-                DeviceBean bean = list.get(arg2);
+                DeviceBean bean = list.get(position);
                 intent.putExtra("deviceMac", bean.getDeviceAddress());
                 intent.putExtra("deviceName", bean.getBluetoothName());
                 setResult(Activity.RESULT_OK, intent);
@@ -115,11 +122,37 @@ public class DeviceScanActivity extends Activity {
         });
     }
 
+    //private Thread testThread;
+    // //测试刷新效率问题
+    //private void testDevice() {
+    //   testThread = new Thread(new Runnable() {
+    //        @Override public void run() {
+    //            BlueBean db ;
+    //            Random random = new Random();
+    //            for (int i=0; i<20000; i++) {
+    //                db = new BlueBean();
+    //                db.setAddress("01:02:03:04:"+random.nextInt(9)+"0:"+(random.nextInt(9)) + (i%10));
+    //                db.setName(""+i);
+    //                try {
+    //                    Thread.sleep(random.nextInt(3));
+    //                } catch (InterruptedException e) {
+    //                    e.printStackTrace();
+    //                }
+    //                foundDevice(db , i%100);
+    //            }
+    //        }
+    //    });
+    //    testThread.start();
+    //}
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case handler_adapter_refresh:
                     adapter.notifyDataSetChanged();
+                    break;
+                case handler_adapter_update:
+                    adapter.notifyItemChanged(msg.arg1);
                     break;
                 case handler_device_unformat:
 
@@ -130,6 +163,11 @@ public class DeviceScanActivity extends Activity {
             }
         }
     };
+
+    @Override protected void onDestroy() {
+        //testThread.interrupt();
+        super.onDestroy();
+    }
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
@@ -200,29 +238,30 @@ public class DeviceScanActivity extends Activity {
         Log.v(TAG, "对比蓝牙设备  : " + device.getAddress() + " " + device.getName());
         DeviceBean bin;
         // TODO: 2017/6/19 这里加了线程锁，但是会导致卡顿。 不加线程锁，list又与adapter对应不上
-        synchronized (list) {
+        //synchronized (list) {
             for (int i = 0; i < list.size(); i++) {
                 bin = list.get(i);
                 if (bin.getDeviceAddress().equals(device.getAddress())) {
-                    if (bin.getBluetoothName() == null || bin.getBluetoothName().equals("")) {
-                        //在list列表中，原来没名字， 现在又名字，但是不是sogood， 就要删除原来的列表
-                        System.out.println("原来没有名字  现在又名字了" + device.getName());
-                        if (device.getName() != null && !device.getName().replace(" ", "").equalsIgnoreCase(filterName)) {
-                            list.remove(i);
-                            refreshAdapter();
-                            //mHandler.sendEmptyMessage(handler_device_unformat);
-                            //mHandler.sendEmptyMessage(handler_adapter_refresh);
-                        }
-                        return;
-                    }
+                    //if (bin.getBluetoothName() == null || bin.getBluetoothName().equals("")) {
+                    //    //在list列表中，原来没名字， 现在又名字，但是不是sogood， 就要删除原来的列表
+                    //    System.out.println("原来没有名字  现在又名字了" + device.getName());
+                    //    if (device.getName() != null && !device.getName().replace(" ", "").equalsIgnoreCase(filterName)) {
+                    //        list.remove(i);
+                    //        refreshAdapter();
+                    //        //mHandler.sendEmptyMessage(handler_device_unformat);
+                    //        //mHandler.sendEmptyMessage(handler_adapter_refresh);
+                    //    }
+                    //    return;
+                    //}
                     //原来没有名字， 但是现在有名字了， 就更新名字
-                    if (device.getName() != null && !device.getName().equals("")) {
+                    if (!TextUtils.isEmpty(device.getName()) && TextUtils.isEmpty(bin.getBluetoothName())) {
                         bin.setBluetoothName(device.getName());
-                        refreshAdapter();
+                        Message msg = new Message();
+                        msg.what = handler_adapter_update;
+                        msg.arg1 = i;
+                        mHandler.sendMessage(msg);
                         //mHandler.sendEmptyMessage(handler_adapter_refresh);
                     }
-                    //bin.setRSSI(arg1);
-                    //mHandler.sendEmptyMessage(handler_adapter_refresh);
                     return;
                 }
             }
@@ -239,15 +278,16 @@ public class DeviceScanActivity extends Activity {
             System.out.println("发现添加 " + list.size() + bin.getName() + " " + bin.getDeviceAddress());
             list.add(bin);
             refreshAdapter();
-        }
+        //}
     }
 
     private void refreshAdapter() {
-        Looper.prepare();
-        if (adapter != null) {
-            adapter.notifyDataSetChanged();
-        }
-        Looper.loop();
+        mHandler.sendEmptyMessage(handler_adapter_refresh);
+        //Looper.prepare();
+        //if (adapter != null) {
+        //    adapter.notifyDataSetChanged();
+        //}
+        //Looper.loop();
     }
 
     @Override protected void onStart() {

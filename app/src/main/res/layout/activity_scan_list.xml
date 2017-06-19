@@ -46,11 +46,11 @@
         
     </RelativeLayout>
     
-    <ListView
-        android:id="@+id/listView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_weight="1"></ListView>
+        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
     
    
 
