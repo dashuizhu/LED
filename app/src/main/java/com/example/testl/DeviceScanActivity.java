@@ -198,49 +198,45 @@ public class DeviceScanActivity extends Activity {
         filter.put(device.getAddress(), System.currentTimeMillis());
         Log.v(TAG, "对比蓝牙设备  : " + device.getAddress() + " " + device.getName());
         DeviceBean bin;
-        for (int i = 0; i < list.size(); i++) {
-            bin = list.get(i);
-            if (device.getName() == null || device.getName().equals("")) {
-                System.out.println("faxian ");
-            }
-
-            if (bin.getDeviceAddress().equals(device.getAddress())) {
-
-                if (bin.getBluetoothName() == null || bin.getBluetoothName().equals("")) {
-                    //在list列表中，原来没名字， 现在又名字，但是不是sogood， 就要删除原来的列表
-                    System.out.println("原来没有名字  现在又名字了" + device.getName());
-                    if (device.getName() != null && !device.getName()
-                            .replace(" ", "")
-                            .equalsIgnoreCase(filterName)) {
-                        list.remove(i);
-                        mHandler.sendEmptyMessage(handler_device_unformat);
+        // TODO: 2017/6/19 这里加了线程锁，但是会导致卡顿。 不加线程锁，list又与adapter对应不上
+        synchronized (list) {
+            for (int i = 0; i < list.size(); i++) {
+                bin = list.get(i);
+                if (bin.getDeviceAddress().equals(device.getAddress())) {
+                    if (bin.getBluetoothName() == null || bin.getBluetoothName().equals("")) {
+                        //在list列表中，原来没名字， 现在又名字，但是不是sogood， 就要删除原来的列表
+                        System.out.println("原来没有名字  现在又名字了" + device.getName());
+                        if (device.getName() != null && !device.getName().replace(" ", "").equalsIgnoreCase(filterName)) {
+                            list.remove(i);
+                            mHandler.sendEmptyMessage(handler_device_unformat);
+                            mHandler.sendEmptyMessage(handler_adapter_refresh);
+                        }
+                        return;
+                    }
+                    //原来没有名字， 但是现在有名字了， 就更新名字
+                    if (device.getName() != null && !device.getName().equals("")) {
+                        bin.setBluetoothName(device.getName());
                         mHandler.sendEmptyMessage(handler_adapter_refresh);
                     }
+                    bin.setRSSI(arg1);
+                    mHandler.sendEmptyMessage(handler_adapter_refresh);
                     return;
                 }
-                //原来没有名字， 但是现在有名字了， 就更新名字
-                if (device.getName() != null && !device.getName().equals("")) {
-                    bin.setBluetoothName(device.getName());
-                    mHandler.sendEmptyMessage(handler_adapter_refresh);
-                }
-                bin.setRSSI(arg1);
-                mHandler.sendEmptyMessage(handler_adapter_refresh);
-                return;
             }
+            //名字不对的去除
+            //if (device.getName() != null && !device.getName()
+            //        .replace(" ", "")
+            //        .equalsIgnoreCase(filterName)) {
+            //    return;
+            //}
+            bin = new DeviceBean();
+            bin.setBluetoothName(device.getName() == null ? "" : device.getName());
+            bin.setDeviceAddress(device.getAddress());
+            bin.setRSSI(arg1);
+            System.out.println("发现添加 " + list.size() + bin.getName() + " " + bin.getDeviceAddress());
+            list.add(bin);
+            mHandler.sendEmptyMessage(handler_adapter_refresh);
         }
-        //名字不对的去除
-        //if (device.getName() != null && !device.getName()
-        //        .replace(" ", "")
-        //        .equalsIgnoreCase(filterName)) {
-        //    return;
-        //}
-        bin = new DeviceBean();
-        bin.setBluetoothName(device.getName() == null ? "" : device.getName());
-        bin.setDeviceAddress(device.getAddress());
-        bin.setRSSI(arg1);
-        System.out.println("发现添加 " + list.size() + bin.getName() + " " + bin.getDeviceAddress());
-        list.add(bin);
-        mHandler.sendEmptyMessage(handler_adapter_refresh);
     }
 
     @Override protected void onStart() {

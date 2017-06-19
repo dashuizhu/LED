@@ -1,5 +1,6 @@
 package com.zby.ibeacon.agreement;
 
+import com.zby.ibeacon.util.MyByte;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,11 @@ public class Encrypt {
 	 */
 	public static byte[] ProcessCommand(byte[] message, int length) {
 		if (length <= 2) {
+			return null;
+		}
+		int cmdLength = MyByte.byteToInt(message[0]) -1;
+		if (cmdLength<1) {
+			Log.e("Encrypt", "协议长度错误");
 			return null;
 		}
 		byte[] buffer = new byte[message[0]-1];

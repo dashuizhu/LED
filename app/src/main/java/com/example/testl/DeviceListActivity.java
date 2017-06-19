@@ -1,6 +1,6 @@
 package com.example.testl;
 
-import java.util.ArrayList;
+import android.text.TextUtils;
 import java.util.List;
 
 import com.smartmini.zby.testl.R;
@@ -297,7 +297,9 @@ public class DeviceListActivity extends BaseActivity {
 					case ConnectionInterface.RawData:
 						byte[] buff = (byte[]) msg.obj;
 						byte[] buffer= Encrypt.ProcessCommand(buff, buff.length);
-						DeviceManager.getInstance().getDeviceBean().getParse().parseData(buffer);
+						if (buffer != null) {
+							DeviceManager.getInstance().getDeviceBean().getParse().parseData(buffer);
+						}
 						break;
 					 case ConnectBroadcastReceiver.Broad_Cmd:
 						 switch(msg.arg1){
@@ -415,7 +417,9 @@ public class DeviceListActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		Log.d(TAG, "onDestory");
 		unregisterReceiver(mGattUpdateReceiver);
-		mBluetoothLeService.closeAll();
+		if (mBluetoothLeService != null) {
+			mBluetoothLeService.closeAll();
+		}
 		super.onDestroy();
 	}
 

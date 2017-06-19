@@ -35,9 +35,11 @@ public class BleBin implements ConnectionInterface{
 	@Override
 	public void connect(String address, String pwd) {
 		// TODO Auto-generated method stub
-		isLink = mService.connect(address);
-		if(isLink) {
-			mDeviceAddress = address;
+		if (mService!=null) {
+			isLink = mService.connect(address);
+			if(isLink) {
+				mDeviceAddress = address;
+			}
 		}
 	}
 

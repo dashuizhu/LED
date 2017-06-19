@@ -131,7 +131,7 @@ public class DeviceBean {
 	}
 
 	public String getDeviceAddress() {
-		return deviceAddress;
+		return deviceAddress==null ? "":deviceAddress;
 	}
 
 	public void setDeviceAddress(String deviceAddress) {

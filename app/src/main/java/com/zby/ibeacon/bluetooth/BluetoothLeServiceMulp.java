@@ -35,6 +35,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -55,8 +56,8 @@ public class BluetoothLeServiceMulp extends Service {
     private BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     
-    private Map<String , BluetoothGatt> gattMaps  = new HashMap<String ,BluetoothGatt>();
-    private Map<String, BluetoothGatt> gattMapsConnting = new HashMap<String, BluetoothGatt>(); 
+    private Map<String , BluetoothGatt> gattMaps  = new Hashtable<String, BluetoothGatt>();
+    private Map<String, BluetoothGatt> gattMapsConnting = new Hashtable<String, BluetoothGatt>();
     
 //    private String mBluetoothDeviceAddress;
 //    private BluetoothGatt mBluetoothGatt;
