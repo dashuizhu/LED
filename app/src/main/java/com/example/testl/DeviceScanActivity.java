@@ -1,5 +1,6 @@
 package com.example.testl;
 
+import android.os.Looper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -190,7 +191,7 @@ public class DeviceScanActivity extends Activity {
     private void foundDevice(BluetoothDevice device, int arg1) {
         if (filter.containsKey(device.getAddress())) {
             long delayTime = System.currentTimeMillis() - filter.get(device.getAddress());
-            if (delayTime < 1000) {
+            if (delayTime < 2000) {
                 Log.v(TAG, "过滤蓝牙设备 " + delayTime + " mac: " + device.getAddress());
                 return;
             }
@@ -208,18 +209,20 @@ public class DeviceScanActivity extends Activity {
                         System.out.println("原来没有名字  现在又名字了" + device.getName());
                         if (device.getName() != null && !device.getName().replace(" ", "").equalsIgnoreCase(filterName)) {
                             list.remove(i);
-                            mHandler.sendEmptyMessage(handler_device_unformat);
-                            mHandler.sendEmptyMessage(handler_adapter_refresh);
+                            refreshAdapter();
+                            //mHandler.sendEmptyMessage(handler_device_unformat);
+                            //mHandler.sendEmptyMessage(handler_adapter_refresh);
                         }
                         return;
                     }
                     //原来没有名字， 但是现在有名字了， 就更新名字
                     if (device.getName() != null && !device.getName().equals("")) {
                         bin.setBluetoothName(device.getName());
-                        mHandler.sendEmptyMessage(handler_adapter_refresh);
+                        refreshAdapter();
+                        //mHandler.sendEmptyMessage(handler_adapter_refresh);
                     }
-                    bin.setRSSI(arg1);
-                    mHandler.sendEmptyMessage(handler_adapter_refresh);
+                    //bin.setRSSI(arg1);
+                    //mHandler.sendEmptyMessage(handler_adapter_refresh);
                     return;
                 }
             }
@@ -235,8 +238,16 @@ public class DeviceScanActivity extends Activity {
             bin.setRSSI(arg1);
             System.out.println("发现添加 " + list.size() + bin.getName() + " " + bin.getDeviceAddress());
             list.add(bin);
-            mHandler.sendEmptyMessage(handler_adapter_refresh);
+            refreshAdapter();
         }
+    }
+
+    private void refreshAdapter() {
+        Looper.prepare();
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
+        Looper.loop();
     }
 
     @Override protected void onStart() {
