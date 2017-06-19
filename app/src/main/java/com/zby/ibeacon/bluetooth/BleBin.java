@@ -1,6 +1,7 @@
 package com.zby.ibeacon.bluetooth;
 
 
+import android.text.TextUtils;
 import com.zby.ibeacon.agreement.CmdParse;
 
 import android.app.Activity;
@@ -46,7 +47,7 @@ public class BleBin implements ConnectionInterface{
 	@Override
 	public void stopConncet() {
 		// TODO Auto-generated method stub
-		if(mService!=null) {
+		if(mService!=null && !TextUtils.isEmpty(mDeviceAddress)) {
 			mService.disconnect(mDeviceAddress);
 		}
 	}
@@ -54,11 +55,17 @@ public class BleBin implements ConnectionInterface{
 	@Override
 	public void write(byte[] buffer) {
 		// TODO Auto-generated method stub
+		if (TextUtils.isEmpty(mDeviceAddress)) {
+			return;
+		}
 		mService.writeLlsAlertLevel(mDeviceAddress, buffer);
 	}
 
 	@Override
 	public void writeAgreement(byte[] buffer) {
+		if (TextUtils.isEmpty(mDeviceAddress)) {
+			return;
+		}
 		// TODO Auto-generated method stub
 		if(buffer!=null) {
 			//mService.writeLlsAlertLevel(Encrypt.ProcessCommand(buffer, buffer.length));
@@ -69,6 +76,9 @@ public class BleBin implements ConnectionInterface{
 	@Override
 	public boolean isLink() {
 		// TODO Auto-generated method stub
+		if (TextUtils.isEmpty(mDeviceAddress)) {
+			return false;
+		}
 		if(mService==null) {
 			Log.d(TAG, "service is null");
 			return false;
@@ -95,6 +105,9 @@ public class BleBin implements ConnectionInterface{
 	@Override
 	public void onBleDestory() {
 		// TODO Auto-generated method stub
+		if (TextUtils.isEmpty(mDeviceAddress)) {
+			return;
+		}
 		mService.close(mDeviceAddress);
 	}
 
@@ -115,6 +128,9 @@ public class BleBin implements ConnectionInterface{
 		// TODO Auto-generated method stub
 		if(mService==null) {
 			Log.d(TAG, "service is null");
+			return false;
+		}
+		if (TextUtils.isEmpty(mDeviceAddress)) {
 			return false;
 		}
 		return mService.isConnecting(mDeviceAddress);
