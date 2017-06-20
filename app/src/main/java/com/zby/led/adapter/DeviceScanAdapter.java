@@ -1,11 +1,14 @@
 package com.zby.led.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import cn.bingoogolapple.androidcommon.adapter.BGARecyclerViewAdapter;
-import cn.bingoogolapple.androidcommon.adapter.BGAViewHolderHelper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.smartmini.zby.testl.R;
 import com.zby.ibeacon.bean.DeviceBean;
-
+import java.util.List;
 
 /**
  * @author Administrator
@@ -14,18 +17,61 @@ import com.zby.ibeacon.bean.DeviceBean;
  * 
  * 设别列表界面
  */
-public class DeviceScanAdapter extends BGARecyclerViewAdapter<DeviceBean> {
+public class DeviceScanAdapter extends RecyclerView.Adapter<DeviceScanAdapter.ViewHolder> implements
+				View.OnClickListener{
 
-	public DeviceScanAdapter(RecyclerView recyclerView) {
-		super(recyclerView,R.layout.scan_list_item);
+	private List<DeviceBean> mList;
+
+	public DeviceScanAdapter(List<DeviceBean> list) {
+		mList = list;
 	}
 
-	@Override protected void setItemChildListener(BGAViewHolderHelper helper, int viewType) {
-		helper.setItemChildClickListener(R.id.layout_item);
+	@Override public DeviceScanAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.scan_list_item, parent, false);
+		ViewHolder vh = new ViewHolder(view);
+		view.setOnClickListener(this);
+		return vh;
 	}
 
-	@Override protected void fillData(BGAViewHolderHelper helper, int position, DeviceBean model) {
-		helper.setText(R.id.textView_name, model.getName());
-		helper.setText(R.id.textView_mac, model.getDeviceAddress());
+	@Override public void onBindViewHolder(DeviceScanAdapter.ViewHolder holder, int position) {
+		holder.mTvName.setText(mList.get(position).getName());
+		holder.mTvAddress.setText(mList.get(position).getDeviceAddress());
+		holder.itemView.setTag(position);
+	}
+
+	@Override public int getItemCount() {
+		return mList.size();
+	}
+
+	@Override public void onClick(View view) {
+		if (mOnItemClickListener != null) {
+			Integer position = (Integer) view.getTag();
+			if (position!=null) {
+				mOnItemClickListener.onItemClick(view, mList.get(position));
+			}
+		}
+
+	}
+
+	//自定义的ViewHolder，持有每个Item的的所有界面元素
+	public static class ViewHolder extends RecyclerView.ViewHolder {
+		public TextView mTvName;
+		public TextView mTvAddress;
+
+		public ViewHolder(View view){
+			super(view);
+			mTvName = (TextView) view.findViewById(R.id.textView_name);
+			mTvAddress = (TextView) view.findViewById(R.id.textView_mac);
+		}
+	}
+
+	public interface OnRecyclerViewItemClickListener {
+		void onItemClick(View view , DeviceBean data);
+	}
+
+	private OnRecyclerViewItemClickListener mOnItemClickListener = null;
+
+	public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
+		this.mOnItemClickListener = listener;
 	}
 }

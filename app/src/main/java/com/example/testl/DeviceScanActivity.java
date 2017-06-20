@@ -1,41 +1,38 @@
 package com.example.testl;
 
-import android.os.Looper;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildClickListener;
-import com.zby.led.BlueBean;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import com.smartmini.zby.testl.R;
-import com.zby.ibeacon.bean.DeviceBean;
-import com.zby.led.adapter.DeviceScanAdapter;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothAdapter.LeScanCallback;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.BluetoothAdapter.LeScanCallback;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.smartmini.zby.testl.R;
+import com.zby.ibeacon.bean.DeviceBean;
+import com.zby.led.BlueBean;
+import com.zby.led.adapter.DeviceScanAdapter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Observable;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import rx.functions.Func1;
 
 /**
  * 设备搜索界面
@@ -65,6 +62,7 @@ public class DeviceScanActivity extends Activity {
 
     private final static int handler_adapter_refresh = 11;
     private final static int handler_adapter_update = 17;
+    private final static int handler_adapter_add = 18;
     private final static int handler_scan_start = 12;
     private final static int handler_scan_stop = 13;
     /**
@@ -97,7 +95,25 @@ public class DeviceScanActivity extends Activity {
         lp2.dimAmount = 0.5f;
         getWindow().setAttributes(lp2);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);//需要添加的语句
+
     }
+
+    private Thread testThread;
+    /**
+     * 蓝牙设备搜索 监听
+     */
+    private BluetoothAdapter.LeScanCallback scanCallBack = new LeScanCallback() {
+
+        @Override public void onLeScan(BluetoothDevice arg0, int arg1, byte[] arg2) {
+            // TODO Auto-generated method stub
+            Log.d(TAG,
+                    "发现蓝牙设备: " + Thread.currentThread().getName() + " ~~ " + (arg0.getName() == null
+                            ? "" : arg0.getName()) + " " + arg0.getAddress());
+            hasScanDevice = true;
+            foundDevice(arg0, arg1);
+        }
+    };
 
     private void initViews() {
         tv_titie = (TextView) findViewById(R.id.textView_title);
@@ -106,44 +122,21 @@ public class DeviceScanActivity extends Activity {
         listView = (RecyclerView) findViewById(R.id.recyclerView);
         listView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<DeviceBean>();
-        adapter = new DeviceScanAdapter(listView);
+        adapter = new DeviceScanAdapter(list);
         listView.setAdapter(adapter);
-        adapter.setData(list);
 
-        adapter.setOnItemChildClickListener(new BGAOnItemChildClickListener() {
-            @Override public void onItemChildClick(ViewGroup parent, View childView, int position) {
+        adapter.setOnItemClickListener(new DeviceScanAdapter.OnRecyclerViewItemClickListener() {
+            @Override public void onItemClick(View view, DeviceBean data) {
+                showToast("点击" + data.getName());
                 Intent intent = getIntent();
-                DeviceBean bean = list.get(position);
-                intent.putExtra("deviceMac", bean.getDeviceAddress());
-                intent.putExtra("deviceName", bean.getBluetoothName());
+                intent.putExtra("deviceMac", data.getDeviceAddress());
+                intent.putExtra("deviceName", data.getBluetoothName());
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }
         });
+        //testDevice();
     }
-
-    //private Thread testThread;
-    // //测试刷新效率问题
-    //private void testDevice() {
-    //   testThread = new Thread(new Runnable() {
-    //        @Override public void run() {
-    //            BlueBean db ;
-    //            Random random = new Random();
-    //            for (int i=0; i<20000; i++) {
-    //                db = new BlueBean();
-    //                db.setAddress("01:02:03:04:"+random.nextInt(9)+"0:"+(random.nextInt(9)) + (i%10));
-    //                db.setName(""+i);
-    //                try {
-    //                    Thread.sleep(random.nextInt(3));
-    //                } catch (InterruptedException e) {
-    //                    e.printStackTrace();
-    //                }
-    //                foundDevice(db , i%100);
-    //            }
-    //        }
-    //    });
-    //    testThread.start();
-    //}
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -153,6 +146,13 @@ public class DeviceScanActivity extends Activity {
                     break;
                 case handler_adapter_update:
                     adapter.notifyItemChanged(msg.arg1);
+                    break;
+                case handler_adapter_add:
+                    DeviceBean bean = (DeviceBean) msg.obj;
+                    synchronized (list) {
+                        list.add(bean);
+                        adapter.notifyItemInserted(list.size());
+                    }
                     break;
                 case handler_device_unformat:
 
@@ -164,8 +164,32 @@ public class DeviceScanActivity extends Activity {
         }
     };
 
+//测试刷新效率问题
+//    private void testDevice() {
+//        testThread = new Thread(new Runnable() {
+//            @Override public void run() {
+//                BlueBean db;
+//                Random random = new Random();
+//
+//                try {
+//                    for (int i = 0; i < 20000; i++) {
+//                        db = new BlueBean();
+//                        db.setAddress(
+//                                "01:02:03:04:" + random.nextInt(9) + "0:" + (random.nextInt(9)) + (i
+//                                        % 10));
+//                        db.setName("" + i);
+//                        Thread.sleep(random.nextInt(10));
+//                        foundDevice(db, i % 100);
+//                    }
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        testThread.start();
+//    }
+
     @Override protected void onDestroy() {
-        //testThread.interrupt();
         super.onDestroy();
     }
 
@@ -207,21 +231,13 @@ public class DeviceScanActivity extends Activity {
         return true;
     }
 
-
-    /**
-     * 蓝牙设备搜索 监听
-     */
-    private BluetoothAdapter.LeScanCallback scanCallBack = new LeScanCallback() {
-
-        @Override public void onLeScan(BluetoothDevice arg0, int arg1, byte[] arg2) {
-            // TODO Auto-generated method stub
-            Log.d(TAG,
-                    "发现蓝牙设备: " + Thread.currentThread().getName() + " ~~ " + (arg0.getName() == null
-                            ? "" : arg0.getName()) + " " + arg0.getAddress());
-            hasScanDevice = true;
-            foundDevice(arg0, arg1);
-        }
-    };
+    @Override public void finish() {
+        //if (testThread !=null) {
+        //    testThread.interrupt();
+        //    testThread = null;
+        //}
+        super.finish();
+    }
 
     /**
      * 发现了蓝牙设备
@@ -276,19 +292,13 @@ public class DeviceScanActivity extends Activity {
             bin.setDeviceAddress(device.getAddress());
             bin.setRSSI(arg1);
             System.out.println("发现添加 " + list.size() + bin.getName() + " " + bin.getDeviceAddress());
-            list.add(bin);
-            refreshAdapter();
+            Message msg = new Message();
+            msg.what = handler_adapter_add;
+            msg.obj = bin;
+            mHandler.sendMessage(msg);
         //}
     }
 
-    private void refreshAdapter() {
-        mHandler.sendEmptyMessage(handler_adapter_refresh);
-        //Looper.prepare();
-        //if (adapter != null) {
-        //    adapter.notifyDataSetChanged();
-        //}
-        //Looper.loop();
-    }
 
     @Override protected void onStart() {
         // TODO Auto-generated method stub
