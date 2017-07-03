@@ -156,7 +156,7 @@ public class GetWheelActivity extends BaseActivity {
 
 		String[] minuteArray = new String[60];
 		for (int i=0; i<60; i++) {
-			minuteArray[i] = String.format("%02d min", i);
+			minuteArray[i] = String.format(getString(R.string.label_min_format), i);
 		}
 		wheelView_minute = WheelService.getBinString(this, minuteArray, 0, "", size, phone_density);
 		//wheelView_minute = WheelService.getBinInt(this, maxMinute, minMinute, 0, getString(R.string.unit_minute), size,  phone_density);

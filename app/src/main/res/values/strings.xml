@@ -73,4 +73,5 @@
     <string name="unit_day">日</string>
     <string name="label_time_setting">时间设置</string>
     <string name="toast_search_services">服务搜索中</string>
+    <string name="label_min_format">%02d 分钟</string>
 </resources>

@@ -2,30 +2,30 @@
 <resources>
 
     <string-array name="hour_array">
-        <item>12 AM</item>
-        <item> 1 AM</item>
-        <item> 2 AM</item>
-        <item> 3 AM</item>
-        <item> 4 AM</item>
-        <item> 5 AM</item>
-        <item> 6 AM</item>
-        <item> 7 AM</item>
-        <item> 8 AM</item>
-        <item> 9 AM</item>
-        <item>10 AM</item>
-        <item>11 AM</item>
-        <item>12 PM</item>
-        <item> 1 PM</item>
-        <item> 2 PM</item>
-        <item> 3 PM</item>
-        <item> 4 PM</item>
-        <item> 5 PM</item>
-        <item> 6 PM</item>
-        <item> 7 PM</item>
-        <item> 8 PM</item>
-        <item> 9 PM</item>
-        <item>10 PM</item>
-        <item>11 PM</item>
+        <item>12 上午</item>
+        <item> 1 上午</item>
+        <item> 2 上午</item>
+        <item> 3 上午</item>
+        <item> 4 上午</item>
+        <item> 5 上午</item>
+        <item> 6 上午</item>
+        <item> 7 上午</item>
+        <item> 8 上午</item>
+        <item> 9 上午</item>
+        <item>10 上午</item>
+        <item>11 上午</item>
+        <item>12 下午</item>
+        <item> 1 下午</item>
+        <item> 2 下午</item>
+        <item> 3 下午</item>
+        <item> 4 下午</item>
+        <item> 5 下午</item>
+        <item> 6 下午</item>
+        <item> 7 下午</item>
+        <item> 8 下午</item>
+        <item> 9 下午</item>
+        <item>10 下午</item>
+        <item>11 下午</item>
     </string-array>
 
 </resources>
