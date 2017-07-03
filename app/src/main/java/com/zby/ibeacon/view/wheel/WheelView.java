@@ -103,7 +103,7 @@ public class WheelView extends View {
 	private static final int PADDING = 0;
 
 	/** Default count of visible items  可见项目的默认计数*/
-	private static final int DEF_VISIBLE_ITEMS = 3;
+	private static final int DEF_VISIBLE_ITEMS = 5;
 
 	// Wheel Values
 	private WheelAdapter adapter = null;

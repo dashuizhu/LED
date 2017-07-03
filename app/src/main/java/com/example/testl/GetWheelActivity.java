@@ -145,13 +145,21 @@ public class GetWheelActivity extends BaseActivity {
 //		layout_hour.addView(wheelViwe_hour);
 		
 		int size = layout_hour.getHeight() / wheelTextSize; 
-		
-		wheelView_hour = WheelService.getBinInt(this, maxHour, minHour, 1, getString(R.string.unit_hour), size, phone_density);
+
+		String[] hourArray = getResources().getStringArray(R.array.hour_array);
+		wheelView_hour = WheelService.getBinString(this, hourArray, 8, "", size, phone_density);
+		//wheelView_hour = WheelService.getBinInt(this, maxHour, minHour, 1, getString(R.string.unit_hour), size, phone_density);
 		layout_hour.addView(wheelView_hour);
 		wheelView_hour.setTextColor(getResources().getColor(R.color.text_red), getResources().getColor(R.color.line_between));
 		//wheelView_hour.setCenterDrawableSourceId(R.drawable.img_layout_wheel);
-		
-		wheelView_minute = WheelService.getBinInt(this, maxMinute, minMinute, 0, getString(R.string.unit_minute), size,  phone_density);
+
+
+		String[] minuteArray = new String[60];
+		for (int i=0; i<60; i++) {
+			minuteArray[i] = String.format("%02d min", i);
+		}
+		wheelView_minute = WheelService.getBinString(this, minuteArray, 0, "", size, phone_density);
+		//wheelView_minute = WheelService.getBinInt(this, maxMinute, minMinute, 0, getString(R.string.unit_minute), size,  phone_density);
 		layout_minute.addView(wheelView_minute);
 		
 		wheelView_year = WheelService.getBinInt(this, maxYear, minYear, 0, getString(R.string.unit_year), size,  phone_density);

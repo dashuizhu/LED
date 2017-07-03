@@ -125,9 +125,15 @@ public class WheelService {
 //		return minus;
 //	}
 
-	public static WheelView getBinString(Context context,String[] strs,int select,String name) {
+	public static WheelView getBinString(Context context,String[] strs,int select,String name, int textSize, float density) {
 		WheelView minus = new WheelView(context);
-	
+
+		//设置字体最大值，
+		Log.v("wheelService" ,"字体大小"+ textSize +" " + density );
+		int maxSize = 20 + (int) (20*density);
+		if(textSize>maxSize) textSize=maxSize;
+
+		minus.setTextSize(textSize);
 		minus.setAdapter(new ArrayWheelAdapter<String>(strs));
 		minus.setLabel(name);
 		minus.setCurrentItem(select);

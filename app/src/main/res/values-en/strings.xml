@@ -13,7 +13,7 @@
     <string name="cancel">Cancel</string>
     <string name="device_list">Device</string>
     <string name="bluetooth_not_support">NO BLE hardware</string>
-    <string name="scaning">Scaning</string>
+    <string name="scaning">Scanning</string>
     <string name="about">About</string>
     <string name="help">Help</string>
     <string name="update">System Update</string>
@@ -45,7 +45,7 @@
     <string name="timing">Timer</string>
     <string name="hijack">Change Password</string>
     <string name="rename">Change Name</string>
-    <string name="timing_enable">Timing</string>
+    <string name="timing_enable">Timer</string>
     <string name="secne_setting">Mode Settings</string>
     <string name="select_time">Please select the time!</string>
     <string name="select_scene">Please select the mode!</string>
@@ -58,7 +58,7 @@
     <string name="color">MIX:</string>
     <string name="timing_max">Timing up to 5 groups</string>
     
-    <string name="send_success">Sucessed</string>
+    <string name="send_success">Success</string>
     <string name="check_bluetooth">Checking the device or restart bluetooth</string>
      <string name="password_unformat">Input six passwords</string>
 
@@ -72,4 +72,5 @@
     <string name="unit_month">Mon</string>
     <string name="unit_day">Day</string>
     <string name="label_time_setting">Timing setting</string>
+    <string name="toast_search_services">Search Service</string>
 </resources>

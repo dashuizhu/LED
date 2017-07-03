@@ -497,7 +497,7 @@ public class DeviceListActivity extends BaseActivity {
 			Log.d(TAG,"收到回执的action "+ this.hashCode() + action);
 			if (BluetoothLeServiceMulp.ACTION_GATT_CONNECTED.equals(action)) {
 				//mHandler.sendEmptyMessage(ConnectionInterface.LinkSuccess);
-				showToast("搜索服务中...");
+				showToast(R.string.toast_search_services);
 			} else if (BluetoothLeServiceMulp.ACTION_GATT_DISCONNECTED.equals(action)) {
 				mHandler.sendEmptyMessage(ConnectionInterface.linkLost);
 			}
