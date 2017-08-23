@@ -127,7 +127,7 @@ public class DeviceScanActivity extends Activity {
 
         adapter.setOnItemClickListener(new DeviceScanAdapter.OnRecyclerViewItemClickListener() {
             @Override public void onItemClick(View view, DeviceBean data) {
-                showToast("点击" + data.getName());
+                showToast(String.format(getString(R.string.toast_click), data.getName()));
                 Intent intent = getIntent();
                 intent.putExtra("deviceMac", data.getDeviceAddress());
                 intent.putExtra("deviceName", data.getBluetoothName());

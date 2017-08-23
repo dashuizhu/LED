@@ -74,4 +74,5 @@
     <string name="label_time_setting">Timing setting</string>
     <string name="toast_search_services">Search Service</string>
     <string name="label_min_format">%02d min</string>
+    <string name="toast_click">click %1$s</string>
 </resources>

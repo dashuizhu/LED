@@ -84,7 +84,7 @@ public class WheelView extends View {
 	private  final int ITEM_OFFSET = TEXT_SIZE / 5;
 
 	/** Additional width for items layout 额外宽度的项目布局*/
-	private static final int ADDITIONAL_ITEMS_SPACE = 10;
+	private static final int ADDITIONAL_ITEMS_SPACE = 60;
 
 	/** Label offset X轴标签偏移 */
 	private static final int LABEL_OFFSET = 2;

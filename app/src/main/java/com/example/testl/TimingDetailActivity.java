@@ -51,7 +51,7 @@ public class TimingDetailActivity extends BaseActivity {
 		tv_secneName = (TextView) findViewById(R.id.textView_mode);
 		
 		tbin = (TimingBean) getIntent().getSerializableExtra("timingBean");
-		if(tbin.getYear()==0) {
+		if(tbin.getMonth()==0) {
 			tv_time.setText(R.string.select_time);
 		} else {
 			tv_time.setText( tbin.getTimeString());
@@ -149,7 +149,7 @@ public class TimingDetailActivity extends BaseActivity {
 		Intent intent;
 		switch(v.getId()) {
 		case R.id.button_confirm:
-			if(tbin.getYear()==0) {
+			if(tbin.getMonth()==0) {
 				showToast(R.string.select_time);
 				return;
 			}
@@ -168,7 +168,7 @@ public class TimingDetailActivity extends BaseActivity {
 			break;
 		case R.id.layout_time:
 			intent  = new Intent(this, GetWheelActivity.class);
-			if(tbin.getYear()!=0){
+			if(tbin.getMonth()!=0){
 				intent.putExtra("year", tbin.getYear());
 				intent.putExtra("month", tbin.getMonth());
 				intent.putExtra("day", tbin.getDay());

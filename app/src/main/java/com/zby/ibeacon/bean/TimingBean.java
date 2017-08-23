@@ -111,12 +111,12 @@ public class TimingBean implements Serializable {
 			showHour = hour -12;
 			//0点 应该显示成 PM 12
 			if (showHour ==0) showHour = 12;
-			date = String.format("PM %02d:%02d", showHour, minute);
+			date = String.format("%02d:%02d PM", showHour, minute);
 		} else {
 			showHour = hour;
 			//0点，应该显示 AM 12
 			if (showHour ==0) showHour = 12;
-			date = String.format("AM %02d:%02d", showHour, minute);
+			date = String.format("%02d:%02d AM", showHour, minute);
 		}
 		return date;
 	}
