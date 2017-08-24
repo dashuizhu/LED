@@ -56,7 +56,7 @@
     
     <string name="brightness">RED:</string>
     <string name="color">MIX:</string>
-    <string name="timing_max">Timing up to 5 groups</string>
+    <string name="timing_max">Timing up to 10 groups</string>
     
     <string name="send_success">Success</string>
     <string name="check_bluetooth">Checking the device or restart bluetooth</string>

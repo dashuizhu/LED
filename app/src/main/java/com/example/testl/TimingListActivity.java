@@ -1,5 +1,7 @@
 package com.example.testl;
 
+import com.zby.ibeacon.agreement.Encrypt;
+import com.zby.ibeacon.util.Myhex;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -48,6 +50,18 @@ public class TimingListActivity extends BaseActivity {
 		setContentView(R.layout.activity_timing_list);
 		initViews();
 		initHandler();
+		testDate();
+	}
+
+	private void testDate() {
+		//测试协议数据
+		if (AppConstants.isDemo) {
+			byte[] buff = Myhex.hexStringToByte("0D A1 09 00 00 00 00 12 03 4D 00 00 01"
+							+ " 32 30 31 37 30 37 32 32 31 37 30 34 32 39");
+			byte[] buffer= Encrypt.ProcessCommand(buff, buff.length);
+			DeviceManager.getInstance().getDeviceBean().getParse().parseData(buffer);
+
+		}
 	}
 	
 	private void initViews() {

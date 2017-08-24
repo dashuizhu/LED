@@ -64,7 +64,7 @@ public class CmdParse implements DataProtocolInterface {
 			bin.setId( MyByte.byteToInt(buffer[1]));
 			bin.setYear(MyByte.byteToInt(buffer[2]) * 256 +  MyByte.byteToInt(buffer[3]));
 			bin.setMonth(MyByte.byteToInt(buffer[4]));
-			if(bin.getMonth()>12 || bin.getMonth()<=0 ) return;
+			//if(bin.getMonth()>12 || bin.getMonth()<=0 ) return;
 			bin.setDay(MyByte.byteToInt(buffer[5]));
 			bin.setHour(MyByte.byteToInt(buffer[6]));
 			bin.setMinute(MyByte.byteToInt(buffer[7]));

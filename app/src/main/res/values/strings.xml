@@ -56,7 +56,7 @@
     
     <string name="brightness">RED:</string>
     <string name="color">MIX:</string>
-    <string name="timing_max">定时最多5组</string>
+    <string name="timing_max">定时最多10组</string>
     
     <string name="send_success">发送成功</string>
     <string name="check_bluetooth">请检查周围设备或重启手机蓝牙</string>
