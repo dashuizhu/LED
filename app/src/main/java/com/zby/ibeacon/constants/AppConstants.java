@@ -5,7 +5,7 @@ public class AppConstants {
 	/**
 	 * 是否是无硬件演示版
 	 */
-	public final static boolean isDemo  = true;
+	public final static boolean isDemo  = false;
 	
 	/**
 	 * seekbar 滑动间隔时间 ， 单位毫秒

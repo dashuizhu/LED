@@ -1,5 +1,6 @@
 package com.example.testl;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import com.smartmini.zby.testl.R;
@@ -169,12 +170,21 @@ public class TimingDetailActivity extends BaseActivity {
 		case R.id.layout_time:
 			intent  = new Intent(this, GetWheelActivity.class);
 			//if(tbin.getMonth()!=0){
+			if (tbin.getId() == -1) { //新建
+				Calendar calendar = Calendar.getInstance();
+				intent.putExtra("year", tbin.getYear());
+				intent.putExtra("month", tbin.getMonth());
+				intent.putExtra("day", tbin.getDay());
+				intent.putExtra("hour", calendar.get(Calendar.HOUR_OF_DAY));
+				intent.putExtra("minute", calendar.get(Calendar.MINUTE));
+			} else {
 				intent.putExtra("year", tbin.getYear());
 				intent.putExtra("month", tbin.getMonth());
 				intent.putExtra("day", tbin.getDay());
 				intent.putExtra("hour", tbin.getHour());
 				intent.putExtra("minute", tbin.getMinute());
-			//}
+
+			}
 			startActivityForResult(intent, activity_time);
 			break;
 		}

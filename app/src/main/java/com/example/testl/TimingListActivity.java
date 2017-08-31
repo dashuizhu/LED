@@ -2,6 +2,7 @@ package com.example.testl;
 
 import com.zby.ibeacon.agreement.Encrypt;
 import com.zby.ibeacon.util.Myhex;
+import java.io.LineNumberInputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -89,6 +90,7 @@ public class TimingListActivity extends BaseActivity {
 		
 		bin = DeviceManager.getInstance().getDeviceBean();
 		bin.writeAgreement(CmdPackage.getReadTiming());
+		bin.getTimingList().clear();
 		list = bin.getTimingList();
 		adapter = new TimingAdapter(this, list);
 		listView = (ListView) findViewById(R.id.listView);
