@@ -87,12 +87,12 @@ public class WheelView extends View {
 	private static final int ADDITIONAL_ITEMS_SPACE = 60;
 
 	/** Label offset X轴标签偏移 */
-	private static final int LABEL_OFFSET = 2;
+	private static final int LABEL_OFFSET = 0;
 	
 	/**
 	 * item 和value偏移量
 	 */
-	private static final int VALUE_OFFSET_X =2;
+	private static final int VALUE_OFFSET_X =0;
 	
 	/** Label offset Y轴偏移标签偏移
 	 * -往上 +往下 */
@@ -417,7 +417,7 @@ public class WheelView extends View {
 					| Paint.FAKE_BOLD_TEXT_FLAG | Paint.DITHER_FLAG);
 			//valuePaint.density = getResources().getDisplayMetrics().density;
 			//在加10 ， 放大字体
-			int textSize= TEXT_SIZE + 5;
+			int textSize= TEXT_SIZE ;
 			valuePaint.setTextSize(textSize);
 			//valuePaint.setTypeface(fontService.getTypeface());
 			valuePaint.setShadowLayer(0.1f, 0, 0.1f, 0xFFC0C0C0);
@@ -635,7 +635,7 @@ public class WheelView extends View {
 		if (!isScrollingPerformed && (valueLayout == null || valueLayout.getWidth() > widthItems)) {
 			String text = getAdapter() != null ? getAdapter().getItem(currentItem) : null;
 			valueLayout = new StaticLayout(text != null ? text : "",
-					valuePaint, widthItems+10, widthLabel > 0 ?
+					valuePaint, widthItems, widthLabel > 0 ?
 							Layout.Alignment.ALIGN_CENTER : Layout.Alignment.ALIGN_CENTER,
 							1, ADDITIONAL_ITEM_HEIGHT, false);
 		} else if (isScrollingPerformed) {
@@ -733,7 +733,7 @@ public class WheelView extends View {
 		if (labelLayout != null) {
 			canvas.save();
 			//-5是因为中间的 字体 ，变大， 所以要往上挪一点
-			canvas.translate(VALUE_OFFSET_X + getWidth()/2 + itemsWidth/2 + LABEL_OFFSET, bounds.top +LABEL_OFFSET_Y -5);
+			canvas.translate(VALUE_OFFSET_X + getWidth()/2 + itemsWidth/2 + LABEL_OFFSET, bounds.top +LABEL_OFFSET_Y );
 //			canvas.translate(VALUE_OFFSET_X + getWidth()/2 + itemsWidth/2 + LABEL_OFFSET, bounds.top +LABEL_OFFSET_Y );
 			float size = labelLayout.getPaint().getTextSize();
 			labelLayout.getPaint().setTextSize(size/2.5f);
@@ -746,7 +746,7 @@ public class WheelView extends View {
 		if (valueLayout != null) {
 			canvas.save();
 			//-5是因为中间的 字体 ，变大， 所以要往上挪一点
-			canvas.translate(0+VALUE_OFFSET_X +getWidth()/2-itemsWidth/2, bounds.top + scrollingOffset-5);
+			canvas.translate(0+VALUE_OFFSET_X +getWidth()/2-itemsWidth/2, bounds.top + scrollingOffset);
 //			canvas.translate(0+VALUE_OFFSET_X +getWidth()/2-itemsWidth/2, bounds.top + scrollingOffset);
 			valueLayout.draw(canvas);
 			canvas.restore();
