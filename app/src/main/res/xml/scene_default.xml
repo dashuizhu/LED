@@ -15,7 +15,7 @@
 -->
 
 
-<scenemode xmlns:scene="http://schemas.android.com/apk/res/com.smartmini.zby.testl"> 
+<scenemode xmlns:scene="http://schemas.android.com/apk/res/com.smartmini.zby.led.turtle">
     
     <!-- 默认的 -->
     <bean

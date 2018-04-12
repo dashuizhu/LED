@@ -59,4 +59,7 @@ public class AppConstants {
 	 * 最大定时个数
 	 */
 	public static int TIMING_MAX_SIZE = 10;
+
+
+	public  static final int  MAX_VALUE =255;
 }

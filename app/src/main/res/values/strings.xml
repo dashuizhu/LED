@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TURTLE</string>
+    <string name="app_name">TURTLE LIGHT</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     
@@ -54,8 +54,8 @@
     
     <string name="dialog_delete_info">确认删除设备?</string>
     
-    <string name="brightness">RED:</string>
-    <string name="color">MIX:</string>
+    <string name="brightness">白光:</string>
+    <string name="color">暖光:</string>
     <string name="timing_max">定时最多10组</string>
     
     <string name="send_success">发送成功</string>

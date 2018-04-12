@@ -78,7 +78,8 @@ public class TimingDetailActivity extends BaseActivity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
-				tv_brightness.setText(getString(R.string.brightness)+" "+progress+"%");
+				float precent = progress * 100/ seekBar.getMax();
+				tv_brightness.setText(getString(R.string.brightness)+" "+precent+"%");
 			}
 		});
 		sb_color.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -98,8 +99,9 @@ public class TimingDetailActivity extends BaseActivity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
+				float precent = progress * 100 / seekBar.getMax();
 				tbin.setColorYellow(progress);
-				tv_color.setText(getString(R.string.color)+": "+tbin.getColorYellow()+"%");
+				tv_color.setText(getString(R.string.color)+" "+precent+"%");
 			}
 		});
 		

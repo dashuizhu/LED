@@ -203,6 +203,14 @@ public class DeviceBean {
 		return brightness;
 	}
 
+	public float getBrightnessPrecent() {
+		return brightness * 100 / AppConstants.MAX_VALUE;
+	}
+
+	public float getColorYellowPrecent() {
+		return colorYellow * 100/ AppConstants.MAX_VALUE;
+	}
+
 	public void setBrightness(int brightness) {
 		this.brightness = brightness;
 		this.onOff = (brightness>0);

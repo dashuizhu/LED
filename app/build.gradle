@@ -16,15 +16,15 @@ repositories {
 
 
 android {
-    compileSdkVersion 20
+    compileSdkVersion 21
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.smartmini.zby.testl"
+        applicationId "com.smartmini.zby.led.turtle"
         minSdkVersion 18
         targetSdkVersion 21
-        versionCode 35
-        versionName "1.35"
+        versionCode 36
+        versionName "1.36"
     }
 
     buildTypes {
@@ -38,11 +38,11 @@ android {
         variant.outputs.each { output ->
             def oldFile = output.outputFile
             if (variant.buildType.name.equals('release')) {
-                def releaseApkName = 'LED_v' + defaultConfig.versionName + '.apk'
+                def releaseApkName = 'LED_turtle_v' + defaultConfig.versionName + '.apk'
                 output.outputFile = new File(oldFile.parent, releaseApkName)
             }
             if (variant.buildType.name.equals('debug')) {
-                def debugApkName = 'LED_' + defaultConfig.versionName + '_' +"_debug"+ '.apk'
+                def debugApkName = 'LED_turtle' + defaultConfig.versionName + '_' +"_debug"+ '.apk'
                 output.outputFile = new File(oldFile.parent, debugApkName)
             }
         }
@@ -51,9 +51,9 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:25.3.1'
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
-        transitive = true;
-    }
+//    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+//        transitive = true;
+//    }
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.6@aar'
     compile 'cn.bingoogolapple:bga-adapter:1.1.5@aar'
