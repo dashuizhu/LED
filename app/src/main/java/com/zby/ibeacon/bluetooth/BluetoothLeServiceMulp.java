@@ -303,6 +303,10 @@ public class BluetoothLeServiceMulp extends Service {
         // We want to directly connect to the device, so we are setting the autoConnect
         // parameter to false.
         BluetoothGatt mBluetoothGatt = device.connectGatt(this, false, mGattCallback);
+        if (mBluetoothGatt == null) {
+			Log.d(TAG, "null mBluetoothGatt ");
+        	return false;
+		}
         gattMapsConnting.put(address, mBluetoothGatt);
         Log.d(TAG, "Trying to create a new connection.");
         //mBluetoothDeviceAddress = address;
