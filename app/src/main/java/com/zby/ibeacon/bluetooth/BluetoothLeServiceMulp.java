@@ -442,8 +442,8 @@ public class BluetoothLeServiceMulp extends Service {
 				if (descriptor != null) {
 					descriptor
 							.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+					mBluetoothGatt.writeDescriptor(descriptor);
 				}
-				mBluetoothGatt.writeDescriptor(descriptor);
 			}
     	}
     }
