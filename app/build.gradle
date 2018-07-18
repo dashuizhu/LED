@@ -23,8 +23,8 @@ android {
         applicationId "com.smartmini.zby.led.turtle"
         minSdkVersion 18
         targetSdkVersion 21
-        versionCode 37
-        versionName "1.37"
+        versionCode 38
+        versionName "1.38"
     }
 
     buildTypes {
