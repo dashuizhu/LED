@@ -73,6 +73,11 @@ public class DeviceBean {
 	
 	private int oldBrightness;//上次控制的值， 用来直接控制开关是发送
 	private int oldColorYellow;//上次控制的值，用来和字节控制开关发送
+
+	/**
+	 * 定时总个数
+	 */
+	private int timerCount;
 	
 	private List<TimingBean> list = new ArrayList<TimingBean>();
 	
@@ -203,6 +208,13 @@ public class DeviceBean {
 		return brightness;
 	}
 
+	public int getBrightnessProgress() {
+		if (brightness > AppConstants.SEEK_MAX) {
+			return AppConstants.SEEK_MAX;
+		}
+		return brightness;
+	}
+
 	public void setBrightness(int brightness) {
 		this.brightness = brightness;
 		this.onOff = (brightness>0);
@@ -215,6 +227,13 @@ public class DeviceBean {
 	
 	public int getColorYellow() {
 		return colorYellow;
+	}
+
+	public int getColorYellowProgress() {
+		if (colorYellow > AppConstants.SEEK_MAX) {
+			return AppConstants.SEEK_MAX;
+		}
+		return AppConstants.SEEK_MAX;
 	}
 	
 
@@ -244,6 +263,14 @@ public class DeviceBean {
 
 	public void setNowSceneId(int nowSceneId) {
 		this.nowSceneId = nowSceneId;
+	}
+
+	public int getTimerCount() {
+		return timerCount;
+	}
+
+	public void setTimerCount(int timerCount) {
+		this.timerCount = timerCount;
 	}
 
 	/**
@@ -278,6 +305,11 @@ public class DeviceBean {
 
 	public boolean writeAgreement(byte[] buffer) {
 		// TODO Auto-generated method stub
+		return writeAgreement(buffer, true);
+	}
+
+	public boolean writeAgreement(byte[] buffer, boolean showBackToast) {
+		// TODO Auto-generated method stub
 		if(AppConstants.isDemo) {
 			Log.d("tag","DeviceBean demo发送数据："+ Myhex.buffer2String(buffer));
 			if(buffer!=null && buffer.length>=4 && buffer[0] == (byte)0xD0) {
@@ -288,7 +320,7 @@ public class DeviceBean {
 			return true;
 		}
 		if(mConnectionInterface!=null && mConnectionInterface.isLink()) {
-			write(Encrypt.sendMessage(buffer, buffer.length));
+			write(Encrypt.sendMessage(buffer, buffer.length), showBackToast);
 			if(buffer!=null && buffer.length>=4 && buffer[0] == (byte)0xD0) {
 				//如果是设备控制指令，就记录当前控制值，当做old值
 				this.oldBrightness =  MyByte.byteToInt(buffer[1]);
@@ -311,7 +343,7 @@ public class DeviceBean {
 			return true;
 		}
 		if(mConnectionInterface!=null && mConnectionInterface.isLink()) {
-			write(Encrypt.sendMessage(buffer, buffer.length));
+			write(Encrypt.sendMessage(buffer, buffer.length), true);
 			return true;
 		}
 		return false;
@@ -319,10 +351,10 @@ public class DeviceBean {
 	
 	
 	
-	public boolean write(byte[] buffer) {
+	public boolean write(byte[] buffer,boolean showToast) {
 		// TODO Auto-generated method stub
 		if(mConnectionInterface!=null && mConnectionInterface.isLink()) {
-			mConnectionInterface.write(buffer);
+			mConnectionInterface.write(buffer, showToast);
 			return true;
 		}
 		return false;

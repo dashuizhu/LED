@@ -21,7 +21,8 @@ public class CmdParse implements DataProtocolInterface {
 	public static final int Cmd_A1_timing = 161;
 	public static final int Cmd_A2_password = 162;
 	public static final int Cmd_A3_name = 163;
-	
+	public static final int Cmd_D5_timer = (0xD5);
+
 	private DeviceBean bean;
 	private final static String TAG = "cmdParseTag";
 
@@ -70,6 +71,12 @@ public class CmdParse implements DataProtocolInterface {
 			bin.setMinute(MyByte.byteToInt(buffer[7]));
 			bin.setBrightness(MyByte.byteToInt(buffer[8]));
 			bin.setColorYellow(MyByte.byteToInt(buffer[9]));
+
+			//只有0-9
+			if (bin.getId()>=10) {
+				break;
+			}
+
 			if(MyByte.byteToInt(buffer[11]) !=2) { //2是删除的意思
 				bin.setEnable(MyByte.byteToInt(buffer[11])==1);
 				bean.updateTimingBean(bin);
@@ -105,6 +112,12 @@ public class CmdParse implements DataProtocolInterface {
 			type = MyByte.byteToInt(0xA3);
 			handlerSendBroadcast(type);
 			break;
+        case (byte) 0xD5:
+            bean.setTimerCount(MyByte.byteToInt(MyByte.byteToInt(buffer[2])));
+            type = MyByte.byteToInt(0xD5);
+            handlerSendBroadcast(type);
+            break;
+		default:
 		}
 	}
 

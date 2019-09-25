@@ -1,6 +1,8 @@
 package com.example.testl;
 
+import android.Manifest;
 import android.text.TextUtils;
+import com.tbruyelle.rxpermissions.RxPermissions;
 import java.util.List;
 
 import com.smartmini.zby.testl.R;
@@ -50,6 +52,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import rx.functions.Action1;
 
 /**
  * @author Administrator
@@ -97,6 +100,17 @@ public class DeviceListActivity extends BaseActivity {
 				}
 			}, 1000);
 		}
+
+		new RxPermissions(this)
+				.request(Manifest.permission.ACCESS_COARSE_LOCATION,
+						Manifest.permission.ACCESS_FINE_LOCATION).subscribe(new Action1<Boolean>() {
+			@Override
+			public void call(Boolean aBoolean) {
+				if (!aBoolean) {
+					showToast("请打开定位权限");
+				}
+			}
+		});
 	}
 	
 	private void initViews() {

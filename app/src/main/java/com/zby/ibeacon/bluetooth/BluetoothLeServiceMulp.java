@@ -34,6 +34,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.zby.ibeacon.agreement.CmdPackage;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -66,6 +67,8 @@ public class BluetoothLeServiceMulp extends Service {
     private static final int STATE_DISCONNECTED = 0;
     private static final int STATE_CONNECTING = 1;
     private static final int STATE_CONNECTED = 2;
+
+    private boolean mShowBackToast;
 
     public final static String ACTION_GATT_CONNECTED =
             "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
@@ -162,8 +165,10 @@ public class BluetoothLeServiceMulp extends Service {
 				BluetoothGattCharacteristic characteristic, int status) {
 			// TODO Auto-generated method stub
 			Log.d("tag", "发送的回执发送广播" +ACTION_SEND_SUCCESS );
-			Intent intent = new Intent(ACTION_SEND_SUCCESS);
-			sendBroadcast(intent);
+			if (mShowBackToast) {
+				Intent intent = new Intent(ACTION_SEND_SUCCESS);
+				sendBroadcast(intent);
+			}
 			super.onCharacteristicWrite(gatt, characteristic, status);
 		}
         
@@ -223,6 +228,25 @@ public class BluetoothLeServiceMulp extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+		//new Thread(new Runnable() {
+		//	@Override
+		//	public void run() {
+		//		while(true) {
+        //
+		//			try {
+		//				Thread.sleep(5000);
+		//			} catch (InterruptedException e) {
+		//				e.printStackTrace();
+		//				break;
+		//			}
+        //
+		//		}
+		//		Intent intent = new Intent(ACTION_DATA_AVAILABLE );
+		//		String ss = "A0 01 23 44";
+		//		intent.putExtra(EXTRA_DATA, ss);
+		//		sendBroadcast(intent);
+		//	}
+		//}).start();
         return mBinder;
     }
 
@@ -467,7 +491,7 @@ public class BluetoothLeServiceMulp extends Service {
     	return null;
     }
     
-    public void writeLlsAlertLevel(String address, byte[] bb) {
+    public void writeLlsAlertLevel(String address, byte[] bb, boolean showBackToast) {
     	if(!gattMaps.containsKey(address)) {
     		Log.e(TAG,"gatt is null " + address);
     		return;
@@ -498,6 +522,9 @@ public class BluetoothLeServiceMulp extends Service {
 		status = mBluetoothGatt.writeCharacteristic(alertLevel);
 		Log.v("tag_send", "发送  " + status + " " + Myhex.buffer2String(bb));
 		Log.d(TAG, "writeLlsAlertLevel() - status=" + status);
+		if(status) {
+			mShowBackToast = showBackToast;
+		}
 	}
     private void showMessage(String msg) {
 		Log.e(TAG, msg);

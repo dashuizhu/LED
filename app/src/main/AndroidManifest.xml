@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.smartmini.zby.testl"
-    android:versionCode="33"
-    android:versionName="1.33" >
+    package="com.smartmini.zby.testl" >
 
-    <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="21" />
+
 
     <application
         android:allowBackup="true"
@@ -43,13 +39,11 @@
         <activity android:name="com.example.testl.SettingGuideViewActivity" android:screenOrientation="portrait"  ></activity>
         <activity android:name="com.example.testl.SettingHelpActivity" android:screenOrientation="portrait"  ></activity>
         
-     <service 
+     <service
             android:name="com.zby.ibeacon.bluetooth.BluetoothLeService" android:enabled="true"></service>
-     <service 
+     <service
             android:name="com.zby.ibeacon.bluetooth.BluetoothLeServiceMulp" android:enabled="true"></service>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="c05c9a0ae92fa7ae610c8a23463851f040c6d42c" />
+
     </application>
     
     <uses-permission android:name="android.permission.BLUETOOTH"/>
@@ -60,6 +54,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     
 
 </manifest>

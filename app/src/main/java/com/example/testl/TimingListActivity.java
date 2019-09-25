@@ -139,6 +139,8 @@ public class TimingListActivity extends BaseActivity {
 	
 	private void initHandler( ) {
 		mHandler = new Handler() {
+
+			@Override
 			public void handleMessage(Message msg){
 				switch(msg.what){
 				 case ConnectBroadcastReceiver.Broad_Cmd:
@@ -152,6 +154,13 @@ public class TimingListActivity extends BaseActivity {
 							 break;
 						 case CmdParse.Cmd_A3_name:
 							 break;
+						 case CmdParse.Cmd_D5_timer:
+						 	//发现硬件发上来数据 不完全，ios正常， 这里再读一次
+						 	if (bin.getTimerCount() != bin.getTimingList().size()) {
+								bin.writeAgreement(CmdPackage.getReadTiming());
+							}
+						 	break;
+						 	default:
 					 }
 					break;
 				}
@@ -211,6 +220,10 @@ public class TimingListActivity extends BaseActivity {
 		}
 		while(set.contains(id)) {
 			id++;
+		}
+		//定时固定10个， 0-9
+		if (id>9) {
+			id = 9;
 		}
 		return id;
 	}

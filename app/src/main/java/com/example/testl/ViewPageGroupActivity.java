@@ -1,5 +1,8 @@
 package com.example.testl;
 
+import com.zby.ibeacon.agreement.CmdPackage;
+import com.zby.ibeacon.bean.DeviceBean;
+import com.zby.ibeacon.manager.DeviceManager;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -209,6 +212,45 @@ public class ViewPageGroupActivity extends ActivityGroup {
 			return;
 		}
 		finish();
+	}
+
+	private Thread startReadThread;
+	DeviceBean dbin;
+	@Override protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		dbin = DeviceManager.getInstance().getDeviceBean();
+		if (startReadThread == null) {
+			startReadThread = new Thread(new Runnable() {
+				@Override
+				public void run() {
+					while(true) {
+						if (dbin != null) {
+							Log.d("test", "start read");
+							dbin.writeAgreement(CmdPackage.getReadStatus());
+						}
+						try {
+							Thread.sleep(5000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+							break;
+						}
+					}
+				}
+			});
+			startReadThread.start();
+		}
+
+
+	}
+
+	@Override protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		if (startReadThread != null) {
+			startReadThread.interrupt();
+			startReadThread = null;
+		}
 	}
 
 }

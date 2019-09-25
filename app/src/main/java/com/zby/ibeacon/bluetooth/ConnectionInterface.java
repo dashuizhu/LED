@@ -120,13 +120,13 @@ public interface ConnectionInterface {
 	 * 直接发送数据
 	 * @param buffer
 	 */
-	void write(byte[] buffer);
+	void write(byte[] buffer, boolean showBackToast);
 	
 	/**
 	 * 将命令生成协议后发送
 	 * @param buffer
 	 */
-	void writeAgreement(byte[] buffer);
+	//void writeAgreement(byte[] buffer);
 	
 	/**
 	 * 读取数据，数据

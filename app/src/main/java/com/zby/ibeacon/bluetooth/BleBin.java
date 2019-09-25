@@ -53,25 +53,25 @@ public class BleBin implements ConnectionInterface{
 	}
 
 	@Override
-	public void write(byte[] buffer) {
+	public void write(byte[] buffer, boolean showBackToast) {
 		// TODO Auto-generated method stub
 		if (TextUtils.isEmpty(mDeviceAddress)) {
 			return;
 		}
-		mService.writeLlsAlertLevel(mDeviceAddress, buffer);
+		mService.writeLlsAlertLevel(mDeviceAddress, buffer, showBackToast);
 	}
 
-	@Override
-	public void writeAgreement(byte[] buffer) {
-		if (TextUtils.isEmpty(mDeviceAddress)) {
-			return;
-		}
-		// TODO Auto-generated method stub
-		if(buffer!=null) {
-			//mService.writeLlsAlertLevel(Encrypt.ProcessCommand(buffer, buffer.length));
-			mService.writeLlsAlertLevel(mDeviceAddress, buffer);
-		}
-	}
+	//@Override
+	//public void writeAgreement(byte[] buffer) {
+	//	if (TextUtils.isEmpty(mDeviceAddress)) {
+	//		return;
+	//	}
+	//	// TODO Auto-generated method stub
+	//	if(buffer!=null) {
+	//		//mService.writeLlsAlertLevel(Encrypt.ProcessCommand(buffer, buffer.length));
+	//		mService.writeLlsAlertLevel(mDeviceAddress, buffer, showBackToast);
+	//	}
+	//}
 
 	@Override
 	public boolean isLink() {

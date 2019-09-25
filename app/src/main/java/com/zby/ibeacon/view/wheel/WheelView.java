@@ -65,10 +65,10 @@ public class WheelView extends View {
 	private static final int MIN_DELTA_FOR_SCROLLING = 1;
 
 	/** Current value & label text color */
-	private static  int VALUE_TEXT_COLOR = 0xFFFE7900;//选中值的字体颜色
+	private   int VALUE_TEXT_COLOR = 0xFFFE7900;//选中值的字体颜色
 
 	/** Items text color */
-	private static  int ITEMS_TEXT_COLOR = 0xFFA2A2A2;//未选中值的字体颜色
+	private   int ITEMS_TEXT_COLOR = 0xFFA2A2A2;//未选中值的字体颜色
 
 	/** Top and bottom shadows colors 顶部和底部的阴影颜色*/
 	private static final int[] SHADOWS_COLORS = new int[] { 0xCCaabb,
@@ -564,7 +564,7 @@ public class WheelView extends View {
 		int width = widthSize;
 		int maxLength = getMaxTextLength();
 		if (maxLength > 0) {
-			float textWidth = FloatMath.ceil(Layout.getDesiredWidth("0", itemsPaint));
+			float textWidth = (float) Math.ceil(Layout.getDesiredWidth("0", itemsPaint));
 			itemsWidth = (int) (maxLength * textWidth);
 		} else {
 			itemsWidth = 0;
@@ -573,7 +573,7 @@ public class WheelView extends View {
 
 		labelWidth = 0;
 		if (label != null && label.length() > 0) {
-			labelWidth = (int) FloatMath.ceil(Layout.getDesiredWidth(label, valuePaint));
+			labelWidth = (int) Math.ceil(Layout.getDesiredWidth(label, valuePaint));
 		}
 
 		boolean recalculate = false;
@@ -839,6 +839,7 @@ public class WheelView extends View {
 	
 	// gesture listener
 	private SimpleOnGestureListener gestureListener = new SimpleOnGestureListener() {
+		@Override
 		public boolean onDown(MotionEvent e) {
 			if (isScrollingPerformed) {
 				scroller.forceFinished(true);
@@ -848,12 +849,14 @@ public class WheelView extends View {
 			return false;
 		}
 		
+		@Override
 		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
 			startScrolling();
 			doScroll((int)-distanceY);
 			return true;
 		}
 		
+		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 			lastScrollY = currentItem * getItemHeight() + scrollingOffset;
 			int maxY = isCyclic ? 0x7FFFFFFF : adapter.getItemsCount() * getItemHeight();
@@ -888,6 +891,7 @@ public class WheelView extends View {
 	
 	// animation handler
 	private Handler animationHandler = new Handler() {
+		@Override
 		public void handleMessage(Message msg) {
 			scroller.computeScrollOffset();
 			int currY = scroller.getCurrY();
@@ -971,7 +975,7 @@ public class WheelView extends View {
 		
 	/**
 	 * Scroll the wheel
-	 * @param itemsToSkip items to scroll
+	 * @param itemsToScroll items to scroll
 	 * @param time scrolling duration
 	 */
 	public void scroll(int itemsToScroll, int time) {

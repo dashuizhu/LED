@@ -5,7 +5,7 @@ public class AppConstants {
 	/**
 	 * 是否是无硬件演示版
 	 */
-	public final static boolean isDemo  = false;
+	public final static boolean isDemo  = true;
 	
 	/**
 	 * seekbar 滑动间隔时间 ， 单位毫秒
@@ -15,7 +15,7 @@ public class AppConstants {
 	/**
 	 * 数据间的间隔时间 单位毫秒
 	 */
-	public final static int delayTime = 200;
+	public final static int delayTime = 250;
 	
 	/**
 	 * 密码校验超时时间  单位毫秒
@@ -59,4 +59,6 @@ public class AppConstants {
 	 * 最大定时个数
 	 */
 	public static int TIMING_MAX_SIZE = 10;
+
+	public static int SEEK_MAX = 100;
 }

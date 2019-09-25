@@ -136,6 +136,7 @@ public class ViewPagerLightActivity extends BaseActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // TODO Auto-generated method stub
+                Log.w("tag", "progress " + progress + fromUser);
                 if (fromUser) {
                     isSeekScroll = true;
                     long now = System.currentTimeMillis();
@@ -174,8 +175,8 @@ public class ViewPagerLightActivity extends BaseActivity {
     }
 
     private void initData() {
-        tv_brightness.setText(getString(R.string.brightness) + " " + dbin.getBrightness() + "%");
-        tv_color.setText(getString(R.string.color) + " " + dbin.getColorYellow() + "%");
+        tv_brightness.setText(getString(R.string.brightness) + " " + dbin.getBrightnessProgress() + "%");
+        tv_color.setText(getString(R.string.color) + " " + dbin.getColorYellowProgress() + "%");
         iv_switch.setSelected(dbin.isOnOff());
         sb_brightness.setProgress(dbin.getBrightness());
         sb_color.setProgress(dbin.getColorYellow());
@@ -191,13 +192,15 @@ public class ViewPagerLightActivity extends BaseActivity {
                     case ConnectBroadcastReceiver.Broad_Cmd:
                         switch (msg.arg1) {
                             case CmdParse.Cmd_A0_status:
-                                //if(!isSeekScroll) {
-                                //								 sb_brightness.setProgress(dbin.getRedBright());
-                                //								 sb_color.setProgress(dbin.getMixBirght());
-                                //}
-                                //							 tv_brightness.setText(getString(R.string.brightness)+": "+dbin.getRedBright()+"%");
-                                //							 tv_color.setText(getString(R.string.color)+": "+dbin.getColor()+"K");
-                                //							 iv_switch.setSelected(dbin.isOnOff());
+                                if(!isSeekScroll) {
+                                    tv_brightness.setText(
+                                            getString(R.string.brightness) + " " + dbin.getBrightnessProgress() + "%");
+                                    tv_color.setText(
+                                            getString(R.string.color) + " " + dbin.getColorYellowProgress() + "%");
+                                    iv_switch.setSelected(dbin.isOnOff());
+                                    sb_brightness.setProgress(dbin.getBrightness());
+                                    sb_color.setProgress(dbin.getColorYellow());
+                                }
                                 break;
                             case CmdParse.Cmd_A1_timing:
                                 break;
@@ -209,16 +212,16 @@ public class ViewPagerLightActivity extends BaseActivity {
                         break;
                     case handler_status:
                         tv_brightness.setText(
-                                getString(R.string.brightness) + " " + dbin.getBrightness() + "%");
+                                getString(R.string.brightness) + " " + dbin.getBrightnessProgress() + "%");
                         tv_color.setText(
-                                getString(R.string.color) + " " + dbin.getColorYellow() + "%");
+                                getString(R.string.color) + " " + dbin.getColorYellowProgress() + "%");
                         iv_switch.setSelected(dbin.isOnOff());
                         break;
                     case handler_status_all:
                         tv_brightness.setText(
-                                getString(R.string.brightness) + " " + dbin.getBrightness() + "%");
+                                getString(R.string.brightness) + " " + dbin.getBrightnessProgress() + "%");
                         tv_color.setText(
-                                getString(R.string.color) + " " + dbin.getColorYellow() + "%");
+                                getString(R.string.color) + " " + dbin.getColorYellowProgress() + "%");
                         iv_switch.setSelected(dbin.isOnOff());
                         sb_brightness.setProgress(dbin.getBrightness());
                         sb_color.setProgress(dbin.getColorYellow());
