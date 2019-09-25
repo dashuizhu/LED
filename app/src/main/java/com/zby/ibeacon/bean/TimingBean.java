@@ -128,8 +128,16 @@ public class TimingBean implements Serializable {
 	public void setColorYellow(int colorYellow) {
 		this.colorYellow = colorYellow;
 	}
-	
-	//public int getColorWhite() {
+
+  public float getBrightnessPrecent() {
+    return brightness * 100 / AppConstants.MAX_VALUE;
+  }
+
+	public float getColorYellowPrecent() {
+		return colorYellow * 100 / AppConstants.MAX_VALUE;
+	}
+
+  //public int getColorWhite() {
 	//	return AppConstants.Color_range - getColorYellow();
 	//	}
 	
